@@ -60,7 +60,7 @@
         .marquee-box .marquee-track {
             display: flex;
             flex-direction: row;
-            animation: marqueeScroll 560s linear infinite;  /* ← سرعت ۵۶۰ ثانیه و حرکت از اول */
+            animation: marqueeScroll 120s linear infinite;  /* ← سرعت ۱۲۰ ثانیه (متوسط) */
             width: max-content;
         }
         .marquee-box .marquee-text {
@@ -772,7 +772,7 @@
         //  تنظیمات jsonbin.io
         // ============================================================
         const JSONBIN_URL = 'https://api.jsonbin.io/v3/b/';
-        const BIN_ID = '6a99edbeda38895dfe35aed3'; // ← BIN_ID شما
+        const BIN_ID = '6a99edbeda38895dfe35aed3';
         const MASTER_KEY = '$2a$10$gcboyf59iFq8UGaheRfw/O1twW1E0iIBbOkpn8/FAvhcefpFlD5AC';
 
         let lastAddedValue = 0;
@@ -781,7 +781,6 @@
         const TARGET_TOTAL = 500000000;
         let isUpdating = false;
 
-        // زمان ریست خودکار: ۰۱:۰۰ بامداد
         const RESET_HOUR = 1;
         const RESET_MINUTE = 0;
 
@@ -791,9 +790,7 @@
         async function fetchTotal() {
             try {
                 const response = await fetch(JSONBIN_URL + BIN_ID + '/latest', {
-                    headers: {
-                        'X-Master-Key': MASTER_KEY
-                    }
+                    headers: { 'X-Master-Key': MASTER_KEY }
                 });
                 if (!response.ok) throw new Error('Network response was not ok');
                 const data = await response.json();
@@ -817,11 +814,7 @@
                         'Content-Type': 'application/json',
                         'X-Master-Key': MASTER_KEY
                     },
-                    body: JSON.stringify({
-                        total: total,
-                        night: night,
-                        lastDate: new Date().toISOString()
-                    })
+                    body: JSON.stringify({ total: total, night: night, lastDate: new Date().toISOString() })
                 });
                 if (!response.ok) throw new Error('Update failed');
                 isUpdating = false;
@@ -974,7 +967,7 @@
         // ============================================================
         //  دکمه‌های مدیریتی
         // ============================================================
-        // ریست فوری امشب (مدیریتی با رمز)
+        // ریست فوری امشب (مدیریتی با رمز) - کاملاً محافظت شده
         async function resetNightNow() {
             const pwd = prompt('🔑 لطفاً رمز مدیریت را وارد کنید:');
             if (pwd === '5113') {
@@ -1003,7 +996,6 @@
             }
         }
 
-        // ریست خودکار (فقط نمایش وضعیت)
         function resetNightScheduled() {
             alert('🌙 ریست خودکار هر شب ساعت ۰۱:۰۰ بامداد انجام می‌شود.\nشما می‌توانید از دکمه «ریست فوری» برای صفر کردن هم‌اکنون استفاده کنید.');
         }
@@ -1103,7 +1095,6 @@
             updateClock();
             setInterval(updateClock, 1000);
 
-            // تایمر برای ریست خودکار در ۰۱:۰۰ (هر ۳۰ ثانیه)
             setInterval(checkAndResetNight, 30000);
             checkAndResetNight();
         }
@@ -1159,9 +1150,6 @@
             });
         });
 
-        // ============================================================
-        //  اجرای اولیه
-        // ============================================================
         init();
         console.log('✅ سامانه پویش سراسری با jsonbin.io راه‌اندازی شد.');
     </script>
