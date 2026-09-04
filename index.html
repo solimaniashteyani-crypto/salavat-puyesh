@@ -60,7 +60,7 @@
         .marquee-box .marquee-track {
             display: flex;
             flex-direction: row;
-            animation: marqueeScrollLeftToRight 40s linear infinite;  /* ← سرعت افزایش یافت */
+            animation: marqueeScroll 560s linear infinite;  /* ← سرعت ۵۶۰ ثانیه و حرکت از اول */
             width: max-content;
         }
         .marquee-box .marquee-text {
@@ -75,7 +75,7 @@
             direction: rtl;
             padding-left: 30px;
         }
-        @keyframes marqueeScrollLeftToRight {
+        @keyframes marqueeScroll {
             0% { transform: translateX(-100%); }
             100% { transform: translateX(0%); }
         }
@@ -342,8 +342,6 @@
             color: #7fdbca;
         }
         .btn-report:hover { color: #ffd700; border-color: #ffd700; background: rgba(255, 215, 0, 0.08); transform: scale(1.05); }
-
-        /* دکمه ریست کامل (همگانی) حذف شد */
 
         .datetime-box {
             background: rgba(255, 215, 0, 0.05);
@@ -976,31 +974,36 @@
         // ============================================================
         //  دکمه‌های مدیریتی
         // ============================================================
-        // ریست فوری امشب (بدون رمز) - فقط همین الان
+        // ریست فوری امشب (مدیریتی با رمز)
         async function resetNightNow() {
-            if (confirm('⚠️ آیا مطمئن هستید که می‌خواهید شمارنده صلوات امشب را هم‌اکنون صفر کنید؟')) {
-                const record = await fetchTotal();
-                if (!record) {
-                    document.getElementById('statusMsg').innerHTML = '❌ خطا در اتصال به دیتابیس!';
-                    document.getElementById('statusMsg').style.color = '#e74c3c';
-                    return;
+            const pwd = prompt('🔑 لطفاً رمز مدیریت را وارد کنید:');
+            if (pwd === '5113') {
+                if (confirm('⚠️ آیا مطمئتید شمارنده صلوات امشب را هم‌اکنون صفر کنید؟')) {
+                    const record = await fetchTotal();
+                    if (!record) {
+                        document.getElementById('statusMsg').innerHTML = '❌ خطا در اتصال به دیتابیس!';
+                        document.getElementById('statusMsg').style.color = '#e74c3c';
+                        return;
+                    }
+                    const total = record.total || 0;
+                    const success = await updateTotal(total, 0);
+                    if (success) {
+                        currentTotal = total;
+                        currentNight = 0;
+                        updateDisplay(total, 0);
+                        document.getElementById('statusMsg').innerHTML = '⚡ شمارنده امشب با موفقیت صفر شد.';
+                        document.getElementById('statusMsg').style.color = '#e67e22';
+                    } else {
+                        document.getElementById('statusMsg').innerHTML = '❌ خطا در ریست فوری!';
+                        document.getElementById('statusMsg').style.color = '#e74c3c';
+                    }
                 }
-                const total = record.total || 0;
-                const success = await updateTotal(total, 0);
-                if (success) {
-                    currentTotal = total;
-                    currentNight = 0;
-                    updateDisplay(total, 0);
-                    document.getElementById('statusMsg').innerHTML = '⚡ شمارنده امشب هم‌اکنون صفر شد.';
-                    document.getElementById('statusMsg').style.color = '#e67e22';
-                } else {
-                    document.getElementById('statusMsg').innerHTML = '❌ خطا در ریست فوری!';
-                    document.getElementById('statusMsg').style.color = '#e74c3c';
-                }
+            } else if (pwd !== null) {
+                alert('❌ رمز عبور اشتباه است!');
             }
         }
 
-        // ریست خودکار (فقط نمایش وضعیت) - این دکمه عملاً ریست نمی‌کند، فقط نشان می‌دهد که خودکار فعال است
+        // ریست خودکار (فقط نمایش وضعیت)
         function resetNightScheduled() {
             alert('🌙 ریست خودکار هر شب ساعت ۰۱:۰۰ بامداد انجام می‌شود.\nشما می‌توانید از دکمه «ریست فوری» برای صفر کردن هم‌اکنون استفاده کنید.');
         }
