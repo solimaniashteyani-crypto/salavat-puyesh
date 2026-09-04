@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سامانه ثبت پویش بزرگ ۲۰۰ میلیون صلوات</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            width: 100%;
+            min-height: 100vh;
+            font-family: 'Vazir', 'IRANSans', 'Titr', 'Nazanin', 'Tahoma', 'Arial', sans-serif;
+            background: linear-gradient(145deg, #0a0a1a 0%, #1a1a2e 40%, #0d1f2d 100%);
+            padding: 15px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: #fef9e7;
+            border: 4px solid #ffd700;
+            border-radius: 70px 25px 70px 25px;
+            padding: 35px 40px;
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.8), 0 0 60px rgba(255,215,0,0.15);
+        }
+
+        .main-title {
+            font-family: 'Titr', 'Vazir', 'IRANSans', sans-serif;
+            color: #5d2e0c;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-shadow: 0 0 40px rgba(93, 46, 12, 0.15), 0 0 80px rgba(93, 46, 12, 0.05);
+            letter-spacing: 2px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid rgba(93, 46, 12, 0.15);
+            margin-bottom: 20px;
+        }
+        .main-title .highlight {
+            color: #8d5a2a;
+        }
+
+        .marquee-box {
+            background: #eaf2f8;
+            border: 3px solid #85c1e9;
+            border-radius: 25px;
+            padding: 16px 20px;
+            margin: 12px 0 18px 0;
+            overflow: hidden;
+            direction: ltr;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 50px rgba(133, 193, 233, 0.12);
+        }
+        .marquee-box .marquee-track {
+            display: flex;
+            flex-direction: row;
+            animation: marqueeScrollLeftToRight 560s linear infinite;
+            width: max-content;
+        }
+        .marquee-box .marquee-text {
+            display: inline-block;
+            white-space: nowrap;
+            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1a5276;
+            padding: 6px 0;
+            text-shadow: 0 0 30px rgba(26, 82, 118, 0.08);
+            direction: rtl;
+            padding-left: 30px;
+        }
+        @keyframes marqueeScrollLeftToRight {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0%); }
+        }
+        .marquee-box .marquee-text .green { color: #1a7a5a; text-shadow: 0 0 30px rgba(26, 122, 90, 0.2); }
+        .marquee-box .marquee-text .gold { color: #b7950b; text-shadow: 0 0 30px rgba(184, 149, 11, 0.15); }
+        .marquee-box .marquee-text .address { color: #5d6d7e; font-size: 1.1rem; font-weight: 400; }
+        .marquee-box .marquee-text .sep { color: #85c1e9; margin: 0 8px; }
+        .marquee-box .marquee-text .niyyah { color: #b7950b; text-shadow: 0 0 40px rgba(184, 149, 11, 0.15); }
+
+        .counters-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .counter-box {
+            width: 100%;
+            border-radius: 25px;
+            padding: 18px 15px 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(0,0,0,0.2), inset 0 5px 20px rgba(0,0,0,0.3);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .counter-box .counter-label {
+            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
+            color: #5d6d7e;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        .counter-box .counter-number {
+            font-family: 'Tahoma', 'Arial', sans-serif;
+            font-size: 9rem;
+            font-weight: 900;
+            line-height: 1.1;
+            display: block;
+            transition: transform 0.2s;
+            direction: ltr;
+        }
+
+        .counter-box.gold {
+            background: #ffffff;
+            border: 3px solid #d4af37;
+        }
+        .counter-box.gold .counter-number {
+            color: #1a5a1a;
+            text-shadow: 0 0 60px rgba(26, 90, 26, 0.3), 0 0 120px rgba(26, 90, 26, 0.1);
+            animation: glowBlinkGreen 0.8s ease-in-out infinite;
+        }
+        @keyframes glowBlinkGreen {
+            0% { color: #1a5a1a; text-shadow: 0 0 80px rgba(26, 90, 26, 0.8), 0 0 160px rgba(26, 90, 26, 0.4), 0 0 240px rgba(26, 90, 26, 0.1); transform: scale(1); }
+            50% { color: #2d8a2d; text-shadow: 0 0 120px rgba(26, 90, 26, 1), 0 0 200px rgba(26, 90, 26, 0.6), 0 0 300px rgba(26, 90, 26, 0.2); transform: scale(1.02); }
+            100% { color: #1a5a1a; text-shadow: 0 0 80px rgba(26, 90, 26, 0.8), 0 0 160px rgba(26, 90, 26, 0.4), 0 0 240px rgba(26, 90, 26, 0.1); transform: scale(1); }
+        }
+        .counter-box.gold .counter-label {
+            color: #5d6d7e;
+        }
+
+        .counter-box.teal {
+            background: #fdebd0;
+            border: 3px solid #e67e22;
+        }
+        .counter-box.teal .counter-number {
+            color: #e67e22;
+            text-shadow: 0 0 40px rgba(230, 126, 34, 0.3);
+        }
+        .counter-box.teal .counter-label {
+            color: #5d6d7e;
+        }
+
+        .row-main {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin: 8px 0 12px;
+            flex-wrap: wrap;
+        }
+        .night-with-btns {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            flex: 2 1 auto;
+        }
+
+        .night-box {
+            background: #ffffff;
+            border: 2px solid #d4af37;
+            border-radius: 25px;
+            padding: 10px 20px 8px;
+            min-width: 150px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .night-box .counter-label {
+            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
+            color: #5d6d7e;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+        .night-box .counter-number {
+            font-family: 'Tahoma', 'Arial', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            line-height: 1.2;
+            display: block;
+            transition: transform 0.2s;
+            direction: ltr;
+            color: #1a1a2e;
+            text-shadow: none;
+        }
+
+        .btn-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .btn-salavat {
+            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
+            background: #ffffff;
+            border: 2px solid #d4af37;
+            color: #1a1a2e;
+            font-size: 0.9rem;
+            font-weight: 900;
+            padding: 7px 12px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.15s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 40px;
+            min-height: 34px;
+        }
+        .btn-salavat:hover { transform: scale(1.06); box-shadow: 0 8px 25px rgba(0,0,0,0.15); background: #f8f8f8; }
+        .btn-salavat:active { transform: scale(0.93); }
+        .btn-salavat:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+        .btn-salavat.one { background: #ffffff; border: 2px solid #d4af37; font-size: 1rem; min-width: 36px; }
+
+        .custom-group {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .custom-group label {
+            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
+            color: #8899aa;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .custom-group input {
+            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 50px;
+            padding: 8px 12px;
+            color: #ffd700;
+            font-size: 1.1rem;
+            font-weight: bold;
+            width: 100px;
+            text-align: center;
+            outline: none;
+            transition: 0.3s;
+            direction: ltr;
+        }
+        .custom-group input:focus { border-color: #ffd700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.2); }
+        .custom-group input::placeholder { color: #556677; font-weight: normal; font-size: 0.8rem; }
+        .custom-group .btn-add-number {
+            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
+            background: linear-gradient(135deg, #ffd700, #cc8800);
+            border: none;
+            color: #1a1a2e;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+        }
+        .custom-group .btn-add-number:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4); }
+        .custom-group .btn-add-number:active { transform: scale(0.95); }
+
+        .btn-undo {
+            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
+            background: rgba(255, 100, 100, 0.15);
+            border: 2px solid rgba(255, 100, 100, 0.3);
+            color: #ff6b6b;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+        .btn-undo:hover { background: rgba(255, 100, 100, 0.25); border-color: #ff6b6b; color: #ff8888; transform: scale(1.05); }
+        .btn-undo:disabled { opacity: 0.3; cursor: not-allowed; transform: none; }
+
+        /* ===== سپرده‌گذاری خودکار (فقط برای مدیر) ===== */
+        .admin-auto-deposit {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(127, 219, 202, 0.05));
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            border-radius: 25px;
+            padding: 14px 20px;
+            margin: 10px 0;
+            display: none; /* پنهان برای عموم */
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .admin-auto-deposit label {
+            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
+            color: #ffd700;
+            font-size: 1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .admin-auto-deposit label .icon { font-size: 1.2rem; }
+        .admin-auto-deposit input {
+            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 50px;
+            padding: 10px 18px;
+            color: #ffd700;
+            font-size: 1.3rem;
+            font-weight: bold;
+            width: 130px;
+            text-align: center;
+            outline: none;
+            transition: 0.3s;
+            direction: ltr;
+        }
+        .admin-auto-deposit input:focus { border-color: #ffd700; box-shadow: 0 0 25px rgba(255, 215, 0, 0.2); }
+        .admin-auto-deposit input::placeholder { color: #556677; font-weight: normal; font-size: 0.8rem; }
+        .btn-auto-deposit {
+            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
+            background: linear-gradient(135deg, #7fdbca, #3a9a8a);
+            border: none;
+            color: #0a1a1a;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            box-shadow: 0 5px 15px rgba(127, 219, 202, 0.2);
+        }
+        .btn-auto-deposit:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(127, 219, 202, 0.4); }
+        .btn-auto-deposit:active { transform: scale(0.95); }
+        .auto-deposit-status {
+            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
+            color: #7fdbca;
+            font-size: 0.85rem;
+            padding: 4px 14px;
+            border-radius: 50px;
+            background: rgba(127, 219, 202, 0.1);
+            border: 1px solid rgba(127, 219, 202, 0.2);
+            font-weight: bold;
+        }
+
+        .status-msg {
+            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
+            color: #ffd700;
+            margin-top: 12px;
+            font-size: 1rem;
+            min-height: 30px;
+            font-weight: 500;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+        }
+
+        .db-status {
+            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
+            font-size: 0.8rem;
+            color: #8899aa;
+            margin-top: 5px;
+            padding: 4px 12px;
+            border-radius: 50px;
+            display: inline-block;
+            background: rgba(0,0,0,0.03);
+        }
+        .db-status.online { color: #27ae60; }
+        .db-status.offline { color: #e74c3c; }
+        .db-status.loading { color: #f39c12; }
+
+        .admin-area {
+            margin-top: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .admin-link {
+            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
+            display: inline-block;
+            color: #8899aa;
+            text-decoration: none;
+            font-size: 0.8rem;
+            border: 2px solid rgba(255, 215, 0, 0.15);
+            padding: 6px 18px;
+            border-radius: 50px;
+            transition: 0.3s;
+            cursor: pointer;
+            background: rgba(255, 215, 0, 0.02);
+            font-weight: 500;
+        }
+        .admin-link:hover { color: #ffd700; border-color: #ffd700; background: rgba(255, 215, 0, 0.08); box-shadow: 0 0 30px rgba(255, 215, 0, 0.05); }
+
+        .datetime-box {
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin-top: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            color: #ccddee;
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .datetime-box .label { font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif; color: #8899aa; }
+        .datetime-box .value { font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif; color: #ffd700; font-weight: bold; font-size: 1rem; }
+        .datetime-box .night-badge {
+            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
+            background: linear-gradient(135deg, #1a3a5a, #3a1a3a);
+            padding: 4px 16px;
+            border-radius: 50px;
+            color: #ffd700;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border: 2px solid #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+        }
+
+        @keyframes pop { 0% { transform: scale(1); } 40% { transform: scale(1.35); color: #fff; } 100% { transform: scale(1); } }
+        .pop-anim { animation: pop 0.4s ease; }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 26, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            color: #ffd700;
+            font-size: 1.5rem;
+            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
+            direction: rtl;
+        }
+        .loading-overlay .spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(255, 215, 0, 0.1);
+            border-top: 5px solid #ffd700;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        @media (max-width: 992px) { .row-main { flex-direction: column; align-items: stretch; gap: 10px; } .night-with-btns { justify-content: center; } .btn-row { justify-content: center; } .custom-group { justify-content: center; } }
+        @media (max-width: 768px) {
+            .container { padding: 25px 20px; border-radius: 40px 15px 40px 15px; }
+            .main-title { font-size: 1.8rem; }
+            .counter-box .counter-number { font-size: 6rem; }
+            .counter-box .counter-label { font-size: 1.3rem; }
+            .night-box .counter-number { font-size: 2.5rem; }
+            .night-box { padding: 8px 16px; min-width: 130px; }
+            .btn-salavat { font-size: 0.75rem; padding: 5px 9px; min-width: 34px; min-height: 28px; }
+            .btn-salavat.one { font-size: 0.85rem; min-width: 30px; }
+            .datetime-box { font-size: 0.8rem; padding: 10px 15px; }
+            .datetime-box .value { font-size: 0.9rem; }
+            .marquee-box .marquee-text { font-size: 1.6rem; }
+            .marquee-box { padding: 12px 16px; min-height: 70px; }
+            .admin-auto-deposit input { width: 100px; font-size: 1.1rem; padding: 8px 14px; }
+            .custom-group input { width: 80px; font-size: 1rem; }
+            .btn-undo { font-size: 0.75rem; padding: 5px 10px; }
+        }
+        @media (max-width: 480px) {
+            body { padding: 8px; }
+            .container { padding: 18px 12px; border-radius: 30px 10px 30px 10px; }
+            .main-title { font-size: 1.4rem; }
+            .counter-box .counter-number { font-size: 4.5rem; }
+            .counter-box .counter-label { font-size: 1rem; }
+            .night-box .counter-number { font-size: 2rem; }
+            .night-box { padding: 6px 12px; min-width: 100px; }
+            .night-box .counter-label { font-size: 0.7rem; }
+            .btn-salavat { font-size: 0.65rem; padding: 4px 7px; min-width: 28px; min-height: 24px; }
+            .btn-salavat.one { font-size: 0.75rem; min-width: 26px; }
+            .custom-group input { width: 65px; font-size: 0.9rem; padding: 5px 8px; }
+            .custom-group .btn-add-number { padding: 5px 12px; font-size: 0.75rem; }
+            .btn-undo { font-size: 0.65rem; padding: 4px 8px; }
+            .admin-auto-deposit { padding: 10px 14px; gap: 8px; }
+            .admin-auto-deposit input { width: 70px; font-size: 0.9rem; padding: 6px 10px; }
+            .btn-auto-deposit { padding: 6px 14px; font-size: 0.75rem; }
+            .admin-area { gap: 6px; }
+            .admin-link { padding: 4px 14px; font-size: 0.7rem; }
+            .datetime-box { font-size: 0.65rem; padding: 6px 10px; }
+            .datetime-box .value { font-size: 0.75rem; }
+            .datetime-box .night-badge { font-size: 0.7rem; padding: 3px 10px; }
+            .marquee-box .marquee-text { font-size: 1.2rem; }
+            .marquee-box { padding: 10px 12px; min-height: 60px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <div>⏳ در حال اتصال به دیتابیس...</div>
+        <div style="font-size: 0.9rem; color: #8899aa; margin-top: 10px;">لطفاً چند لحظه صبر کنید</div>
+    </div>
+
+    <div class="container" id="mainContainer" style="display:none;">
+        
+        <div class="main-title">
+            🕌 سامانه ثبت پویش بزرگ <span class="highlight">۲۰۰ میلیون صلوات</span>
+        </div>
+
+        <div class="marquee-box">
+            <div class="marquee-track">
+                <div class="marquee-text">
+                    <span class="gold">«</span>هر کس بر من یک بار صلوات بفرستد، خداوند ده بار بر او رحمت می‌فرستد<span class="gold">»</span> 
+                    <span class="address">[بحارالانوار، ج۹۴، ص۶۲]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>در روز جمعه بر من بسیار صلوات بفرستید<span class="green">»</span> 
+                    <span class="address">[وسائل الشیعه، ج۷، ص۱۲۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صد بار صلوات بفرستد، گناهانش بخشیده می‌شود<span class="gold">»</span> 
+                    <span class="address">[ثواب الاعمال، ص۱۵۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات شما بر من، به من می‌رسد<span class="green">»</span> 
+                    <span class="address">[کافی، ج۲، ص۴۹۳]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>نزدیک‌ترین مردم به من در قیامت، کسانی هستند که بیشتر بر من صلوات فرستاده‌اند<span class="gold">»</span> 
+                    <span class="address">[امالی صدوق، ص۲۱۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، نوری است در تاریکی‌های قبر<span class="green">»</span> 
+                    <span class="address">[مصباح المتهجد، ص۴۵۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>صلوات بر من، کفاره گناهان است<span class="gold">»</span> 
+                    <span class="address">[مجمع البیان، ج۱۰، ص۴۵۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>هر کس یک بار صلوات بفرستد، درجه‌اش بالا می‌رود<span class="green">»</span> 
+                    <span class="address">[مستدرک الوسائل، ج۵، ص۳۲۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، فرشتگان برای او استغفار می‌کنند<span class="gold">»</span> 
+                    <span class="address">[تفسیر عیاشی، ج۱، ص۲۵۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، کلید رستگاری است<span class="green">»</span> 
+                    <span class="address">[عوالی اللئالی، ج۴، ص۱۰۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس صلوات بر من را فراموش کند، راه بهشت را گم کرده است<span class="gold">»</span> 
+                    <span class="address">[کنزالعمال، ج۱، ص۴۹۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، موجب پاکی گناهان است<span class="green">»</span> 
+                    <span class="address">[امالی طوسی، ص۳۱۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من ده بار صلوات بفرستد، حق شفاعت پیدا می‌کند<span class="gold">»</span> 
+                    <span class="address">[خصال صدوق، ج۲، ص۴۵۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات شما بر من، سبب روشنی چشم من است<span class="green">»</span> 
+                    <span class="address">[کافی، ج۲، ص۴۹۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، در قیامت از تشنگان نجات می‌یابد<span class="gold">»</span> 
+                    <span class="address">[بحارالانوار، ج۹۴، ص۷۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، موجب رشد ایمان است<span class="green">»</span> 
+                    <span class="address">[وسائل الشیعه، ج۷، ص۱۲۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من یک صلوات بفرستد، درختش در بهشت کاشته می‌شود<span class="gold">»</span> 
+                    <span class="address">[ثواب الاعمال، ص۱۵۲]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، نور را در قلب زیاد می‌کند<span class="green">»</span> 
+                    <span class="address">[مصباح المتهجد، ص۴۵۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس در روز جمعه صد بار صلوات بفرستد، گناهانش آمرزیده می‌شود<span class="gold">»</span> 
+                    <span class="address">[مجمع البیان، ج۱۰، ص۴۵۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، کلید دریافت رحمت الهی است<span class="green">»</span> 
+                    <span class="address">[مستدرک الوسائل، ج۵، ص۳۲۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، من بر او صلوات می‌فرستم<span class="gold">»</span> 
+                    <span class="address">[تفسیر عیاشی، ج۱، ص۲۵۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، دوری از آتش جهنم است<span class="green">»</span> 
+                    <span class="address">[عوالی اللئالی، ج۴، ص۱۱۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، نامش در لوح محفوظ ثبت می‌شود<span class="gold">»</span> 
+                    <span class="address">[بحارالانوار، ج۹۴، ص۷۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، موجب نزدیکی به مقام قرب الهی است<span class="green">»</span> 
+                    <span class="address">[وسائل الشیعه، ج۷، ص۱۳۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، روز قیامت در کنار من است<span class="gold">»</span> 
+                    <span class="address">[ثواب الاعمال، ص۱۵۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، برکت در زندگی می‌آورد<span class="green">»</span> 
+                    <span class="address">[کافی، ج۲، ص۵۰۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند حاجاتش را برآورده می‌کند<span class="gold">»</span> 
+                    <span class="address">[مصباح المتهجد، ص۴۶۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، موجب رفع بلاها است<span class="green">»</span> 
+                    <span class="address">[مجمع البیان، ج۱۰، ص۴۶۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند رزقش را زیاد می‌کند<span class="gold">»</span> 
+                    <span class="address">[مستدرک الوسائل، ج۵، ص۳۳۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، کلید گشایش کارها است<span class="green">»</span> 
+                    <span class="address">[تفسیر عیاشی، ج۱، ص۲۶۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند عذاب را از او دور می‌کند<span class="gold">»</span> 
+                    <span class="address">[عوالی اللئالی، ج۴، ص۱۱۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، سبب طول عمر است<span class="green">»</span> 
+                    <span class="address">[بحارالانوار، ج۹۴، ص۸۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند آرامش قلبی به او می‌دهد<span class="gold">»</span> 
+                    <span class="address">[وسائل الشیعه، ج۷، ص۱۳۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، موجب دفع شر دشمنان است<span class="green">»</span> 
+                    <span class="address">[ثواب الاعمال، ص۱۶۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند گناهانش را می‌بخشد<span class="gold">»</span> 
+                    <span class="address">[کافی، ج۲، ص۵۰۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، موجب عزت و سربلندی است<span class="green">»</span> 
+                    <span class="address">[مصباح المتهجد، ص۴۶۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند او را در بهشت جای می‌دهد<span class="gold">»</span> 
+                    <span class="address">[مجمع البیان، ج۱۰، ص۴۶۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، موجب افزایش علم و دانش است<span class="green">»</span> 
+                    <span class="address">[مستدرک الوسائل، ج۵، ص۳۳۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند به او اجر عظیم می‌دهد<span class="gold">»</span> 
+                    <span class="address">[تفسیر عیاشی، ج۱، ص۲۶۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، کلید سعادت ابدی است<span class="green">»</span> 
+                    <span class="address">[عوالی اللئالی، ج۴، ص۱۲۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="niyyah">🌸 نیت صلوات: سلامتی و تعجیل در فرج آقا امام زمان عجل الله تعالی فرجه الشریف، سلامتی امام امت و پیروزی جبهه حق بر باطل</span>
+                    <span class="sep">🌹</span>
+                </div>
+                <div class="marquee-text">
+                    <span class="gold">«</span>هر کس بر من یک بار صلوات بفرستد، خداوند ده بار بر او رحمت می‌فرستد<span class="gold">»</span> 
+                    <span class="address">[بحارالانوار، ج۹۴، ص۶۲]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>در روز جمعه بر من بسیار صلوات بفرستید<span class="green">»</span> 
+                    <span class="address">[وسائل الشیعه، ج۷، ص۱۲۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صد بار صلوات بفرستد، گناهانش بخشیده می‌شود<span class="gold">»</span> 
+                    <span class="address">[ثواب الاعمال، ص۱۵۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات شما بر من، به من می‌رسد<span class="green">»</span> 
+                    <span class="address">[کافی، ج۲، ص۴۹۳]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>نزدیک‌ترین مردم به من در قیامت، کسانی هستند که بیشتر بر من صلوات فرستاده‌اند<span class="gold">»</span> 
+                    <span class="address">[امالی صدوق، ص۲۱۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، نوری است در تاریکی‌های قبر<span class="green">»</span> 
+                    <span class="address">[مصباح المتهجد، ص۴۵۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>صلوات بر من، کفاره گناهان است<span class="gold">»</span> 
+                    <span class="address">[مجمع البیان، ج۱۰، ص۴۵۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>هر کس یک بار صلوات بفرستد، درجه‌اش بالا می‌رود<span class="green">»</span> 
+                    <span class="address">[مستدرک الوسائل، ج۵، ص۳۲۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، فرشتگان برای او استغفار می‌کنند<span class="gold">»</span> 
+                    <span class="address">[تفسیر عیاشی، ج۱، ص۲۵۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، کلید رستگاری است<span class="green">»</span> 
+                    <span class="address">[عوالی اللئالی، ج۴، ص۱۰۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس صلوات بر من را فراموش کند، راه بهشت را گم کرده است<span class="gold">»</span> 
+                    <span class="address">[کنزالعمال، ج۱، ص۴۹۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، موجب پاکی گناهان است<span class="green">»</span> 
+                    <span class="address">[امالی طوسی، ص۳۱۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من ده بار صلوات بفرستد، حق شفاعت پیدا می‌کند<span class="gold">»</span> 
+                    <span class="address">[خصال صدوق، ج۲، ص۴۵۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات شما بر من، سبب روشنی چشم من است<span class="green">»</span> 
+                    <span class="address">[کافی، ج۲، ص۴۹۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، در قیامت از تشنگان نجات می‌یابد<span class="gold">»</span> 
+                    <span class="address">[بحارالانوار، ج۹۴، ص۷۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، موجب رشد ایمان است<span class="green">»</span> 
+                    <span class="address">[وسائل الشیعه، ج۷، ص۱۲۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من یک صلوات بفرستد، درختش در بهشت کاشته می‌شود<span class="gold">»</span> 
+                    <span class="address">[ثواب الاعمال، ص۱۵۲]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، نور را در قلب زیاد می‌کند<span class="green">»</span> 
+                    <span class="address">[مصباح المتهجد، ص۴۵۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس در روز جمعه صد بار صلوات بفرستد، گناهانش آمرزیده می‌شود<span class="gold">»</span> 
+                    <span class="address">[مجمع البیان، ج۱۰، ص۴۵۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، کلید دریافت رحمت الهی است<span class="green">»</span> 
+                    <span class="address">[مستدرک الوسائل، ج۵، ص۳۲۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، من بر او صلوات می‌فرستم<span class="gold">»</span> 
+                    <span class="address">[تفسیر عیاشی، ج۱، ص۲۵۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، دوری از آتش جهنم است<span class="green">»</span> 
+                    <span class="address">[عوالی اللئالی، ج۴، ص۱۱۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، نامش در لوح محفوظ ثبت می‌شود<span class="gold">»</span> 
+                    <span class="address">[بحارالانوار، ج۹۴، ص۷۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، موجب نزدیکی به مقام قرب الهی است<span class="green">»</span> 
+                    <span class="address">[وسائل الشیعه، ج۷، ص۱۳۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، روز قیامت در کنار من است<span class="gold">»</span> 
+                    <span class="address">[ثواب الاعمال، ص۱۵۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، برکت در زندگی می‌آورد<span class="green">»</span> 
+                    <span class="address">[کافی، ج۲، ص۵۰۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند حاجاتش را برآورده می‌کند<span class="gold">»</span> 
+                    <span class="address">[مصباح المتهجد، ص۴۶۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، موجب رفع بلاها است<span class="green">»</span> 
+                    <span class="address">[مجمع البیان، ج۱۰، ص۴۶۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند رزقش را زیاد می‌کند<span class="gold">»</span> 
+                    <span class="address">[مستدرک الوسائل، ج۵، ص۳۳۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، کلید گشایش کارها است<span class="green">»</span> 
+                    <span class="address">[تفسیر عیاشی، ج۱، ص۲۶۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند عذاب را از او دور می‌کند<span class="gold">»</span> 
+                    <span class="address">[عوالی اللئالی، ج۴، ص۱۱۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، سبب طول عمر است<span class="green">»</span> 
+                    <span class="address">[بحارالانوار، ج۹۴، ص۸۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند آرامش قلبی به او می‌دهد<span class="gold">»</span> 
+                    <span class="address">[وسائل الشیعه، ج۷، ص۱۳۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، موجب دفع شر دشمنان است<span class="green">»</span> 
+                    <span class="address">[ثواب الاعمال، ص۱۶۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند گناهانش را می‌بخشد<span class="gold">»</span> 
+                    <span class="address">[کافی، ج۲، ص۵۰۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، موجب عزت و سربلندی است<span class="green">»</span> 
+                    <span class="address">[مصباح المتهجد، ص۴۶۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند او را در بهشت جای می‌دهد<span class="gold">»</span> 
+                    <span class="address">[مجمع البیان، ج۱۰، ص۴۶۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، موجب افزایش علم و دانش است<span class="green">»</span> 
+                    <span class="address">[مستدرک الوسائل، ج۵، ص۳۳۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند به او اجر عظیم می‌دهد<span class="gold">»</span> 
+                    <span class="address">[تفسیر عیاشی، ج۱، ص۲۶۵]</span>
+                    <span class="sep">🌹</span>
+                    <span class="green">«</span>صلوات بر من، کلید سعادت ابدی است<span class="green">»</span> 
+                    <span class="address">[عوالی اللئالی، ج۴، ص۱۲۰]</span>
+                    <span class="sep">🌹</span>
+                    <span class="niyyah">🌸 نیت صلوات: سلامتی و تعجیل در فرج آقا امام زمان عجل الله تعالی فرجه الشریف، سلامتی امام امت و پیروزی جبهه حق بر باطل</span>
+                    <span class="sep">🌹</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="counters-column">
+            <div class="counter-box gold">
+                <div class="counter-label">✨ جمع کل صلوات</div>
+                <span class="counter-number" id="totalCount">۰</span>
+            </div>
+
+            <div class="counter-box teal">
+                <div class="counter-label">📊 باقیمانده تا ۲۰۰ میلیون</div>
+                <span class="counter-number" id="remainingCount">۲۰۰٬۰۰۰٬۰۰۰</span>
+            </div>
+        </div>
+
+        <div class="row-main">
+            <div class="night-with-btns">
+                <div class="night-box">
+                    <div class="counter-label">🌙 صلوات‌های امشب</div>
+                    <span class="counter-number" id="nightCount">۰</span>
+                </div>
+                <div class="btn-row" id="btnRow">
+                    <button class="btn-salavat one" data-value="5">۵</button>
+                    <button class="btn-salavat" data-value="10">۱۰</button>
+                    <button class="btn-salavat" data-value="20">۲۰</button>
+                    <button class="btn-salavat" data-value="50">۵۰</button>
+                    <button class="btn-salavat" data-value="100">۱۰۰</button>
+                    <button class="btn-salavat" data-value="200">۲۰۰</button>
+                    <button class="btn-salavat" data-value="500">۵۰۰</button>
+                    <button class="btn-salavat" data-value="1000">۱۰۰۰</button>
+                    <button class="btn-salavat" data-value="5000">۵۰۰۰</button>
+                </div>
+            </div>
+            <div class="custom-group">
+                <label>➕</label>
+                <input type="number" id="addInput" min="1" placeholder="عدد" value="14000">
+                <button class="btn-add-number" id="addNumberBtn">اضافه کن</button>
+                <button class="btn-undo" id="undoBtn" disabled style="opacity:0.3;">↺ برگشت</button>
+            </div>
+        </div>
+
+        <!-- ===== سپرده‌گذاری خودکار (فقط برای مدیر - پنهان) ===== -->
+        <div class="admin-auto-deposit" id="adminAutoDeposit">
+            <label><span class="icon">📦</span> هر شب اضافه کن:</label>
+            <input type="number" id="autoDepositInput" min="0" placeholder="مثلاً ۵۰" value="50">
+            <button class="btn-auto-deposit" id="autoDepositBtn">⚡ اعمال تنظیم</button>
+            <span class="auto-deposit-status" id="autoDepositStatus">غیرفعال</span>
+        </div>
+
+        <div class="status-msg" id="statusMsg">✨ هر کلیک یک صلوات | عدد دلخواه را وارد و اضافه کن!</div>
+
+        <div class="db-status" id="dbStatus">⏳ در حال اتصال...</div>
+
+        <div class="admin-area">
+            <button class="admin-link" onclick="showAdminPanel()">🔐 پنل مدیریت</button>
+        </div>
+
+        <div class="datetime-box" id="datetimeBox">
+            <span><span class="label">📅 تاریخ:</span> <span class="value" id="dateDisplay"></span></span>
+            <span><span class="label">⏰ ساعت:</span> <span class="value" id="timeDisplay"></span></span>
+            <span class="night-badge" id="nightBadge">🌙 پویش شب</span>
+        </div>
+
+    </div>
+
+    <script>
+        // ============================================================
+        //  تنظیمات jsonbin.io
+        // ============================================================
+        const JSONBIN_URL = 'https://api.jsonbin.io/v3/b/';
+        const BIN_ID = '6a99edbeda38895dfe35aed3';
+        const MASTER_KEY = '$2a$10$gcboyf59iFq8UGaheRfw/O1twW1E0iIBbOkpn8/FAvhcefpFlD5AC';
+
+        let lastAddedValue = 0;
+        let currentTotal = 0;
+        let currentNight = 0;
+        const TARGET_TOTAL = 200000000; // ← ۲۰۰ میلیون
+        let isUpdating = false;
+
+        // ============================================================
+        //  توابع اتصال به دیتابیس
+        // ============================================================
+        async function fetchTotal() {
+            try {
+                const response = await fetch(JSONBIN_URL + BIN_ID + '/latest', {
+                    headers: { 'X-Master-Key': MASTER_KEY }
+                });
+                if (!response.ok) throw new Error('Network response was not ok');
+                const data = await response.json();
+                const record = data.record || { total: 0, night: 0, lastDate: '' };
+                currentTotal = record.total || 0;
+                currentNight = record.night || 0;
+                return record;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                return null;
+            }
+        }
+
+        async function updateTotal(total, night) {
+            if (isUpdating) return false;
+            isUpdating = true;
+            try {
+                const response = await fetch(JSONBIN_URL + BIN_ID, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Master-Key': MASTER_KEY
+                    },
+                    body: JSON.stringify({
+                        total: total,
+                        night: night,
+                        lastDate: new Date().toISOString()
+                    })
+                });
+                if (!response.ok) throw new Error('Update failed');
+                isUpdating = false;
+                return true;
+            } catch (error) {
+                console.error('Error updating data:', error);
+                isUpdating = false;
+                return false;
+            }
+        }
+
+        // ============================================================
+        //  توابع اصلی
+        // ============================================================
+        function updateDisplay(total, night) {
+            document.getElementById('totalCount').innerText = total.toLocaleString('fa-IR');
+            document.getElementById('nightCount').innerText = night.toLocaleString('fa-IR');
+            const remaining = TARGET_TOTAL - total;
+            document.getElementById('remainingCount').innerText = (remaining > 0 ? remaining : 0).toLocaleString('fa-IR');
+            
+            const undoBtn = document.getElementById('undoBtn');
+            if (lastAddedValue > 0) {
+                undoBtn.disabled = false;
+                undoBtn.style.opacity = '1';
+            } else {
+                undoBtn.disabled = true;
+                undoBtn.style.opacity = '0.3';
+            }
+        }
+
+        function animateCounter(element) {
+            element.classList.remove('pop-anim');
+            void element.offsetWidth;
+            element.classList.add('pop-anim');
+        }
+
+        async function addSalavat(count) {
+            if (count <= 0 || isUpdating) return;
+
+            const addBtn = document.getElementById('addNumberBtn');
+            addBtn.disabled = true;
+            document.getElementById('statusMsg').innerHTML = '⏳ در حال ثبت...';
+
+            const record = await fetchTotal();
+            if (!record) {
+                document.getElementById('statusMsg').innerHTML = '❌ خطا در اتصال به دیتابیس!';
+                document.getElementById('statusMsg').style.color = '#e74c3c';
+                addBtn.disabled = false;
+                return;
+            }
+
+            let total = record.total || 0;
+            let night = record.night || 0;
+
+            total += count;
+            night += count;
+
+            const success = await updateTotal(total, night);
+            if (success) {
+                currentTotal = total;
+                currentNight = night;
+                lastAddedValue = count;
+                updateDisplay(total, night);
+                animateCounter(document.getElementById('totalCount'));
+                animateCounter(document.getElementById('nightCount'));
+                animateCounter(document.getElementById('remainingCount'));
+                document.getElementById('statusMsg').innerHTML = count === 1 ? '✅ یک صلوات ثبت شد.' : '✅ ' + count.toLocaleString('fa-IR') + ' صلوات ثبت شد.';
+                document.getElementById('statusMsg').style.color = '#7fdbca';
+                document.getElementById('dbStatus').innerHTML = '✅ متصل به دیتابیس';
+                document.getElementById('dbStatus').className = 'db-status online';
+            } else {
+                document.getElementById('statusMsg').innerHTML = '❌ خطا در ثبت! دوباره تلاش کنید.';
+                document.getElementById('statusMsg').style.color = '#e74c3c';
+            }
+
+            addBtn.disabled = false;
+        }
+
+        async function undoLast() {
+            if (lastAddedValue <= 0 || isUpdating) {
+                document.getElementById('statusMsg').innerHTML = '⚠️ عددی برای برگشت وجود ندارد!';
+                document.getElementById('statusMsg').style.color = '#f1c40f';
+                return;
+            }
+
+            const record = await fetchTotal();
+            if (!record) {
+                document.getElementById('statusMsg').innerHTML = '❌ خطا در اتصال به دیتابیس!';
+                document.getElementById('statusMsg').style.color = '#e74c3c';
+                return;
+            }
+
+            let total = record.total || 0;
+            let night = record.night || 0;
+
+            if (total < lastAddedValue || night < lastAddedValue) {
+                document.getElementById('statusMsg').innerHTML = '⚠️ خطا: عدد برگشتی از مقدار موجود بیشتر است!';
+                document.getElementById('statusMsg').style.color = '#e74c3c';
+                return;
+            }
+
+            const undoValue = lastAddedValue;
+            total -= undoValue;
+            night -= undoValue;
+            lastAddedValue = 0;
+
+            const success = await updateTotal(total, night);
+            if (success) {
+                currentTotal = total;
+                currentNight = night;
+                updateDisplay(total, night);
+                animateCounter(document.getElementById('totalCount'));
+                animateCounter(document.getElementById('nightCount'));
+                animateCounter(document.getElementById('remainingCount'));
+                document.getElementById('statusMsg').innerHTML = '↺ ' + undoValue.toLocaleString('fa-IR') + ' صلوات برگشت داده شد.';
+                document.getElementById('statusMsg').style.color = '#ff6b6b';
+            } else {
+                document.getElementById('statusMsg').innerHTML = '❌ خطا در برگشت!';
+                document.getElementById('statusMsg').style.color = '#e74c3c';
+            }
+        }
+
+        // ============================================================
+        //  سپرده‌گذاری خودکار (۲۴ ساعته)
+        // ============================================================
+        function getAutoDepositAmount() {
+            return parseInt(localStorage.getItem('salavat_auto_deposit')) || 0;
+        }
+
+        function setAutoDepositAmount(value) {
+            if (value > 0) {
+                localStorage.setItem('salavat_auto_deposit', value.toString());
+                document.getElementById('autoDepositStatus').innerText = 'فعال (' + value.toLocaleString('fa-IR') + ' عدد)';
+                document.getElementById('autoDepositStatus').style.color = '#7fdbca';
+                return true;
+            } else {
+                localStorage.removeItem('salavat_auto_deposit');
+                document.getElementById('autoDepositStatus').innerText = 'غیرفعال';
+                document.getElementById('autoDepositStatus').style.color = '#8899aa';
+                return false;
+            }
+        }
+
+        async function checkAndAutoDeposit() {
+            const today = new Date().toISOString().split('T')[0];
+            const lastDeposit = localStorage.getItem('salavat_last_deposit');
+            const amount = getAutoDepositAmount();
+
+            if (amount <= 0 || lastDeposit === today) return false;
+
+            // ۲۴ ساعته: هر زمان که روز عوض شد، یک بار اضافه کن
+            const record = await fetchTotal();
+            if (!record) return false;
+
+            let total = record.total || 0;
+            let night = record.night || 0;
+
+            total += amount;
+            night += amount;
+
+            const success = await updateTotal(total, night);
+            if (success) {
+                currentTotal = total;
+                currentNight = night;
+                updateDisplay(total, night);
+                localStorage.setItem('salavat_last_deposit', today);
+                animateCounter(document.getElementById('totalCount'));
+                animateCounter(document.getElementById('nightCount'));
+                animateCounter(document.getElementById('remainingCount'));
+                document.getElementById('statusMsg').innerHTML = '📦 ' + amount.toLocaleString('fa-IR') + ' صلوات به حساب شب و کل اضافه شد!';
+                document.getElementById('statusMsg').style.color = '#7fdbca';
+                return true;
+            }
+            return false;
+        }
+
+        // ============================================================
+        //  اتصال رویدادها
+        // ============================================================
+        async function init() {
+            const loading = document.getElementById('loadingOverlay');
+            const container = document.getElementById('mainContainer');
+            const dbStatus = document.getElementById('dbStatus');
+
+            const record = await fetchTotal();
+            if (record) {
+                currentTotal = record.total || 0;
+                currentNight = record.night || 0;
+                updateDisplay(currentTotal, currentNight);
+                dbStatus.innerHTML = '✅ متصل به دیتابیس';
+                dbStatus.className = 'db-status online';
+            } else {
+                dbStatus.innerHTML = '⚠️ اتصال با مشکل مواجه شد - داده‌ها از حافظه محلی';
+                dbStatus.className = 'db-status offline';
+                const localTotal = parseInt(localStorage.getItem('salavat_total')) || 0;
+                const localNight = parseInt(localStorage.getItem('salavat_night')) || 0;
+                currentTotal = localTotal;
+                currentNight = localNight;
+                updateDisplay(currentTotal, currentNight);
+            }
+
+            // بارگذاری وضعیت سپرده‌گذاری
+            const autoAmount = getAutoDepositAmount();
+            if (autoAmount > 0) {
+                document.getElementById('autoDepositStatus').innerText = 'فعال (' + autoAmount.toLocaleString('fa-IR') + ' عدد)';
+                document.getElementById('autoDepositStatus').style.color = '#7fdbca';
+                document.getElementById('autoDepositInput').value = autoAmount;
+            }
+
+            loading.style.display = 'none';
+            container.style.display = 'block';
+
+            // اجرای سپرده‌گذاری خودکار در صورت نیاز
+            await checkAndAutoDeposit();
+
+            updateClock();
+            setInterval(updateClock, 1000);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnRow = document.getElementById('btnRow');
+            const allBtns = btnRow.querySelectorAll('.btn-salavat');
+            allBtns.forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    const value = parseInt(this.getAttribute('data-value'));
+                    if (value > 0) {
+                        this.disabled = true;
+                        addSalavat(value);
+                        const self = this;
+                        setTimeout(function() {
+                            self.disabled = false;
+                        }, 600);
+                    }
+                });
+            });
+
+            document.getElementById('addNumberBtn').addEventListener('click', function() {
+                const rawValue = document.getElementById('addInput').value.replace(/,/g, '').replace(/\s/g, '');
+                const numberToAdd = parseInt(rawValue);
+                if (isNaN(numberToAdd) || numberToAdd <= 0) {
+                    document.getElementById('statusMsg').innerHTML = '⚠️ لطفاً یک عدد صحیح و بزرگتر از صفر وارد کن!';
+                    document.getElementById('statusMsg').style.color = '#f1c40f';
+                    document.getElementById('addInput').focus();
+                    document.getElementById('addInput').select();
+                    return;
+                }
+                if (numberToAdd > 100000000) {
+                    document.getElementById('statusMsg').innerHTML = '⚠️ عدد خیلی بزرگ است! حداکثر ۱۰۰ میلیون مجاز است.';
+                    document.getElementById('statusMsg').style.color = '#e74c3c';
+                    return;
+                }
+                if (numberToAdd > 1000) {
+                    if (!confirm('⚠️ آیا مطمئن هستید که می‌خواهید ' + numberToAdd.toLocaleString('fa-IR') + ' صلوات اضافه کنید؟')) {
+                        return;
+                    }
+                }
+                addSalavat(numberToAdd);
+                document.getElementById('addInput').value = 14000;
+            });
+
+            document.getElementById('undoBtn').addEventListener('click', undoLast);
+
+            document.getElementById('addInput').addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    document.getElementById('addNumberBtn').click();
+                }
+            });
+
+            // ===== دکمه سپرده‌گذاری خودکار =====
+            document.getElementById('autoDepositBtn').addEventListener('click', function() {
+                const rawValue = document.getElementById('autoDepositInput').value.replace(/,/g, '').replace(/\s/g, '');
+                const amount = parseInt(rawValue);
+                if (isNaN(amount) || amount < 0) {
+                    document.getElementById('statusMsg').innerHTML = '⚠️ لطفاً یک عدد معتبر (۰ یا بیشتر) وارد کن!';
+                    document.getElementById('statusMsg').style.color = '#f1c40f';
+                    document.getElementById('autoDepositInput').focus();
+                    document.getElementById('autoDepositInput').select();
+                    return;
+                }
+                if (setAutoDepositAmount(amount)) {
+                    document.getElementById('statusMsg').innerHTML = '✅ هر شب ' + amount.toLocaleString('fa-IR') + ' صلوات اضافه می‌شود.';
+                    document.getElementById('statusMsg').style.color = '#7fdbca';
+                } else {
+                    document.getElementById('statusMsg').innerHTML = '⏸️ سپرده‌گذاری خودکار غیرفعال شد.';
+                    document.getElementById('statusMsg').style.color = '#f1c40f';
+                }
+            });
+
+            document.getElementById('autoDepositInput').addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    document.getElementById('autoDepositBtn').click();
+                }
+            });
+        });
+
+        // ============================================================
+        //  توابع تاریخ و زمان (۲۴ ساعته)
+        // ============================================================
+        function getCurrentHour() { return new Date().getHours(); }
+
+        function isNightTime() { 
+            // همیشه true برمی‌گرداند چون ۲۴ ساعته است
+            return true; 
+        }
+
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('dateDisplay').innerText = now.toLocaleDateString('fa-IR', { 
+                year: 'numeric', month: '2-digit', day: '2-digit', weekday: 'long' 
+            });
+            document.getElementById('timeDisplay').innerText = now.toLocaleTimeString('fa-IR', { 
+                hour: '2-digit', minute: '2-digit', second: '2-digit' 
+            });
+
+            // همیشه فعال نمایش داده می‌شود
+            const badge = document.getElementById('nightBadge');
+            badge.innerHTML = '🌙 پویش شب (۲۴ ساعته)';
+            badge.style.borderColor = '#7fdbca';
+            badge.style.color = '#7fdbca';
+        }
+
+        // ============================================================
+        //  توابع مدیریتی
+        // ============================================================
+        async function resetAll() {
+            const success = await updateTotal(0, 0);
+            if (success) {
+                currentTotal = 0;
+                currentNight = 0;
+                lastAddedValue = 0;
+                updateDisplay(0, 0);
+                document.getElementById('statusMsg').innerHTML = '🔥 تمام آمار با موفقیت ریست شد.';
+                document.getElementById('statusMsg').style.color = '#e74c3c';
+                alert('✅ تمام آمار با موفقیت ریست شد.');
+            } else {
+                document.getElementById('statusMsg').innerHTML = '❌ خطا در ریست کردن!';
+                document.getElementById('statusMsg').style.color = '#e74c3c';
+                alert('❌ خطا در ریست کردن!');
+            }
+        }
+
+        function generateNightReport() {
+            const total = currentTotal;
+            const night = currentNight;
+            const remaining = TARGET_TOTAL - total;
+            const now = new Date();
+            const report = 
+                '📊 **گزارش وضعیت پویش صلوات** 📊\n' +
+                '═══════════════════════════\n' +
+                '📅 تاریخ: ' + now.toLocaleDateString('fa-IR', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' }) + '\n' +
+                '⏰ ساعت: ' + now.toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) + '\n' +
+                '═══════════════════════════\n' +
+                '📈 جمع کل صلوات: ' + total.toLocaleString('fa-IR') + '\n' +
+                '📊 باقیمانده تا ۲۰۰ میلیون: ' + (remaining > 0 ? remaining.toLocaleString('fa-IR') : '۰') + '\n' +
+                '🌙 صلوات‌های امشب: ' + night.toLocaleString('fa-IR') + '\n' +
+                '═══════════════════════════\n' +
+                '🕌 ادامه دهید تا به هدف ۲۰۰ میلیون برسیم';
+            alert(report);
+        }
+
+        // ============================================================
+        //  پنل مدیریت (با رمز)
+        // ============================================================
+        function showAdminPanel() {
+            const pass = prompt('🔑 لطفاً رمز عبور پنل مدیریت را وارد کنید:');
+            if (pass === '1404') {
+                const remaining = TARGET_TOTAL - currentTotal;
+                const choice = confirm(
+                    '📊 **پنل مدیریت**\n\n' +
+                    '📈 جمع کل: ' + currentTotal.toLocaleString('fa-IR') + '\n' +
+                    '📊 باقیمانده تا ۲۰۰ میلیون: ' + (remaining > 0 ? remaining.toLocaleString('fa-IR') : '۰') + '\n' +
+                    '🌙 شمارنده شب: ' + currentNight.toLocaleString('fa-IR') + '\n' +
+                    '⏰ زمانبندی: ۲۴ ساعته\n\n' +
+                    '🔹 برای **مدیریت سپرده‌گذاری خودکار** روی "OK" کلیک کنید\n' +
+                    '🔹 برای **مشاهده گزارش** روی "Cancel" کلیک کنید\n' +
+                    '🔹 برای **ریست کامل** گزینه بعدی'
+                );
+                if (choice) {
+                    // نمایش بخش سپرده‌گذاری خودکار
+                    const autoSection = document.getElementById('adminAutoDeposit');
+                    if (autoSection.style.display === 'flex') {
+                        autoSection.style.display = 'none';
+                        document.getElementById('statusMsg').innerHTML = '🔒 بخش سپرده‌گذاری مخفی شد.';
+                        document.getElementById('statusMsg').style.color = '#f1c40f';
+                    } else {
+                        autoSection.style.display = 'flex';
+                        document.getElementById('statusMsg').innerHTML = '🔓 بخش سپرده‌گذاری خودکار فعال شد.';
+                        document.getElementById('statusMsg').style.color = '#7fdbca';
+                    }
+                    // همچنین گزینه ریست
+                    if (confirm('⚠️ آیا می‌خواهید تمام آمار را ریست کنید؟')) {
+                        if (confirm('⚠️ هشدار نهایی! تمام آمار برای همیشه پاک می‌شود!')) {
+                            resetAll();
+                        }
+                    }
+                } else {
+                    generateNightReport();
+                }
+            } else if (pass !== null) {
+                alert('❌ رمز عبور اشتباه است!');
+            }
+        }
+
+        // ============================================================
+        //  اجرای اولیه
+        // ============================================================
+        init();
+        console.log('✅ سامانه پویش سراسری ۲۰۰ میلیون - نسخه مدیریتی راه‌اندازی شد.');
+    </script>
+</body>
+</html>
