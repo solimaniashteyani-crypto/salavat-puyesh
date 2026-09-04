@@ -43,6 +43,7 @@
             color: #8d5a2a;
         }
 
+        /* ===== باکس مارکی (اصلاح شده) ===== */
         .marquee-box {
             background: #eaf2f8;
             border: 3px solid #85c1e9;
@@ -56,12 +57,12 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 0 50px rgba(133, 193, 233, 0.12);
+            width: 100%;
         }
         .marquee-box .marquee-track {
             display: flex;
-            flex-direction: row;
-            animation: marqueeScroll 120s linear infinite;  /* ← سرعت ۱۲۰ ثانیه (متوسط) */
             width: max-content;
+            animation: marqueeScroll 90s linear infinite;  /* ← ۹۰ ثانیه (آرام) */
         }
         .marquee-box .marquee-text {
             display: inline-block;
@@ -73,7 +74,7 @@
             padding: 6px 0;
             text-shadow: 0 0 30px rgba(26, 82, 118, 0.08);
             direction: rtl;
-            padding-left: 30px;
+            padding-left: 50px;  /* فاصله بین دو تکرار */
         }
         @keyframes marqueeScroll {
             0% { transform: translateX(-100%); }
@@ -457,255 +458,14 @@
             🕌 سامانه ثبت پویش بزرگ <span class="highlight">500 میلیون صلوات</span>
         </div>
 
+        <!-- ===== باکس مارکی (اصلاح شده) ===== -->
         <div class="marquee-box">
             <div class="marquee-track">
                 <div class="marquee-text">
-                    <span class="gold">«</span>هر کس بر من یک بار صلوات بفرستد، خداوند ده بار بر او رحمت می‌فرستد<span class="gold">»</span> 
-                    <span class="address">[بحارالانوار، ج۹۴، ص۶۲]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>در روز جمعه بر من بسیار صلوات بفرستید<span class="green">»</span> 
-                    <span class="address">[وسائل الشیعه، ج۷، ص۱۲۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صد بار صلوات بفرستد، گناهانش بخشیده می‌شود<span class="gold">»</span> 
-                    <span class="address">[ثواب الاعمال، ص۱۵۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات شما بر من، به من می‌رسد<span class="green">»</span> 
-                    <span class="address">[کافی، ج۲، ص۴۹۳]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>نزدیک‌ترین مردم به من در قیامت، کسانی هستند که بیشتر بر من صلوات فرستاده‌اند<span class="gold">»</span> 
-                    <span class="address">[امالی صدوق، ص۲۱۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، نوری است در تاریکی‌های قبر<span class="green">»</span> 
-                    <span class="address">[مصباح المتهجد، ص۴۵۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>صلوات بر من، کفاره گناهان است<span class="gold">»</span> 
-                    <span class="address">[مجمع البیان، ج۱۰، ص۴۵۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>هر کس یک بار صلوات بفرستد، درجه‌اش بالا می‌رود<span class="green">»</span> 
-                    <span class="address">[مستدرک الوسائل، ج۵، ص۳۲۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، فرشتگان برای او استغفار می‌کنند<span class="gold">»</span> 
-                    <span class="address">[تفسیر عیاشی، ج۱، ص۲۵۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، کلید رستگاری است<span class="green">»</span> 
-                    <span class="address">[عوالی اللئالی، ج۴، ص۱۰۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس صلوات بر من را فراموش کند، راه بهشت را گم کرده است<span class="gold">»</span> 
-                    <span class="address">[کنزالعمال، ج۱، ص۴۹۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، موجب پاکی گناهان است<span class="green">»</span> 
-                    <span class="address">[امالی طوسی، ص۳۱۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من ده بار صلوات بفرستد، حق شفاعت پیدا می‌کند<span class="gold">»</span> 
-                    <span class="address">[خصال صدوق، ج۲، ص۴۵۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات شما بر من، سبب روشنی چشم من است<span class="green">»</span> 
-                    <span class="address">[کافی، ج۲، ص۴۹۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، در قیامت از تشنگان نجات می‌یابد<span class="gold">»</span> 
-                    <span class="address">[بحارالانوار، ج۹۴، ص۷۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، موجب رشد ایمان است<span class="green">»</span> 
-                    <span class="address">[وسائل الشیعه، ج۷، ص۱۲۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من یک صلوات بفرستد، درختش در بهشت کاشته می‌شود<span class="gold">»</span> 
-                    <span class="address">[ثواب الاعمال، ص۱۵۲]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، نور را در قلب زیاد می‌کند<span class="green">»</span> 
-                    <span class="address">[مصباح المتهجد، ص۴۵۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس در روز جمعه صد بار صلوات بفرستد، گناهانش آمرزیده می‌شود<span class="gold">»</span> 
-                    <span class="address">[مجمع البیان، ج۱۰، ص۴۵۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، کلید دریافت رحمت الهی است<span class="green">»</span> 
-                    <span class="address">[مستدرک الوسائل، ج۵، ص۳۲۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، من بر او صلوات می‌فرستم<span class="gold">»</span> 
-                    <span class="address">[تفسیر عیاشی، ج۱، ص۲۵۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، دوری از آتش جهنم است<span class="green">»</span> 
-                    <span class="address">[عوالی اللئالی، ج۴، ص۱۱۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، نامش در لوح محفوظ ثبت می‌شود<span class="gold">»</span> 
-                    <span class="address">[بحارالانوار، ج۹۴، ص۷۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، موجب نزدیکی به مقام قرب الهی است<span class="green">»</span> 
-                    <span class="address">[وسائل الشیعه، ج۷، ص۱۳۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، روز قیامت در کنار من است<span class="gold">»</span> 
-                    <span class="address">[ثواب الاعمال، ص۱۵۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، برکت در زندگی می‌آورد<span class="green">»</span> 
-                    <span class="address">[کافی، ج۲، ص۵۰۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند حاجاتش را برآورده می‌کند<span class="gold">»</span> 
-                    <span class="address">[مصباح المتهجد، ص۴۶۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، موجب رفع بلاها است<span class="green">»</span> 
-                    <span class="address">[مجمع البیان، ج۱۰، ص۴۶۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند رزقش را زیاد می‌کند<span class="gold">»</span> 
-                    <span class="address">[مستدرک الوسائل، ج۵، ص۳۳۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، کلید گشایش کارها است<span class="green">»</span> 
-                    <span class="address">[تفسیر عیاشی، ج۱، ص۲۶۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند عذاب را از او دور می‌کند<span class="gold">»</span> 
-                    <span class="address">[عوالی اللئالی، ج۴، ص۱۱۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، سبب طول عمر است<span class="green">»</span> 
-                    <span class="address">[بحارالانوار، ج۹۴، ص۸۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند آرامش قلبی به او می‌دهد<span class="gold">»</span> 
-                    <span class="address">[وسائل الشیعه، ج۷، ص۱۳۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، موجب دفع شر دشمنان است<span class="green">»</span> 
-                    <span class="address">[ثواب الاعمال، ص۱۶۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند گناهانش را می‌بخشد<span class="gold">»</span> 
-                    <span class="address">[کافی، ج۲، ص۵۰۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، موجب عزت و سربلندی است<span class="green">»</span> 
-                    <span class="address">[مصباح المتهجد، ص۴۶۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند او را در بهشت جای می‌دهد<span class="gold">»</span> 
-                    <span class="address">[مجمع البیان، ج۱۰، ص۴۶۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، موجب افزایش علم و دانش است<span class="green">»</span> 
-                    <span class="address">[مستدرک الوسائل، ج۵، ص۳۳۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند به او اجر عظیم می‌دهد<span class="gold">»</span> 
-                    <span class="address">[تفسیر عیاشی، ج۱، ص۲۶۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، کلید سعادت ابدی است<span class="green">»</span> 
-                    <span class="address">[عوالی اللئالی، ج۴، ص۱۲۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="niyyah">🌸 نیت صلوات: سلامتی و تعجیل در فرج آقا امام زمان عجل الله تعالی فرجه الشریف، سلامتی امام امت و پیروزی جبهه حق بر باطل</span>
-                    <span class="sep">🌹</span>
+                    🌸 نیت صلوات: سلامتی و تعجیل در فرج آقا امام زمان عجل الله تعالی فرجه الشریف، سلامتی امام امت و پیروزی جبهه حق بر باطل 🌸
                 </div>
                 <div class="marquee-text">
-                    <span class="gold">«</span>هر کس بر من یک بار صلوات بفرستد، خداوند ده بار بر او رحمت می‌فرستد<span class="gold">»</span> 
-                    <span class="address">[بحارالانوار، ج۹۴، ص۶۲]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>در روز جمعه بر من بسیار صلوات بفرستید<span class="green">»</span> 
-                    <span class="address">[وسائل الشیعه، ج۷، ص۱۲۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صد بار صلوات بفرستد، گناهانش بخشیده می‌شود<span class="gold">»</span> 
-                    <span class="address">[ثواب الاعمال، ص۱۵۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات شما بر من، به من می‌رسد<span class="green">»</span> 
-                    <span class="address">[کافی، ج۲، ص۴۹۳]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>نزدیک‌ترین مردم به من در قیامت، کسانی هستند که بیشتر بر من صلوات فرستاده‌اند<span class="gold">»</span> 
-                    <span class="address">[امالی صدوق، ص۲۱۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، نوری است در تاریکی‌های قبر<span class="green">»</span> 
-                    <span class="address">[مصباح المتهجد، ص۴۵۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>صلوات بر من، کفاره گناهان است<span class="gold">»</span> 
-                    <span class="address">[مجمع البیان، ج۱۰، ص۴۵۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>هر کس یک بار صلوات بفرستد، درجه‌اش بالا می‌رود<span class="green">»</span> 
-                    <span class="address">[مستدرک الوسائل، ج۵، ص۳۲۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، فرشتگان برای او استغفار می‌کنند<span class="gold">»</span> 
-                    <span class="address">[تفسیر عیاشی، ج۱، ص۲۵۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، کلید رستگاری است<span class="green">»</span> 
-                    <span class="address">[عوالی اللئالی، ج۴، ص۱۰۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس صلوات بر من را فراموش کند، راه بهشت را گم کرده است<span class="gold">»</span> 
-                    <span class="address">[کنزالعمال، ج۱، ص۴۹۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، موجب پاکی گناهان است<span class="green">»</span> 
-                    <span class="address">[امالی طوسی، ص۳۱۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من ده بار صلوات بفرستد، حق شفاعت پیدا می‌کند<span class="gold">»</span> 
-                    <span class="address">[خصال صدوق، ج۲، ص۴۵۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات شما بر من، سبب روشنی چشم من است<span class="green">»</span> 
-                    <span class="address">[کافی، ج۲، ص۴۹۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، در قیامت از تشنگان نجات می‌یابد<span class="gold">»</span> 
-                    <span class="address">[بحارالانوار، ج۹۴، ص۷۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، موجب رشد ایمان است<span class="green">»</span> 
-                    <span class="address">[وسائل الشیعه، ج۷، ص۱۲۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من یک صلوات بفرستد، درختش در بهشت کاشته می‌شود<span class="gold">»</span> 
-                    <span class="address">[ثواب الاعمال، ص۱۵۲]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، نور را در قلب زیاد می‌کند<span class="green">»</span> 
-                    <span class="address">[مصباح المتهجد، ص۴۵۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس در روز جمعه صد بار صلوات بفرستد، گناهانش آمرزیده می‌شود<span class="gold">»</span> 
-                    <span class="address">[مجمع البیان، ج۱۰، ص۴۵۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، کلید دریافت رحمت الهی است<span class="green">»</span> 
-                    <span class="address">[مستدرک الوسائل، ج۵، ص۳۲۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، من بر او صلوات می‌فرستم<span class="gold">»</span> 
-                    <span class="address">[تفسیر عیاشی، ج۱، ص۲۵۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، دوری از آتش جهنم است<span class="green">»</span> 
-                    <span class="address">[عوالی اللئالی، ج۴، ص۱۱۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، نامش در لوح محفوظ ثبت می‌شود<span class="gold">»</span> 
-                    <span class="address">[بحارالانوار، ج۹۴، ص۷۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، موجب نزدیکی به مقام قرب الهی است<span class="green">»</span> 
-                    <span class="address">[وسائل الشیعه، ج۷، ص۱۳۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، روز قیامت در کنار من است<span class="gold">»</span> 
-                    <span class="address">[ثواب الاعمال، ص۱۵۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، برکت در زندگی می‌آورد<span class="green">»</span> 
-                    <span class="address">[کافی، ج۲، ص۵۰۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند حاجاتش را برآورده می‌کند<span class="gold">»</span> 
-                    <span class="address">[مصباح المتهجد، ص۴۶۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، موجب رفع بلاها است<span class="green">»</span> 
-                    <span class="address">[مجمع البیان، ج۱۰، ص۴۶۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند رزقش را زیاد می‌کند<span class="gold">»</span> 
-                    <span class="address">[مستدرک الوسائل، ج۵، ص۳۳۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، کلید گشایش کارها است<span class="green">»</span> 
-                    <span class="address">[تفسیر عیاشی، ج۱، ص۲۶۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند عذاب را از او دور می‌کند<span class="gold">»</span> 
-                    <span class="address">[عوالی اللئالی، ج۴، ص۱۱۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، سبب طول عمر است<span class="green">»</span> 
-                    <span class="address">[بحارالانوار، ج۹۴، ص۸۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند آرامش قلبی به او می‌دهد<span class="gold">»</span> 
-                    <span class="address">[وسائل الشیعه، ج۷، ص۱۳۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، موجب دفع شر دشمنان است<span class="green">»</span> 
-                    <span class="address">[ثواب الاعمال، ص۱۶۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند گناهانش را می‌بخشد<span class="gold">»</span> 
-                    <span class="address">[کافی، ج۲، ص۵۰۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، موجب عزت و سربلندی است<span class="green">»</span> 
-                    <span class="address">[مصباح المتهجد، ص۴۶۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند او را در بهشت جای می‌دهد<span class="gold">»</span> 
-                    <span class="address">[مجمع البیان، ج۱۰، ص۴۶۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، موجب افزایش علم و دانش است<span class="green">»</span> 
-                    <span class="address">[مستدرک الوسائل، ج۵، ص۳۳۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="gold">«</span>هر کس بر من صلوات بفرستد، خداوند به او اجر عظیم می‌دهد<span class="gold">»</span> 
-                    <span class="address">[تفسیر عیاشی، ج۱، ص۲۶۵]</span>
-                    <span class="sep">🌹</span>
-                    <span class="green">«</span>صلوات بر من، کلید سعادت ابدی است<span class="green">»</span> 
-                    <span class="address">[عوالی اللئالی، ج۴، ص۱۲۰]</span>
-                    <span class="sep">🌹</span>
-                    <span class="niyyah">🌸 نیت صلوات: سلامتی و تعجیل در فرج آقا امام زمان عجل الله تعالی فرجه الشریف، سلامتی امام امت و پیروزی جبهه حق بر باطل</span>
-                    <span class="sep">🌹</span>
+                    🌸 نیت صلوات: سلامتی و تعجیل در فرج آقا امام زمان عجل الله تعالی فرجه الشریف، سلامتی امام امت و پیروزی جبهه حق بر باطل 🌸
                 </div>
             </div>
         </div>
@@ -738,6 +498,8 @@
                     <button class="btn-salavat" data-value="500">۵۰۰</button>
                     <button class="btn-salavat" data-value="1000">۱۰۰۰</button>
                     <button class="btn-salavat" data-value="5000">۵۰۰۰</button>
+                    <button class="btn-salavat" data-value="10000">۱۰۰۰۰</button>
+                    <button class="btn-salavat" data-value="14000">۱۴۰۰۰</button>
                 </div>
             </div>
             <div class="custom-group">
@@ -851,6 +613,7 @@
             element.classList.add('pop-anim');
         }
 
+        // تابع عمومی برای اضافه کردن (دکمه‌های آماده)
         async function addSalavat(count) {
             if (count <= 0 || isUpdating) return;
 
@@ -891,6 +654,37 @@
             }
 
             addBtn.disabled = false;
+        }
+
+        // تابع مخصوص عدد سفارشی (فقط با رمز)
+        async function addCustomSalavat() {
+            const pwd = prompt('🔑 لطفاً رمز مدیریت را برای اضافه کردن عدد سفارشی وارد کنید:');
+            if (pwd !== '5113') {
+                if (pwd !== null) alert('❌ رمز عبور اشتباه است!');
+                return;
+            }
+
+            const rawValue = document.getElementById('addInput').value.replace(/,/g, '').replace(/\s/g, '');
+            const numberToAdd = parseInt(rawValue);
+            if (isNaN(numberToAdd) || numberToAdd <= 0) {
+                document.getElementById('statusMsg').innerHTML = '⚠️ لطفاً یک عدد صحیح و بزرگتر از صفر وارد کن!';
+                document.getElementById('statusMsg').style.color = '#f1c40f';
+                document.getElementById('addInput').focus();
+                document.getElementById('addInput').select();
+                return;
+            }
+            if (numberToAdd > 100000000) {
+                document.getElementById('statusMsg').innerHTML = '⚠️ عدد خیلی بزرگ است! حداکثر ۱۰۰ میلیون مجاز است.';
+                document.getElementById('statusMsg').style.color = '#e74c3c';
+                return;
+            }
+            if (numberToAdd > 1000) {
+                if (!confirm('⚠️ آیا مطمئن هستید که می‌خواهید ' + numberToAdd.toLocaleString('fa-IR') + ' صلوات اضافه کنید؟')) {
+                    return;
+                }
+            }
+            await addSalavat(numberToAdd);
+            document.getElementById('addInput').value = 14000;
         }
 
         async function undoLast() {
@@ -967,7 +761,6 @@
         // ============================================================
         //  دکمه‌های مدیریتی
         // ============================================================
-        // ریست فوری امشب (مدیریتی با رمز) - کاملاً محافظت شده
         async function resetNightNow() {
             const pwd = prompt('🔑 لطفاً رمز مدیریت را وارد کنید:');
             if (pwd === '5113') {
@@ -1116,29 +909,7 @@
                 });
             });
 
-            document.getElementById('addNumberBtn').addEventListener('click', function() {
-                const rawValue = document.getElementById('addInput').value.replace(/,/g, '').replace(/\s/g, '');
-                const numberToAdd = parseInt(rawValue);
-                if (isNaN(numberToAdd) || numberToAdd <= 0) {
-                    document.getElementById('statusMsg').innerHTML = '⚠️ لطفاً یک عدد صحیح و بزرگتر از صفر وارد کن!';
-                    document.getElementById('statusMsg').style.color = '#f1c40f';
-                    document.getElementById('addInput').focus();
-                    document.getElementById('addInput').select();
-                    return;
-                }
-                if (numberToAdd > 100000000) {
-                    document.getElementById('statusMsg').innerHTML = '⚠️ عدد خیلی بزرگ است! حداکثر ۱۰۰ میلیون مجاز است.';
-                    document.getElementById('statusMsg').style.color = '#e74c3c';
-                    return;
-                }
-                if (numberToAdd > 1000) {
-                    if (!confirm('⚠️ آیا مطمئن هستید که می‌خواهید ' + numberToAdd.toLocaleString('fa-IR') + ' صلوات اضافه کنید؟')) {
-                        return;
-                    }
-                }
-                addSalavat(numberToAdd);
-                document.getElementById('addInput').value = 14000;
-            });
+            document.getElementById('addNumberBtn').addEventListener('click', addCustomSalavat);
 
             document.getElementById('undoBtn').addEventListener('click', undoLast);
 
