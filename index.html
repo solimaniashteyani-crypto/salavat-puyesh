@@ -43,7 +43,6 @@
             color: #8d5a2a;
         }
 
-        /* ===== باکس مارکی (اصلاح شده) ===== */
         .marquee-box {
             background: #eaf2f8;
             border: 3px solid #85c1e9;
@@ -62,7 +61,7 @@
         .marquee-box .marquee-track {
             display: flex;
             width: max-content;
-            animation: marqueeScroll 90s linear infinite;  /* ← ۹۰ ثانیه (آرام) */
+            animation: marqueeScroll 90s linear infinite;
         }
         .marquee-box .marquee-text {
             display: inline-block;
@@ -74,7 +73,7 @@
             padding: 6px 0;
             text-shadow: 0 0 30px rgba(26, 82, 118, 0.08);
             direction: rtl;
-            padding-left: 50px;  /* فاصله بین دو تکرار */
+            padding-left: 50px;
         }
         @keyframes marqueeScroll {
             0% { transform: translateX(-100%); }
@@ -160,11 +159,17 @@
         }
         .night-with-btns {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
+            gap: 8px;
             flex: 2 1 auto;
+        }
+        .night-with-btns .btn-row-label {
+            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
+            color: #5d6d7e;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 4px;
         }
 
         .night-box {
@@ -198,17 +203,18 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            gap: 6px;
+            gap: 10px;
             flex-wrap: wrap;
+            justify-content: center;
         }
         .btn-salavat {
             font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
             background: #ffffff;
             border: 2px solid #d4af37;
             color: #1a1a2e;
-            font-size: 0.9rem;
+            font-size: 1.2rem;
             font-weight: 900;
-            padding: 7px 12px;
+            padding: 12px 18px;
             border-radius: 50px;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -216,25 +222,27 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-width: 40px;
-            min-height: 34px;
+            min-width: 60px;
+            min-height: 48px;
         }
         .btn-salavat:hover { transform: scale(1.06); box-shadow: 0 8px 25px rgba(0,0,0,0.15); background: #f8f8f8; }
         .btn-salavat:active { transform: scale(0.93); }
         .btn-salavat:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
-        .btn-salavat.one { background: #ffffff; border: 2px solid #d4af37; font-size: 1rem; min-width: 36px; }
+        .btn-salavat.one { background: #ffffff; border: 2px solid #d4af37; font-size: 1.2rem; min-width: 55px; padding: 12px 16px; }
 
         .custom-group {
             display: flex;
             flex-direction: row;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 8px;
         }
         .custom-group label {
             font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
             color: #8899aa;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 500;
         }
         .custom-group input {
@@ -246,7 +254,7 @@
             color: #ffd700;
             font-size: 1.1rem;
             font-weight: bold;
-            width: 100px;
+            width: 110px;
             text-align: center;
             outline: none;
             transition: 0.3s;
@@ -259,12 +267,12 @@
             background: linear-gradient(135deg, #ffd700, #cc8800);
             border: none;
             color: #1a1a2e;
-            padding: 8px 16px;
+            padding: 10px 20px;
             border-radius: 50px;
             font-weight: 900;
             cursor: pointer;
             transition: 0.3s;
-            font-size: 0.85rem;
+            font-size: 1rem;
             white-space: nowrap;
             box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
         }
@@ -276,9 +284,9 @@
             background: rgba(255, 100, 100, 0.15);
             border: 2px solid rgba(255, 100, 100, 0.3);
             color: #ff6b6b;
-            padding: 6px 14px;
+            padding: 8px 16px;
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             font-weight: 700;
             cursor: pointer;
             transition: 0.3s;
@@ -411,14 +419,14 @@
             .counter-box .counter-label { font-size: 1.3rem; }
             .night-box .counter-number { font-size: 2.5rem; }
             .night-box { padding: 8px 16px; min-width: 130px; }
-            .btn-salavat { font-size: 0.75rem; padding: 5px 9px; min-width: 34px; min-height: 28px; }
-            .btn-salavat.one { font-size: 0.85rem; min-width: 30px; }
+            .btn-salavat { font-size: 1rem; padding: 10px 14px; min-width: 50px; min-height: 40px; }
+            .btn-salavat.one { font-size: 1rem; min-width: 45px; padding: 10px 12px; }
             .datetime-box { font-size: 0.8rem; padding: 10px 15px; }
             .datetime-box .value { font-size: 0.9rem; }
             .marquee-box .marquee-text { font-size: 1.6rem; }
             .marquee-box { padding: 12px 16px; min-height: 70px; }
-            .custom-group input { width: 80px; font-size: 1rem; }
-            .btn-undo { font-size: 0.75rem; padding: 5px 10px; }
+            .custom-group input { width: 90px; font-size: 1rem; }
+            .btn-undo { font-size: 0.8rem; padding: 6px 12px; }
         }
         @media (max-width: 480px) {
             body { padding: 8px; }
@@ -429,11 +437,11 @@
             .night-box .counter-number { font-size: 2rem; }
             .night-box { padding: 6px 12px; min-width: 100px; }
             .night-box .counter-label { font-size: 0.7rem; }
-            .btn-salavat { font-size: 0.65rem; padding: 4px 7px; min-width: 28px; min-height: 24px; }
-            .btn-salavat.one { font-size: 0.75rem; min-width: 26px; }
-            .custom-group input { width: 65px; font-size: 0.9rem; padding: 5px 8px; }
-            .custom-group .btn-add-number { padding: 5px 12px; font-size: 0.75rem; }
-            .btn-undo { font-size: 0.65rem; padding: 4px 8px; }
+            .btn-salavat { font-size: 0.85rem; padding: 8px 10px; min-width: 40px; min-height: 34px; }
+            .btn-salavat.one { font-size: 0.85rem; min-width: 36px; padding: 8px 8px; }
+            .custom-group input { width: 75px; font-size: 0.9rem; padding: 5px 8px; }
+            .custom-group .btn-add-number { padding: 6px 14px; font-size: 0.8rem; }
+            .btn-undo { font-size: 0.7rem; padding: 4px 10px; }
             .admin-area { gap: 6px; }
             .admin-link, .reset-night-link, .reset-night-now-link, .btn-report { padding: 4px 10px; font-size: 0.6rem; }
             .datetime-box { font-size: 0.65rem; padding: 6px 10px; }
@@ -441,6 +449,7 @@
             .datetime-box .night-badge { font-size: 0.7rem; padding: 3px 10px; }
             .marquee-box .marquee-text { font-size: 1.2rem; }
             .marquee-box { padding: 10px 12px; min-height: 60px; }
+            .night-with-btns .btn-row-label { font-size: 1rem; }
         }
     </style>
 </head>
@@ -458,7 +467,6 @@
             🕌 سامانه ثبت پویش بزرگ <span class="highlight">500 میلیون صلوات</span>
         </div>
 
-        <!-- ===== باکس مارکی (اصلاح شده) ===== -->
         <div class="marquee-box">
             <div class="marquee-track">
                 <div class="marquee-text">
@@ -485,9 +493,10 @@
         <div class="row-main">
             <div class="night-with-btns">
                 <div class="night-box">
-                    <div class="counter-label">🌙 صلوات‌های امشب </div>
+                    <div class="counter-label">🌙 صلوات‌های امروز</div>
                     <span class="counter-number" id="nightCount">۰</span>
                 </div>
+                <div class="btn-row-label">📌 لطفا تعداد صلوات مد نظر را انتخاب کنید</div>
                 <div class="btn-row" id="btnRow">
                     <button class="btn-salavat one" data-value="5">۵</button>
                     <button class="btn-salavat" data-value="10">۱۰</button>
@@ -516,15 +525,15 @@
 
         <div class="admin-area">
             <button class="admin-link" onclick="showAdminPanel()">🔐 پنل مدیریت</button>
-            <button class="reset-night-link" onclick="resetNightScheduled()">🌙 ریست خودکار (۰۱:۰۰)</button>
-            <button class="reset-night-now-link" onclick="resetNightNow()">⚡ ریست فوری امشب</button>
-            <button class="btn-report" onclick="generateNightReport()">📊 خروجی شبانه</button>
+            <button class="reset-night-link" onclick="resetNightScheduled()">🌙 ریست خودکار (۰۶:۰۰)</button>
+            <button class="reset-night-now-link" onclick="resetNightNow()">⚡ ریست فوری امروز</button>
+            <button class="btn-report" onclick="generateNightReport()">📊 خروجی روزانه</button>
         </div>
 
         <div class="datetime-box" id="datetimeBox">
             <span><span class="label">📅 تاریخ:</span> <span class="value" id="dateDisplay"></span></span>
             <span><span class="label">⏰ ساعت:</span> <span class="value" id="timeDisplay"></span></span>
-            <span class="night-badge" id="nightBadge">🌙 پویش شب</span>
+            <span class="night-badge" id="nightBadge">🌙 پویش روز</span>
         </div>
 
     </div>
@@ -543,7 +552,7 @@
         const TARGET_TOTAL = 500000000;
         let isUpdating = false;
 
-        const RESET_HOUR = 1;
+        const RESET_HOUR = 6;    // ← ساعت ۶ صبح
         const RESET_MINUTE = 0;
 
         // ============================================================
@@ -556,7 +565,7 @@
                 });
                 if (!response.ok) throw new Error('Network response was not ok');
                 const data = await response.json();
-                const record = data.record || { total: 0, night: 0, lastDate: '' };
+                const record = data.record || { total: 0, night: 0, lastDate: '', lastResetDate: '' };
                 currentTotal = record.total || 0;
                 currentNight = record.night || 0;
                 return record;
@@ -566,17 +575,25 @@
             }
         }
 
-        async function updateTotal(total, night) {
+        async function updateTotal(total, night, lastResetDate) {
             if (isUpdating) return false;
             isUpdating = true;
             try {
+                const payload = { 
+                    total: total, 
+                    night: night, 
+                    lastDate: new Date().toISOString() 
+                };
+                if (lastResetDate !== undefined) {
+                    payload.lastResetDate = lastResetDate;
+                }
                 const response = await fetch(JSONBIN_URL + BIN_ID, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
                         'X-Master-Key': MASTER_KEY
                     },
-                    body: JSON.stringify({ total: total, night: night, lastDate: new Date().toISOString() })
+                    body: JSON.stringify(payload)
                 });
                 if (!response.ok) throw new Error('Update failed');
                 isUpdating = false;
@@ -613,7 +630,6 @@
             element.classList.add('pop-anim');
         }
 
-        // تابع عمومی برای اضافه کردن (دکمه‌های آماده)
         async function addSalavat(count) {
             if (count <= 0 || isUpdating) return;
 
@@ -656,7 +672,6 @@
             addBtn.disabled = false;
         }
 
-        // تابع مخصوص عدد سفارشی (فقط با رمز)
         async function addCustomSalavat() {
             const pwd = prompt('🔑 لطفاً رمز مدیریت را برای اضافه کردن عدد سفارشی وارد کنید:');
             if (pwd !== '5113') {
@@ -732,25 +747,29 @@
         }
 
         // ============================================================
-        //  ریست خودکار شبانه در ساعت ۰۱:۰۰
+        //  ریست خودکار روزانه در ساعت ۰۶:۰۰ (با بررسی یک بار در روز)
         // ============================================================
         async function checkAndResetNight() {
             const now = new Date();
             const hour = now.getHours();
             const minute = now.getMinutes();
+            
+            // اگر ساعت به ۶:۰۰ یا بعد از آن رسیده باشد
             if (hour >= RESET_HOUR && minute >= RESET_MINUTE) {
                 const record = await fetchTotal();
                 if (record) {
-                    const lastDate = record.lastDate ? new Date(record.lastDate) : null;
-                    const today = new Date();
-                    if (!lastDate || lastDate.getDate() !== today.getDate() || lastDate.getMonth() !== today.getMonth() || lastDate.getFullYear() !== today.getFullYear()) {
+                    const lastResetDate = record.lastResetDate || '';
+                    const today = now.toISOString().slice(0, 10); // YYYY-MM-DD
+                    
+                    // اگر امروز ریست نشده باشد
+                    if (lastResetDate !== today) {
                         const total = record.total || 0;
-                        const success = await updateTotal(total, 0);
+                        const success = await updateTotal(total, 0, today);
                         if (success) {
                             currentTotal = total;
                             currentNight = 0;
                             updateDisplay(total, 0);
-                            document.getElementById('statusMsg').innerHTML = '🌙 شمارنده شب در ساعت ۰۱:۰۰ ریست شد.';
+                            document.getElementById('statusMsg').innerHTML = '🌙 شمارنده امروز در ساعت ۰۶:۰۰ ریست شد.';
                             document.getElementById('statusMsg').style.color = '#f39c12';
                         }
                     }
@@ -764,7 +783,7 @@
         async function resetNightNow() {
             const pwd = prompt('🔑 لطفاً رمز مدیریت را وارد کنید:');
             if (pwd === '5113') {
-                if (confirm('⚠️ آیا مطمئتید شمارنده صلوات امشب را هم‌اکنون صفر کنید؟')) {
+                if (confirm('⚠️ آیا مطمئتید شمارنده صلوات امروز را هم‌اکنون صفر کنید؟')) {
                     const record = await fetchTotal();
                     if (!record) {
                         document.getElementById('statusMsg').innerHTML = '❌ خطا در اتصال به دیتابیس!';
@@ -772,12 +791,13 @@
                         return;
                     }
                     const total = record.total || 0;
-                    const success = await updateTotal(total, 0);
+                    const today = new Date().toISOString().slice(0, 10);
+                    const success = await updateTotal(total, 0, today);
                     if (success) {
                         currentTotal = total;
                         currentNight = 0;
                         updateDisplay(total, 0);
-                        document.getElementById('statusMsg').innerHTML = '⚡ شمارنده امشب با موفقیت صفر شد.';
+                        document.getElementById('statusMsg').innerHTML = '⚡ شمارنده امروز با موفقیت صفر شد.';
                         document.getElementById('statusMsg').style.color = '#e67e22';
                     } else {
                         document.getElementById('statusMsg').innerHTML = '❌ خطا در ریست فوری!';
@@ -790,7 +810,7 @@
         }
 
         function resetNightScheduled() {
-            alert('🌙 ریست خودکار هر شب ساعت ۰۱:۰۰ بامداد انجام می‌شود.\nشما می‌توانید از دکمه «ریست فوری» برای صفر کردن هم‌اکنون استفاده کنید.');
+            alert('🌙 ریست خودکار هر روز ساعت ۰۶:۰۰ صبح انجام می‌شود.\nشما می‌توانید از دکمه «ریست فوری امروز» برای صفر کردن هم‌اکنون استفاده کنید.');
         }
 
         function generateNightReport() {
@@ -806,7 +826,7 @@
                 '═══════════════════════════\n' +
                 '📈 جمع کل صلوات: ' + total.toLocaleString('fa-IR') + '\n' +
                 '📊 باقیمانده تا 500 میلیون: ' + (remaining > 0 ? remaining.toLocaleString('fa-IR') : '۰') + '\n' +
-                '🌙 صلوات‌های امشب: ' + night.toLocaleString('fa-IR') + '\n' +
+                '🌙 صلوات‌های امروز: ' + night.toLocaleString('fa-IR') + '\n' +
                 '═══════════════════════════\n' +
                 '🕌 ادامه دهید تا به هدف 500 میلیون برسیم';
             alert(report);
@@ -820,8 +840,8 @@
                     '📊 **پنل مدیریت**\n\n' +
                     '📈 جمع کل: ' + currentTotal.toLocaleString('fa-IR') + '\n' +
                     '📊 باقیمانده تا 500 میلیون: ' + (remaining > 0 ? remaining.toLocaleString('fa-IR') : '۰') + '\n' +
-                    '🌙 شمارنده شب: ' + currentNight.toLocaleString('fa-IR') + '\n' +
-                    '⏰ ریست خودکار: ۰۱:۰۰ بامداد'
+                    '🌙 شمارنده امروز: ' + currentNight.toLocaleString('fa-IR') + '\n' +
+                    '⏰ ریست خودکار: ۰۶:۰۰ صبح'
                 );
             } else if (pass !== null) {
                 alert('❌ رمز عبور اشتباه است!');
@@ -833,7 +853,7 @@
         // ============================================================
         function getCurrentHour() { return new Date().getHours(); }
 
-        function isNightTime() { var h = getCurrentHour(); return h >= 18 && h <= 23; }
+        function isDayTime() { var h = getCurrentHour(); return h >= 6 && h <= 17; } // روز از ۶ صبح تا ۱۷
 
         function updateClock() {
             const now = new Date();
@@ -844,14 +864,14 @@
                 hour: '2-digit', minute: '2-digit', second: '2-digit' 
             });
 
-            const night = isNightTime();
+            const day = isDayTime();
             const badge = document.getElementById('nightBadge');
-            if (night) {
-                badge.innerHTML = '🌙 پویش شب (فعال)';
+            if (day) {
+                badge.innerHTML = '☀️ پویش روز (فعال)';
                 badge.style.borderColor = '#7fdbca';
                 badge.style.color = '#7fdbca';
             } else {
-                badge.innerHTML = '☀️ خارج از بازه شب';
+                badge.innerHTML = '🌙 خارج از بازه روز';
                 badge.style.borderColor = '#ffd700';
                 badge.style.color = '#ffd700';
             }
@@ -888,6 +908,7 @@
             updateClock();
             setInterval(updateClock, 1000);
 
+            // هر ۳۰ ثانیه یک بار چک کن برای ریست ۶:۰۰ (اما فقط یک بار در روز انجام می‌شه)
             setInterval(checkAndResetNight, 30000);
             checkAndResetNight();
         }
