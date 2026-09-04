@@ -286,72 +286,7 @@
         .btn-undo:hover { background: rgba(255, 100, 100, 0.25); border-color: #ff6b6b; color: #ff8888; transform: scale(1.05); }
         .btn-undo:disabled { opacity: 0.3; cursor: not-allowed; transform: none; }
 
-        .auto-deposit-section {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(127, 219, 202, 0.05));
-            border: 2px solid rgba(255, 215, 0, 0.2);
-            border-radius: 25px;
-            padding: 14px 20px;
-            margin: 10px 0;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .auto-deposit-section label {
-            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
-            color: #ffd700;
-            font-size: 1rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .auto-deposit-section label .icon { font-size: 1.2rem; }
-        .auto-deposit-section input {
-            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
-            background: rgba(0, 0, 0, 0.5);
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            border-radius: 50px;
-            padding: 10px 18px;
-            color: #ffd700;
-            font-size: 1.3rem;
-            font-weight: bold;
-            width: 130px;
-            text-align: center;
-            outline: none;
-            transition: 0.3s;
-            direction: ltr;
-        }
-        .auto-deposit-section input:focus { border-color: #ffd700; box-shadow: 0 0 25px rgba(255, 215, 0, 0.2); }
-        .auto-deposit-section input::placeholder { color: #556677; font-weight: normal; font-size: 0.8rem; }
-        .btn-auto-deposit {
-            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
-            background: linear-gradient(135deg, #7fdbca, #3a9a8a);
-            border: none;
-            color: #0a1a1a;
-            padding: 10px 22px;
-            border-radius: 50px;
-            font-weight: 900;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 0.95rem;
-            white-space: nowrap;
-            box-shadow: 0 5px 15px rgba(127, 219, 202, 0.2);
-        }
-        .btn-auto-deposit:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(127, 219, 202, 0.4); }
-        .btn-auto-deposit:active { transform: scale(0.95); }
-        .auto-deposit-status {
-            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
-            color: #7fdbca;
-            font-size: 0.85rem;
-            padding: 4px 14px;
-            border-radius: 50px;
-            background: rgba(127, 219, 202, 0.1);
-            border: 1px solid rgba(127, 219, 202, 0.2);
-            font-weight: bold;
-        }
+        /* بخش اعمال تنظیمات (Auto-Deposit) کاملاً حذف شد */
 
         .status-msg {
             font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
@@ -384,7 +319,7 @@
             gap: 10px;
             flex-wrap: wrap;
         }
-        .admin-link, .reset-link, .btn-report {
+        .admin-link, .reset-link, .btn-report, .reset-night-link {
             font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
             display: inline-block;
             color: #8899aa;
@@ -397,9 +332,12 @@
             cursor: pointer;
             background: rgba(255, 215, 0, 0.02);
             font-weight: 500;
+            border: none;
+            background: transparent;
         }
         .admin-link:hover { color: #ffd700; border-color: #ffd700; background: rgba(255, 215, 0, 0.08); box-shadow: 0 0 30px rgba(255, 215, 0, 0.05); }
         .reset-link:hover { color: #ff6b6b; border-color: #ff6b6b; background: rgba(255, 107, 107, 0.05); }
+        .reset-night-link:hover { color: #f39c12; border-color: #f39c12; background: rgba(243, 156, 18, 0.08); }
         .btn-report {
             background: linear-gradient(135deg, rgba(127, 219, 202, 0.05), rgba(255, 215, 0, 0.05));
             border-color: #7fdbca;
@@ -480,7 +418,6 @@
             .datetime-box .value { font-size: 0.9rem; }
             .marquee-box .marquee-text { font-size: 1.6rem; }
             .marquee-box { padding: 12px 16px; min-height: 70px; }
-            .auto-deposit-section input { width: 100px; font-size: 1.1rem; padding: 8px 14px; }
             .custom-group input { width: 80px; font-size: 1rem; }
             .btn-undo { font-size: 0.75rem; padding: 5px 10px; }
         }
@@ -498,11 +435,8 @@
             .custom-group input { width: 65px; font-size: 0.9rem; padding: 5px 8px; }
             .custom-group .btn-add-number { padding: 5px 12px; font-size: 0.75rem; }
             .btn-undo { font-size: 0.65rem; padding: 4px 8px; }
-            .auto-deposit-section { padding: 10px 14px; gap: 8px; }
-            .auto-deposit-section input { width: 70px; font-size: 0.9rem; padding: 6px 10px; }
-            .btn-auto-deposit { padding: 6px 14px; font-size: 0.75rem; }
             .admin-area { gap: 6px; }
-            .admin-link, .reset-link, .btn-report { padding: 4px 10px; font-size: 0.6rem; }
+            .admin-link, .reset-link, .btn-report, .reset-night-link { padding: 4px 10px; font-size: 0.6rem; }
             .datetime-box { font-size: 0.65rem; padding: 6px 10px; }
             .datetime-box .value { font-size: 0.75rem; }
             .datetime-box .night-badge { font-size: 0.7rem; padding: 3px 10px; }
@@ -786,7 +720,7 @@
 
             <div class="counter-box teal">
                 <div class="counter-label">📊 باقیمانده تا 500 میلیون</div>
-                <span class="counter-number" id="remainingCount">۱۵۰٬۰۰۰٬۰۰۰</span>
+                <span class="counter-number" id="remainingCount">۵۰۰٬۰۰۰٬۰۰۰</span>
             </div>
         </div>
 
@@ -816,12 +750,7 @@
             </div>
         </div>
 
-        <div class="auto-deposit-section">
-            <label><span class="icon">📦</span> هر شب اضافه کن:</label>
-            <input type="number" id="autoDepositInput" min="0" placeholder="مثلاً ۵۰" value="50">
-            <button class="btn-auto-deposit" id="autoDepositBtn">⚡ اعمال تنظیم</button>
-            <span class="auto-deposit-status" id="autoDepositStatus">غیرفعال</span>
-        </div>
+        <!-- بخش Auto-Deposit (اعمال تنظیمات) کاملاً حذف شد -->
 
         <div class="status-msg" id="statusMsg">✨ هر کلیک یک صلوات | عدد دلخواه را وارد و اضافه کن!</div>
 
@@ -829,6 +758,7 @@
 
         <div class="admin-area">
             <button class="admin-link" onclick="showAdminPanel()">🔐 پنل مدیریت</button>
+            <button class="reset-night-link" onclick="resetNightOnly()">🌙 ریست صلوات امشب</button>
             <button class="reset-link" onclick="resetAll()">🗑️ ریست کامل</button>
             <button class="btn-report" onclick="generateNightReport()">📊 خروجی شبانه</button>
         </div>
@@ -852,8 +782,12 @@
         let lastAddedValue = 0;
         let currentTotal = 0;
         let currentNight = 0;
-        const TARGET_TOTAL = 200000000;
+        const TARGET_TOTAL = 500000000;  // ← هدف ۵۰۰ میلیون
         let isUpdating = false;
+
+        // زمان ریست خودکار: ۰۱:۰۰ بامداد
+        const RESET_HOUR = 1;
+        const RESET_MINUTE = 0;
 
         // ============================================================
         //  توابع اتصال به دیتابیس
@@ -1015,7 +949,147 @@
         }
 
         // ============================================================
-        //  اتصال رویدادها
+        //  ریست خودکار شبانه در ساعت ۰۱:۰۰
+        // ============================================================
+        async function checkAndResetNight() {
+            const now = new Date();
+            const hour = now.getHours();
+            const minute = now.getMinutes();
+            // اگر ساعت ۰۱:۰۰ یا بعد از آن باشد و روز تغییر کرده باشد، ریست کن
+            if (hour >= RESET_HOUR && minute >= RESET_MINUTE) {
+                const record = await fetchTotal();
+                if (record) {
+                    // بررسی کنیم که آیا امروز ریست شده است یا نه (با مقایسه تاریخ)
+                    const lastDate = record.lastDate ? new Date(record.lastDate) : null;
+                    const today = new Date();
+                    if (!lastDate || lastDate.getDate() !== today.getDate() || lastDate.getMonth() !== today.getMonth() || lastDate.getFullYear() !== today.getFullYear()) {
+                        // هنوز امروز ریست نشده، پس ریست کن
+                        const total = record.total || 0;
+                        const success = await updateTotal(total, 0);
+                        if (success) {
+                            currentTotal = total;
+                            currentNight = 0;
+                            updateDisplay(total, 0);
+                            document.getElementById('statusMsg').innerHTML = '🌙 شمارنده شب در ساعت ۰۱:۰۰ ریست شد.';
+                            document.getElementById('statusMsg').style.color = '#f39c12';
+                        }
+                    }
+                }
+            }
+        }
+
+        // ============================================================
+        //  توابع مدیریتی (دکمه‌ها)
+        // ============================================================
+        async function resetAll() {
+            if (confirm('⚠️ هشدار! تمام آمار برای همیشه پاک می‌شود! آیا مطمئن هستید؟')) {
+                const success = await updateTotal(0, 0);
+                if (success) {
+                    currentTotal = 0;
+                    currentNight = 0;
+                    lastAddedValue = 0;
+                    updateDisplay(0, 0);
+                    document.getElementById('statusMsg').innerHTML = '🔥 تمام آمار با موفقیت ریست شد.';
+                    document.getElementById('statusMsg').style.color = '#e74c3c';
+                } else {
+                    document.getElementById('statusMsg').innerHTML = '❌ خطا در ریست کردن!';
+                    document.getElementById('statusMsg').style.color = '#e74c3c';
+                }
+            }
+        }
+
+        async function resetNightOnly() {
+            const pwd = prompt('🔑 لطفاً رمز مدیریت را وارد کنید:');
+            if (pwd === '5113') {
+                const record = await fetchTotal();
+                if (!record) {
+                    document.getElementById('statusMsg').innerHTML = '❌ خطا در اتصال به دیتابیس!';
+                    document.getElementById('statusMsg').style.color = '#e74c3c';
+                    return;
+                }
+                const total = record.total || 0;
+                const success = await updateTotal(total, 0);
+                if (success) {
+                    currentTotal = total;
+                    currentNight = 0;
+                    updateDisplay(total, 0);
+                    document.getElementById('statusMsg').innerHTML = '🌙 شمارنده امشب با موفقیت صفر شد.';
+                    document.getElementById('statusMsg').style.color = '#f39c12';
+                } else {
+                    document.getElementById('statusMsg').innerHTML = '❌ خطا در ریست امشب!';
+                    document.getElementById('statusMsg').style.color = '#e74c3c';
+                }
+            } else if (pwd !== null) {
+                alert('❌ رمز عبور اشتباه است!');
+            }
+        }
+
+        function generateNightReport() {
+            const total = currentTotal;
+            const night = currentNight;
+            const remaining = TARGET_TOTAL - total;
+            const now = new Date();
+            const report = 
+                '📊 **گزارش وضعیت پویش صلوات** 📊\n' +
+                '═══════════════════════════\n' +
+                '📅 تاریخ: ' + now.toLocaleDateString('fa-IR', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' }) + '\n' +
+                '⏰ ساعت: ' + now.toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) + '\n' +
+                '═══════════════════════════\n' +
+                '📈 جمع کل صلوات: ' + total.toLocaleString('fa-IR') + '\n' +
+                '📊 باقیمانده تا 500 میلیون: ' + (remaining > 0 ? remaining.toLocaleString('fa-IR') : '۰') + '\n' +
+                '🌙 صلوات‌های امشب: ' + night.toLocaleString('fa-IR') + '\n' +
+                '═══════════════════════════\n' +
+                '🕌 ادامه دهید تا به هدف 500 میلیون برسیم';
+            alert(report);
+        }
+
+        function showAdminPanel() {
+            const pass = prompt('🔑 لطفاً رمز عبور پنل مدیریت را وارد کنید:');
+            if (pass === '5113') {
+                const remaining = TARGET_TOTAL - currentTotal;
+                alert(
+                    '📊 **پنل مدیریت**\n\n' +
+                    '📈 جمع کل: ' + currentTotal.toLocaleString('fa-IR') + '\n' +
+                    '📊 باقیمانده تا 500 میلیون: ' + (remaining > 0 ? remaining.toLocaleString('fa-IR') : '۰') + '\n' +
+                    '🌙 شمارنده شب: ' + currentNight.toLocaleString('fa-IR') + '\n' +
+                    '⏰ بازه شب: ۱۸ تا ۰۰'
+                );
+            } else if (pass !== null) {
+                alert('❌ رمز عبور اشتباه است!');
+            }
+        }
+
+        // ============================================================
+        //  توابع تاریخ و زمان
+        // ============================================================
+        function getCurrentHour() { return new Date().getHours(); }
+
+        function isNightTime() { var h = getCurrentHour(); return h >= 18 && h <= 23; }
+
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('dateDisplay').innerText = now.toLocaleDateString('fa-IR', { 
+                year: 'numeric', month: '2-digit', day: '2-digit', weekday: 'long' 
+            });
+            document.getElementById('timeDisplay').innerText = now.toLocaleTimeString('fa-IR', { 
+                hour: '2-digit', minute: '2-digit', second: '2-digit' 
+            });
+
+            const night = isNightTime();
+            const badge = document.getElementById('nightBadge');
+            if (night) {
+                badge.innerHTML = '🌙 پویش شب (فعال)';
+                badge.style.borderColor = '#7fdbca';
+                badge.style.color = '#7fdbca';
+            } else {
+                badge.innerHTML = '☀️ خارج از بازه شب';
+                badge.style.borderColor = '#ffd700';
+                badge.style.color = '#ffd700';
+            }
+        }
+
+        // ============================================================
+        //  اتصال رویدادها و راه‌اندازی
         // ============================================================
         async function init() {
             const loading = document.getElementById('loadingOverlay');
@@ -1044,6 +1118,12 @@
 
             updateClock();
             setInterval(updateClock, 1000);
+
+            // تایمر برای ریست خودکار در ۰۱:۰۰ (هر ۳۰ ثانیه یک بار چک کن)
+            setInterval(checkAndResetNight, 30000);
+
+            // همچنین هنگام بارگذاری صفحه یک بار چک کن
+            checkAndResetNight();
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -1096,90 +1176,6 @@
                 }
             });
         });
-
-        // ============================================================
-        //  توابع تاریخ و زمان
-        // ============================================================
-        function getCurrentHour() { return new Date().getHours(); }
-
-        function isNightTime() { var h = getCurrentHour(); return h >= 18 && h <= 23; }
-
-        function updateClock() {
-            const now = new Date();
-            document.getElementById('dateDisplay').innerText = now.toLocaleDateString('fa-IR', { 
-                year: 'numeric', month: '2-digit', day: '2-digit', weekday: 'long' 
-            });
-            document.getElementById('timeDisplay').innerText = now.toLocaleTimeString('fa-IR', { 
-                hour: '2-digit', minute: '2-digit', second: '2-digit' 
-            });
-
-            const night = isNightTime();
-            const badge = document.getElementById('nightBadge');
-            if (night) {
-                badge.innerHTML = '🌙 پویش شب (فعال)';
-                badge.style.borderColor = '#7fdbca';
-                badge.style.color = '#7fdbca';
-            } else {
-                badge.innerHTML = '☀️ خارج از بازه شب';
-                badge.style.borderColor = '#ffd700';
-                badge.style.color = '#ffd700';
-            }
-        }
-
-        // ============================================================
-        //  توابع مدیریتی
-        // ============================================================
-        async function resetAll() {
-            if (confirm('⚠️ هشدار! تمام آمار برای همیشه پاک می‌شود! آیا مطمئن هستید؟')) {
-                const success = await updateTotal(0, 0);
-                if (success) {
-                    currentTotal = 0;
-                    currentNight = 0;
-                    lastAddedValue = 0;
-                    updateDisplay(0, 0);
-                    document.getElementById('statusMsg').innerHTML = '🔥 تمام آمار با موفقیت ریست شد.';
-                    document.getElementById('statusMsg').style.color = '#e74c3c';
-                } else {
-                    document.getElementById('statusMsg').innerHTML = '❌ خطا در ریست کردن!';
-                    document.getElementById('statusMsg').style.color = '#e74c3c';
-                }
-            }
-        }
-
-        function generateNightReport() {
-            const total = currentTotal;
-            const night = currentNight;
-            const remaining = TARGET_TOTAL - total;
-            const now = new Date();
-            const report = 
-                '📊 **گزارش وضعیت پویش صلوات** 📊\n' +
-                '═══════════════════════════\n' +
-                '📅 تاریخ: ' + now.toLocaleDateString('fa-IR', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' }) + '\n' +
-                '⏰ ساعت: ' + now.toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) + '\n' +
-                '═══════════════════════════\n' +
-                '📈 جمع کل صلوات: ' + total.toLocaleString('fa-IR') + '\n' +
-                '📊 باقیمانده تا 500 میلیون: ' + (remaining > 0 ? remaining.toLocaleString('fa-IR') : '۰') + '\n' +
-                '🌙 صلوات‌های امشب: ' + night.toLocaleString('fa-IR') + '\n' +
-                '═══════════════════════════\n' +
-                '🕌 ادامه دهید تا به هدف 500 میلیون برسیم';
-            alert(report);
-        }
-
-        function showAdminPanel() {
-            const pass = prompt('🔑 لطفاً رمز عبور پنل مدیریت را وارد کنید:');
-            if (pass === '5113') {
-                const remaining = TARGET_TOTAL - currentTotal;
-                alert(
-                    '📊 **پنل مدیریت**\n\n' +
-                    '📈 جمع کل: ' + currentTotal.toLocaleString('fa-IR') + '\n' +
-                    '📊 باقیمانده تا 500 میلیون: ' + (remaining > 0 ? remaining.toLocaleString('fa-IR') : '۰') + '\n' +
-                    '🌙 شمارنده شب: ' + currentNight.toLocaleString('fa-IR') + '\n' +
-                    '⏰ بازه شب: ۱۸ تا ۰۰'
-                );
-            } else if (pass !== null) {
-                alert('❌ رمز عبور اشتباه است!');
-            }
-        }
 
         // ============================================================
         //  اجرای اولیه
