@@ -229,11 +229,11 @@
         }
         .custom-group input {
             font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
-            background: rgba(0, 0, 0, 0.5);
-            border: 2px solid rgba(255, 215, 0, 0.3);
+            background: #fff;
+            border: 2px solid #d4af37;
             border-radius: 50px;
             padding: 8px 12px;
-            color: #ffd700;
+            color: #1a1a2e;
             font-size: 1.1rem;
             font-weight: bold;
             width: 110px;
@@ -241,9 +241,6 @@
             outline: none;
             transition: 0.3s;
             direction: ltr;
-            background: #fff;
-            color: #1a1a2e;
-            border-color: #d4af37;
         }
         .custom-group input:focus { border-color: #ffd700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.2); }
         .custom-group input::placeholder { color: #8899aa; font-weight: normal; font-size: 0.9rem; }
@@ -488,7 +485,7 @@
                 <button class="btn-undo" id="undoBtn" disabled style="opacity:0.3;">↺ برگشت</button>
             </div>
         </div>
-        <div class="status-msg" id="statusMsg">✨ عدد دلخواه را وارد و اضافه کن!</div>
+        <div class="status-msg" id="statusMsg">✨ هر کلیک یک صلوات | عدد دلخواه را وارد و اضافه کن!</div>
         <div class="db-status" id="dbStatus">⏳ در حال اتصال...</div>
         <div class="admin-area">
             <button class="admin-link" onclick="showAdminPanel()">🔐 پنل مدیریت</button>
@@ -515,7 +512,7 @@
         let currentNight = 0;
         const TARGET_TOTAL = 500000000;
         let isUpdating = false;
-        let undoCount = 0; // شمارنده برگشت‌های انجام‌شده
+        let undoCount = 0;
 
         // ============================================================
         //  توابع اتصال به دیتابیس
@@ -615,7 +612,7 @@
                 currentTotal = total;
                 currentNight = night;
                 lastAddedValue = count;
-                undoCount = 0; // اجازه برگشت دوباره
+                undoCount = 0;
                 updateDisplay(total, night);
                 animateCounter(document.getElementById('totalCount'));
                 animateCounter(document.getElementById('nightCount'));
@@ -677,7 +674,6 @@
                 return;
             }
 
-            // فقط یک بار برگشت مجاز است
             if (undoCount >= 1) {
                 document.getElementById('statusMsg').innerHTML = '⚠️ شما قبلاً یک بار برگشت زده‌اید. برای برگشت دوباره، ابتدا یک صلوات جدید اضافه کنید.';
                 document.getElementById('statusMsg').style.color = '#f1c40f';
@@ -723,7 +719,7 @@
         }
 
         // ============================================================
-        //  دکمه‌های مدیریتی (ریست دستی با رمز)
+        //  دکمه‌های مدیریتی (ریست دستی با رمز) - بدون هیچ ریست خودکار
         // ============================================================
         async function resetNightNow() {
             const pwd = prompt('🔑 لطفاً رمز مدیریت را وارد کنید:');
@@ -813,7 +809,7 @@
                     '📈 جمع کل: ' + currentTotal.toLocaleString('fa-IR') + '\n' +
                     '📊 باقیمانده تا 500 میلیون: ' + (remaining > 0 ? remaining.toLocaleString('fa-IR') : '۰') + '\n' +
                     '🌙 شمارنده امروز: ' + currentNight.toLocaleString('fa-IR') + '\n' +
-                    '⏰ ریست خودکار: غیرفعال'
+                    '⏰ ریست خودکار: 🔴 غیرفعال (فقط دستی)'
                 );
             } else if (pass !== null) {
                 alert('❌ رمز عبور اشتباه است!');
@@ -821,12 +817,8 @@
         }
 
         // ============================================================
-        //  توابع تاریخ و زمان
+        //  توابع تاریخ و زمان (فقط برای نمایش)
         // ============================================================
-        function getCurrentHour() { return new Date().getHours(); }
-
-        function isDayTime() { var h = getCurrentHour(); return h >= 6 && h <= 17; }
-
         function updateClock() {
             const now = new Date();
             document.getElementById('dateDisplay').innerText = now.toLocaleDateString('fa-IR', { 
@@ -836,9 +828,9 @@
                 hour: '2-digit', minute: '2-digit', second: '2-digit' 
             });
 
-            const day = isDayTime();
+            const h = now.getHours();
             const badge = document.getElementById('nightBadge');
-            if (day) {
+            if (h >= 6 && h <= 17) {
                 badge.innerHTML = '☀️ پویش روز (فعال)';
                 badge.style.borderColor = '#7fdbca';
                 badge.style.color = '#7fdbca';
@@ -856,6 +848,10 @@
             const loading = document.getElementById('loadingOverlay');
             const container = document.getElementById('mainContainer');
             const dbStatus = document.getElementById('dbStatus');
+
+            // 🔴 تأکید بر غیرفعال بودن ریست خودکار
+            console.log('🔴 ریست خودکار به طور کامل در این نسخه غیرفعال است.');
+            console.log('✅ فقط دکمه‌های ریست دستی (با رمز) کار می‌کنند.');
 
             const record = await fetchTotal();
             if (record) {
