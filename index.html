@@ -27,7 +27,6 @@
             text-align: center;
             box-shadow: 0 30px 80px rgba(0,0,0,0.8), 0 0 60px rgba(255,215,0,0.15);
         }
-
         .main-title {
             font-family: 'Titr', 'Vazir', 'IRANSans', sans-serif;
             color: #5d2e0c;
@@ -39,10 +38,7 @@
             border-bottom: 3px solid rgba(93, 46, 12, 0.15);
             margin-bottom: 20px;
         }
-        .main-title .highlight {
-            color: #8d5a2a;
-        }
-
+        .main-title .highlight { color: #8d5a2a; }
         .marquee-box {
             background: #eaf2f8;
             border: 3px solid #85c1e9;
@@ -84,7 +80,6 @@
         .marquee-box .marquee-text .address { color: #5d6d7e; font-size: 1.1rem; font-weight: 400; }
         .marquee-box .marquee-text .sep { color: #85c1e9; margin: 0 8px; }
         .marquee-box .marquee-text .niyyah { color: #b7950b; text-shadow: 0 0 40px rgba(184, 149, 11, 0.15); }
-
         .counters-column {
             display: flex;
             flex-direction: column;
@@ -117,7 +112,6 @@
             transition: transform 0.2s;
             direction: ltr;
         }
-
         .counter-box.gold {
             background: #ffffff;
             border: 3px solid #d4af37;
@@ -132,22 +126,13 @@
             50% { color: #2d8a2d; text-shadow: 0 0 120px rgba(26, 90, 26, 1), 0 0 200px rgba(26, 90, 26, 0.6), 0 0 300px rgba(26, 90, 26, 0.2); transform: scale(1.02); }
             100% { color: #1a5a1a; text-shadow: 0 0 80px rgba(26, 90, 26, 0.8), 0 0 160px rgba(26, 90, 26, 0.4), 0 0 240px rgba(26, 90, 26, 0.1); transform: scale(1); }
         }
-        .counter-box.gold .counter-label {
-            color: #5d6d7e;
-        }
-
+        .counter-box.gold .counter-label { color: #5d6d7e; }
         .counter-box.teal {
             background: #fdebd0;
             border: 3px solid #e67e22;
         }
-        .counter-box.teal .counter-number {
-            color: #e67e22;
-            text-shadow: 0 0 40px rgba(230, 126, 34, 0.3);
-        }
-        .counter-box.teal .counter-label {
-            color: #5d6d7e;
-        }
-
+        .counter-box.teal .counter-number { color: #e67e22; text-shadow: 0 0 40px rgba(230, 126, 34, 0.3); }
+        .counter-box.teal .counter-label { color: #5d6d7e; }
         .row-main {
             display: flex;
             flex-direction: row;
@@ -171,7 +156,6 @@
             font-weight: 500;
             margin-bottom: 4px;
         }
-
         .night-box {
             background: #ffffff;
             border: 2px solid #d4af37;
@@ -198,7 +182,6 @@
             color: #1a1a2e;
             text-shadow: none;
         }
-
         .btn-row {
             display: flex;
             flex-direction: row;
@@ -229,7 +212,6 @@
         .btn-salavat:active { transform: scale(0.93); }
         .btn-salavat:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
         .btn-salavat.one { background: #ffffff; border: 2px solid #d4af37; font-size: 1.2rem; min-width: 55px; padding: 12px 16px; }
-
         .custom-group {
             display: flex;
             flex-direction: row;
@@ -259,9 +241,12 @@
             outline: none;
             transition: 0.3s;
             direction: ltr;
+            background: #fff;
+            color: #1a1a2e;
+            border-color: #d4af37;
         }
         .custom-group input:focus { border-color: #ffd700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.2); }
-        .custom-group input::placeholder { color: #556677; font-weight: normal; font-size: 0.8rem; }
+        .custom-group input::placeholder { color: #8899aa; font-weight: normal; font-size: 0.9rem; }
         .custom-group .btn-add-number {
             font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
             background: linear-gradient(135deg, #ffd700, #cc8800);
@@ -278,7 +263,6 @@
         }
         .custom-group .btn-add-number:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4); }
         .custom-group .btn-add-number:active { transform: scale(0.95); }
-
         .btn-undo {
             font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
             background: rgba(255, 100, 100, 0.15);
@@ -294,7 +278,6 @@
         }
         .btn-undo:hover { background: rgba(255, 100, 100, 0.25); border-color: #ff6b6b; color: #ff8888; transform: scale(1.05); }
         .btn-undo:disabled { opacity: 0.3; cursor: not-allowed; transform: none; }
-
         .status-msg {
             font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
             color: #ffd700;
@@ -304,7 +287,6 @@
             font-weight: 500;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
         }
-
         .db-status {
             font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
             font-size: 0.8rem;
@@ -318,7 +300,6 @@
         .db-status.online { color: #27ae60; }
         .db-status.offline { color: #e74c3c; }
         .db-status.loading { color: #f39c12; }
-
         .admin-area {
             margin-top: 12px;
             display: flex;
@@ -326,7 +307,7 @@
             gap: 10px;
             flex-wrap: wrap;
         }
-        .admin-link, .reset-night-link, .reset-night-now-link, .btn-report {
+        .admin-link, .reset-night-now-link, .btn-report, .manual-reset-link {
             font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
             display: inline-block;
             color: #8899aa;
@@ -343,15 +324,14 @@
             background: transparent;
         }
         .admin-link:hover { color: #ffd700; border-color: #ffd700; background: rgba(255, 215, 0, 0.08); box-shadow: 0 0 30px rgba(255, 215, 0, 0.05); }
-        .reset-night-link:hover { color: #f39c12; border-color: #f39c12; background: rgba(243, 156, 18, 0.08); }
         .reset-night-now-link:hover { color: #e67e22; border-color: #e67e22; background: rgba(230, 126, 34, 0.08); }
+        .manual-reset-link:hover { color: #e74c3c; border-color: #e74c3c; background: rgba(231, 76, 60, 0.08); }
         .btn-report {
             background: linear-gradient(135deg, rgba(127, 219, 202, 0.05), rgba(255, 215, 0, 0.05));
             border-color: #7fdbca;
             color: #7fdbca;
         }
         .btn-report:hover { color: #ffd700; border-color: #ffd700; background: rgba(255, 215, 0, 0.08); transform: scale(1.05); }
-
         .datetime-box {
             background: rgba(255, 215, 0, 0.05);
             border-radius: 20px;
@@ -379,10 +359,8 @@
             border: 2px solid #ffd700;
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
         }
-
         @keyframes pop { 0% { transform: scale(1); } 40% { transform: scale(1.35); color: #fff; } 100% { transform: scale(1); } }
         .pop-anim { animation: pop 0.4s ease; }
-
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -410,7 +388,6 @@
             margin-bottom: 20px;
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
         @media (max-width: 992px) { .row-main { flex-direction: column; align-items: stretch; gap: 10px; } .night-with-btns { justify-content: center; } .btn-row { justify-content: center; } .custom-group { justify-content: center; } }
         @media (max-width: 768px) {
             .container { padding: 25px 20px; border-radius: 40px 15px 40px 15px; }
@@ -443,7 +420,7 @@
             .custom-group .btn-add-number { padding: 6px 14px; font-size: 0.8rem; }
             .btn-undo { font-size: 0.7rem; padding: 4px 10px; }
             .admin-area { gap: 6px; }
-            .admin-link, .reset-night-link, .reset-night-now-link, .btn-report { padding: 4px 10px; font-size: 0.6rem; }
+            .admin-link, .reset-night-now-link, .btn-report, .manual-reset-link { padding: 4px 10px; font-size: 0.6rem; }
             .datetime-box { font-size: 0.65rem; padding: 6px 10px; }
             .datetime-box .value { font-size: 0.75rem; }
             .datetime-box .night-badge { font-size: 0.7rem; padding: 3px 10px; }
@@ -454,19 +431,15 @@
     </style>
 </head>
 <body>
-
     <div class="loading-overlay" id="loadingOverlay">
         <div class="spinner"></div>
         <div>⏳ در حال اتصال به دیتابیس...</div>
         <div style="font-size: 0.9rem; color: #8899aa; margin-top: 10px;">لطفاً چند لحظه صبر کنید</div>
     </div>
-
     <div class="container" id="mainContainer" style="display:none;">
-        
         <div class="main-title">
             🕌 سامانه ثبت پویش بزرگ <span class="highlight">500 میلیون صلوات</span>
         </div>
-
         <div class="marquee-box">
             <div class="marquee-track">
                 <div class="marquee-text">
@@ -477,19 +450,16 @@
                 </div>
             </div>
         </div>
-
         <div class="counters-column">
             <div class="counter-box gold">
                 <div class="counter-label">✨ جمع کل صلوات</div>
                 <span class="counter-number" id="totalCount">۰</span>
             </div>
-
             <div class="counter-box teal">
                 <div class="counter-label">📊 باقیمانده تا 500 میلیون</div>
                 <span class="counter-number" id="remainingCount">۵۰۰٬۰۰۰٬۰۰۰</span>
             </div>
         </div>
-
         <div class="row-main">
             <div class="night-with-btns">
                 <div class="night-box">
@@ -513,31 +483,25 @@
             </div>
             <div class="custom-group">
                 <label>➕</label>
-                <input type="number" id="addInput" min="1" placeholder="عدد" value="">
+                <input type="number" id="addInput" min="1" placeholder="عدد دلخواه" value="">
                 <button class="btn-add-number" id="addNumberBtn">عدد دلخواه</button>
                 <button class="btn-undo" id="undoBtn" disabled style="opacity:0.3;">↺ برگشت</button>
             </div>
         </div>
-
-        <div class="status-msg" id="statusMsg">✨ هر کلیک یک صلوات | عدد دلخواه را وارد و اضافه کن!</div>
-
+        <div class="status-msg" id="statusMsg">✨ عدد دلخواه را وارد و اضافه کن!</div>
         <div class="db-status" id="dbStatus">⏳ در حال اتصال...</div>
-
         <div class="admin-area">
             <button class="admin-link" onclick="showAdminPanel()">🔐 پنل مدیریت</button>
-            <button class="reset-night-link" onclick="resetNightScheduled()">🌙 ریست خودکار (۰۶:۰۰)</button>
             <button class="reset-night-now-link" onclick="resetNightNow()">⚡ ریست فوری امروز</button>
+            <button class="manual-reset-link" onclick="manualReset()">🔴 ریست دستی امروز (با رمز)</button>
             <button class="btn-report" onclick="generateNightReport()">📊 خروجی روزانه</button>
         </div>
-
         <div class="datetime-box" id="datetimeBox">
             <span><span class="label">📅 تاریخ:</span> <span class="value" id="dateDisplay"></span></span>
             <span><span class="label">⏰ ساعت:</span> <span class="value" id="timeDisplay"></span></span>
             <span class="night-badge" id="nightBadge">🌙 پویش روز</span>
         </div>
-
     </div>
-
     <script>
         // ============================================================
         //  تنظیمات jsonbin.io
@@ -551,9 +515,7 @@
         let currentNight = 0;
         const TARGET_TOTAL = 500000000;
         let isUpdating = false;
-
-        const RESET_HOUR = 6;    // ← ساعت ۶ صبح
-        const RESET_MINUTE = 0;
+        let undoCount = 0; // شمارنده برگشت‌های انجام‌شده
 
         // ============================================================
         //  توابع اتصال به دیتابیس
@@ -565,7 +527,7 @@
                 });
                 if (!response.ok) throw new Error('Network response was not ok');
                 const data = await response.json();
-                const record = data.record || { total: 0, night: 0, lastDate: '', lastResetDate: '' };
+                const record = data.record || { total: 0, night: 0, lastDate: '' };
                 currentTotal = record.total || 0;
                 currentNight = record.night || 0;
                 return record;
@@ -575,18 +537,15 @@
             }
         }
 
-        async function updateTotal(total, night, lastResetDate) {
+        async function updateTotal(total, night) {
             if (isUpdating) return false;
             isUpdating = true;
             try {
-                const payload = { 
-                    total: total, 
-                    night: night, 
-                    lastDate: new Date().toISOString() 
+                const payload = {
+                    total: total,
+                    night: night,
+                    lastDate: new Date().toISOString()
                 };
-                if (lastResetDate !== undefined) {
-                    payload.lastResetDate = lastResetDate;
-                }
                 const response = await fetch(JSONBIN_URL + BIN_ID, {
                     method: 'PUT',
                     headers: {
@@ -615,7 +574,7 @@
             document.getElementById('remainingCount').innerText = (remaining > 0 ? remaining : 0).toLocaleString('fa-IR');
             
             const undoBtn = document.getElementById('undoBtn');
-            if (lastAddedValue > 0) {
+            if (lastAddedValue > 0 && undoCount === 0) {
                 undoBtn.disabled = false;
                 undoBtn.style.opacity = '1';
             } else {
@@ -656,6 +615,7 @@
                 currentTotal = total;
                 currentNight = night;
                 lastAddedValue = count;
+                undoCount = 0; // اجازه برگشت دوباره
                 updateDisplay(total, night);
                 animateCounter(document.getElementById('totalCount'));
                 animateCounter(document.getElementById('nightCount'));
@@ -673,14 +633,9 @@
         }
 
         async function addCustomSalavat() {
-            const pwd = prompt('🔑 لطفاً رمز مدیریت را برای اضافه کردن عدد سفارشی وارد کنید:');
-            if (pwd !== '5113') {
-                if (pwd !== null) alert('❌ رمز عبور اشتباه است!');
-                return;
-            }
-
             const rawValue = document.getElementById('addInput').value.replace(/,/g, '').replace(/\s/g, '');
             const numberToAdd = parseInt(rawValue);
+            
             if (isNaN(numberToAdd) || numberToAdd <= 0) {
                 document.getElementById('statusMsg').innerHTML = '⚠️ لطفاً یک عدد صحیح و بزرگتر از صفر وارد کن!';
                 document.getElementById('statusMsg').style.color = '#f1c40f';
@@ -693,18 +648,38 @@
                 document.getElementById('statusMsg').style.color = '#e74c3c';
                 return;
             }
+
+            if (numberToAdd <= 14000) {
+                await addSalavat(numberToAdd);
+                document.getElementById('addInput').value = '';
+                return;
+            }
+
+            const pwd = prompt('🔑 لطفاً رمز مدیریت را برای اضافه کردن عدد بزرگتر از ۱۴۰۰۰ وارد کنید:');
+            if (pwd !== '5113') {
+                if (pwd !== null) alert('❌ رمز عبور اشتباه است!');
+                return;
+            }
+
             if (numberToAdd > 1000) {
                 if (!confirm('⚠️ آیا مطمئن هستید که می‌خواهید ' + numberToAdd.toLocaleString('fa-IR') + ' صلوات اضافه کنید؟')) {
                     return;
                 }
             }
             await addSalavat(numberToAdd);
-            document.getElementById('addInput').value = 14000;
+            document.getElementById('addInput').value = '';
         }
 
         async function undoLast() {
             if (lastAddedValue <= 0 || isUpdating) {
                 document.getElementById('statusMsg').innerHTML = '⚠️ عددی برای برگشت وجود ندارد!';
+                document.getElementById('statusMsg').style.color = '#f1c40f';
+                return;
+            }
+
+            // فقط یک بار برگشت مجاز است
+            if (undoCount >= 1) {
+                document.getElementById('statusMsg').innerHTML = '⚠️ شما قبلاً یک بار برگشت زده‌اید. برای برگشت دوباره، ابتدا یک صلوات جدید اضافه کنید.';
                 document.getElementById('statusMsg').style.color = '#f1c40f';
                 return;
             }
@@ -729,6 +704,7 @@
             total -= undoValue;
             night -= undoValue;
             lastAddedValue = 0;
+            undoCount++;
 
             const success = await updateTotal(total, night);
             if (success) {
@@ -747,38 +723,7 @@
         }
 
         // ============================================================
-        //  ریست خودکار روزانه در ساعت ۰۶:۰۰ (با بررسی یک بار در روز)
-        // ============================================================
-        async function checkAndResetNight() {
-            const now = new Date();
-            const hour = now.getHours();
-            const minute = now.getMinutes();
-            
-            // اگر ساعت به ۶:۰۰ یا بعد از آن رسیده باشد
-            if (hour >= RESET_HOUR && minute >= RESET_MINUTE) {
-                const record = await fetchTotal();
-                if (record) {
-                    const lastResetDate = record.lastResetDate || '';
-                    const today = now.toISOString().slice(0, 10); // YYYY-MM-DD
-                    
-                    // اگر امروز ریست نشده باشد
-                    if (lastResetDate !== today) {
-                        const total = record.total || 0;
-                        const success = await updateTotal(total, 0, today);
-                        if (success) {
-                            currentTotal = total;
-                            currentNight = 0;
-                            updateDisplay(total, 0);
-                            document.getElementById('statusMsg').innerHTML = '🌙 شمارنده امروز در ساعت ۰۶:۰۰ ریست شد.';
-                            document.getElementById('statusMsg').style.color = '#f39c12';
-                        }
-                    }
-                }
-            }
-        }
-
-        // ============================================================
-        //  دکمه‌های مدیریتی
+        //  دکمه‌های مدیریتی (ریست دستی با رمز)
         // ============================================================
         async function resetNightNow() {
             const pwd = prompt('🔑 لطفاً رمز مدیریت را وارد کنید:');
@@ -791,11 +736,12 @@
                         return;
                     }
                     const total = record.total || 0;
-                    const today = new Date().toISOString().slice(0, 10);
-                    const success = await updateTotal(total, 0, today);
+                    const success = await updateTotal(total, 0);
                     if (success) {
                         currentTotal = total;
                         currentNight = 0;
+                        lastAddedValue = 0;
+                        undoCount = 0;
                         updateDisplay(total, 0);
                         document.getElementById('statusMsg').innerHTML = '⚡ شمارنده امروز با موفقیت صفر شد.';
                         document.getElementById('statusMsg').style.color = '#e67e22';
@@ -809,8 +755,34 @@
             }
         }
 
-        function resetNightScheduled() {
-            alert('🌙 ریست خودکار هر روز ساعت ۰۶:۰۰ صبح انجام می‌شود.\nشما می‌توانید از دکمه «ریست فوری امروز» برای صفر کردن هم‌اکنون استفاده کنید.');
+        async function manualReset() {
+            const pwd = prompt('🔑 لطفاً رمز مدیریت را برای ریست دستی امروز وارد کنید:');
+            if (pwd === '5113') {
+                if (confirm('⚠️ آیا مطمئن هستید که می‌خواهید شمارنده صلوات امروز را دستی صفر کنید؟')) {
+                    const record = await fetchTotal();
+                    if (!record) {
+                        document.getElementById('statusMsg').innerHTML = '❌ خطا در اتصال به دیتابیس!';
+                        document.getElementById('statusMsg').style.color = '#e74c3c';
+                        return;
+                    }
+                    const total = record.total || 0;
+                    const success = await updateTotal(total, 0);
+                    if (success) {
+                        currentTotal = total;
+                        currentNight = 0;
+                        lastAddedValue = 0;
+                        undoCount = 0;
+                        updateDisplay(total, 0);
+                        document.getElementById('statusMsg').innerHTML = '🔴 شمارنده امروز با موفقیت ریست دستی شد.';
+                        document.getElementById('statusMsg').style.color = '#e74c3c';
+                    } else {
+                        document.getElementById('statusMsg').innerHTML = '❌ خطا در ریست دستی!';
+                        document.getElementById('statusMsg').style.color = '#e74c3c';
+                    }
+                }
+            } else if (pwd !== null) {
+                alert('❌ رمز عبور اشتباه است!');
+            }
         }
 
         function generateNightReport() {
@@ -841,7 +813,7 @@
                     '📈 جمع کل: ' + currentTotal.toLocaleString('fa-IR') + '\n' +
                     '📊 باقیمانده تا 500 میلیون: ' + (remaining > 0 ? remaining.toLocaleString('fa-IR') : '۰') + '\n' +
                     '🌙 شمارنده امروز: ' + currentNight.toLocaleString('fa-IR') + '\n' +
-                    '⏰ ریست خودکار: ۰۶:۰۰ صبح'
+                    '⏰ ریست خودکار: غیرفعال'
                 );
             } else if (pass !== null) {
                 alert('❌ رمز عبور اشتباه است!');
@@ -853,7 +825,7 @@
         // ============================================================
         function getCurrentHour() { return new Date().getHours(); }
 
-        function isDayTime() { var h = getCurrentHour(); return h >= 6 && h <= 17; } // روز از ۶ صبح تا ۱۷
+        function isDayTime() { var h = getCurrentHour(); return h >= 6 && h <= 17; }
 
         function updateClock() {
             const now = new Date();
@@ -907,10 +879,6 @@
 
             updateClock();
             setInterval(updateClock, 1000);
-
-            // هر ۳۰ ثانیه یک بار چک کن برای ریست ۶:۰۰ (اما فقط یک بار در روز انجام می‌شه)
-            setInterval(checkAndResetNight, 30000);
-            checkAndResetNight();
         }
 
         document.addEventListener('DOMContentLoaded', function() {
