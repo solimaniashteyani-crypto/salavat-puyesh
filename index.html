@@ -81,7 +81,6 @@
         .marquee-box .marquee-text .sep { color: #85c1e9; margin: 0 8px; }
         .marquee-box .marquee-text .niyyah { color: #b7950b; text-shadow: 0 0 40px rgba(184, 149, 11, 0.15); }
 
-        /* ===== بخش بالایی (عدد دلخواه و دکمه‌ها) ===== */
         .top-section {
             display: flex;
             flex-direction: column;
@@ -189,7 +188,6 @@
         .btn-undo:hover { background: rgba(255, 100, 100, 0.25); border-color: #ff6b6b; color: #ff8888; transform: scale(1.05); }
         .btn-undo:disabled { opacity: 0.3; cursor: not-allowed; transform: none; }
 
-        /* ===== کادرهای جمع کل و باقیمانده ===== */
         .counters-column {
             display: flex;
             flex-direction: column;
@@ -215,7 +213,7 @@
         }
         .counter-box .counter-number {
             font-family: 'Tahoma', 'Arial', sans-serif;
-            font-size: 6rem;
+            font-size: 8rem; /* ← کاهش از 9 به 8 */
             font-weight: 900;
             line-height: 1.1;
             display: block;
@@ -244,7 +242,6 @@
         .counter-box.teal .counter-number { color: #e67e22; text-shadow: 0 0 40px rgba(230, 126, 34, 0.3); }
         .counter-box.teal .counter-label { color: #5d6d7e; }
 
-        /* ===== ردیف پایین (صلوات‌های امروز) ===== */
         .row-main {
             display: flex;
             flex-direction: row;
@@ -399,7 +396,6 @@
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        /* ===== ریسپانسیو ===== */
         @media (max-width: 992px) {
             .row-main { flex-direction: column; align-items: stretch; gap: 10px; }
             .night-with-btns { justify-content: center; }
@@ -409,7 +405,7 @@
         @media (max-width: 768px) {
             .container { padding: 25px 20px; border-radius: 40px 15px 40px 15px; }
             .main-title { font-size: 1.8rem; }
-            .counter-box .counter-number { font-size: 5rem; }
+            .counter-box .counter-number { font-size: 6.5rem; } /* ← کاهش از 7.5 به 6.5 */
             .counter-box .counter-label { font-size: 1.3rem; }
             .night-box .counter-number { font-size: 2.5rem; }
             .night-box { padding: 8px 16px; min-width: 130px; }
@@ -426,7 +422,7 @@
             body { padding: 8px; }
             .container { padding: 18px 12px; border-radius: 30px 10px 30px 10px; }
             .main-title { font-size: 1.4rem; }
-            .counter-box .counter-number { font-size: 4.5rem; }
+            .counter-box .counter-number { font-size: 5.75rem; } /* ← کاهش از 6.75 به 5.75 */
             .counter-box .counter-label { font-size: 1rem; }
             .night-box .counter-number { font-size: 2rem; }
             .night-box { padding: 6px 12px; min-width: 100px; }
@@ -444,6 +440,7 @@
             .marquee-box .marquee-text { font-size: 1.2rem; }
             .marquee-box { padding: 10px 12px; min-height: 60px; }
             .top-section .btn-row-label { font-size: 1rem; }
+            .counter-box { padding: 12px 10px 10px; }
         }
     </style>
 </head>
@@ -468,7 +465,6 @@
             </div>
         </div>
 
-        <!-- ===== بخش بالایی (عدد دلخواه و دکمه‌ها) ===== -->
         <div class="top-section">
             <div class="btn-row-label">📌 لطفا تعداد صلوات مد نظر را انتخاب کنید</div>
             <div class="btn-row" id="btnRow">
@@ -482,7 +478,6 @@
                 <button class="btn-salavat" data-value="1000">۱۰۰۰</button>
                 <button class="btn-salavat" data-value="5000">۵۰۰۰</button>
                 <button class="btn-salavat" data-value="10000">۱۰۰۰۰</button>
-                <!-- دکمه ۱۴۰۰۰ کاملاً حذف شد -->
             </div>
             <div class="custom-group">
                 <label>➕</label>
@@ -492,7 +487,6 @@
             </div>
         </div>
 
-        <!-- ===== کادرهای جمع کل و باقیمانده ===== -->
         <div class="counters-column">
             <div class="counter-box gold">
                 <div class="counter-label">✨ جمع کل صلوات</div>
@@ -504,7 +498,6 @@
             </div>
         </div>
 
-        <!-- ===== ردیف پایین (صلوات‌های امروز) ===== -->
         <div class="row-main">
             <div class="night-with-btns">
                 <div class="night-box">
