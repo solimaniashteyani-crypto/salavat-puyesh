@@ -27,8 +27,6 @@
             text-align: center;
             box-shadow: 0 30px 80px rgba(0,0,0,0.8), 0 0 60px rgba(255,215,0,0.15);
         }
-
-        /* ===== عنوان اصلی (یک خطی) ===== */
         .main-title {
             font-family: 'Titr', 'Vazir', 'IRANSans', sans-serif;
             color: #5d2e0c;
@@ -40,11 +38,7 @@
             border-bottom: 3px solid rgba(93, 46, 12, 0.15);
             margin-bottom: 20px;
         }
-        .main-title .highlight {
-            color: #8d5a2a;
-        }
-
-        /* ===== باکس مارکی ===== */
+        .main-title .highlight { color: #8d5a2a; }
         .marquee-box {
             background: #eaf2f8;
             border: 3px solid #85c1e9;
@@ -87,25 +81,20 @@
         .marquee-box .marquee-text .sep { color: #85c1e9; margin: 0 8px; }
         .marquee-box .marquee-text .niyyah { color: #b7950b; text-shadow: 0 0 40px rgba(184, 149, 11, 0.15); }
 
-        /* ===== بخش انتخاب تعداد و دکمه‌ها (بالای کادرها) ===== */
-        .selection-area {
-            background: rgba(255, 215, 0, 0.05);
-            border: 2px solid rgba(255, 215, 0, 0.2);
-            border-radius: 25px;
-            padding: 15px 20px;
-            margin-bottom: 20px;
+        .top-section {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            margin-bottom: 15px;
         }
-        .selection-area .btn-row-label {
+        .top-section .btn-row-label {
             font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
             color: #5d6d7e;
             font-size: 1.2rem;
             font-weight: 500;
         }
-        .selection-area .btn-row {
+        .btn-row {
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -113,7 +102,7 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-        .selection-area .btn-salavat {
+        .btn-salavat {
             font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
             background: #ffffff;
             border: 2px solid #d4af37;
@@ -131,27 +120,26 @@
             min-width: 60px;
             min-height: 48px;
         }
-        .selection-area .btn-salavat:hover { transform: scale(1.06); box-shadow: 0 8px 25px rgba(0,0,0,0.15); background: #f8f8f8; }
-        .selection-area .btn-salavat:active { transform: scale(0.93); }
-        .selection-area .btn-salavat:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
-        .selection-area .btn-salavat.one { background: #ffffff; border: 2px solid #d4af37; font-size: 1.2rem; min-width: 55px; padding: 12px 16px; }
+        .btn-salavat:hover { transform: scale(1.06); box-shadow: 0 8px 25px rgba(0,0,0,0.15); background: #f8f8f8; }
+        .btn-salavat:active { transform: scale(0.93); }
+        .btn-salavat:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+        .btn-salavat.one { background: #ffffff; border: 2px solid #d4af37; font-size: 1.2rem; min-width: 55px; padding: 12px 16px; }
 
-        .selection-area .custom-group {
+        .custom-group {
             display: flex;
             flex-direction: row;
             align-items: center;
             gap: 8px;
             flex-wrap: wrap;
             justify-content: center;
-            margin-top: 5px;
         }
-        .selection-area .custom-group label {
+        .custom-group label {
             font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
             color: #8899aa;
             font-size: 1rem;
             font-weight: 500;
         }
-        .selection-area .custom-group input {
+        .custom-group input {
             font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
             background: #fff;
             border: 2px solid #d4af37;
@@ -166,9 +154,9 @@
             transition: 0.3s;
             direction: ltr;
         }
-        .selection-area .custom-group input:focus { border-color: #ffd700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.2); }
-        .selection-area .custom-group input::placeholder { color: #8899aa; font-weight: normal; font-size: 0.9rem; }
-        .selection-area .custom-group .btn-add-number {
+        .custom-group input:focus { border-color: #ffd700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.2); }
+        .custom-group input::placeholder { color: #8899aa; font-weight: normal; font-size: 0.9rem; }
+        .custom-group .btn-add-number {
             font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
             background: linear-gradient(135deg, #ffd700, #cc8800);
             border: none;
@@ -182,10 +170,9 @@
             white-space: nowrap;
             box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
         }
-        .selection-area .custom-group .btn-add-number:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4); }
-        .selection-area .custom-group .btn-add-number:active { transform: scale(0.95); }
-
-        .selection-area .btn-undo {
+        .custom-group .btn-add-number:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4); }
+        .custom-group .btn-add-number:active { transform: scale(0.95); }
+        .btn-undo {
             font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
             background: rgba(255, 100, 100, 0.15);
             border: 2px solid rgba(255, 100, 100, 0.3);
@@ -198,10 +185,9 @@
             transition: 0.3s;
             white-space: nowrap;
         }
-        .selection-area .btn-undo:hover { background: rgba(255, 100, 100, 0.25); border-color: #ff6b6b; color: #ff8888; transform: scale(1.05); }
-        .selection-area .btn-undo:disabled { opacity: 0.3; cursor: not-allowed; transform: none; }
+        .btn-undo:hover { background: rgba(255, 100, 100, 0.25); border-color: #ff6b6b; color: #ff8888; transform: scale(1.05); }
+        .btn-undo:disabled { opacity: 0.3; cursor: not-allowed; transform: none; }
 
-        /* ===== کادرهای شمارنده ===== */
         .counters-column {
             display: flex;
             flex-direction: column;
@@ -227,17 +213,13 @@
         }
         .counter-box .counter-number {
             font-family: 'Tahoma', 'Arial', sans-serif;
-            font-size: clamp(3rem, 10vw, 9rem); /* ← اندازه هوشمند */
+            font-size: 9rem; /* ← ۱.۵ برابر (۶ * ۱.۵) */
             font-weight: 900;
             line-height: 1.1;
             display: block;
             transition: transform 0.2s;
             direction: ltr;
-            word-break: break-word;
-            max-width: 100%;
-            overflow-wrap: break-word;
         }
-
         .counter-box.gold {
             background: #ffffff;
             border: 3px solid #d4af37;
@@ -253,7 +235,6 @@
             100% { color: #1a5a1a; text-shadow: 0 0 80px rgba(26, 90, 26, 0.8), 0 0 160px rgba(26, 90, 26, 0.4), 0 0 240px rgba(26, 90, 26, 0.1); transform: scale(1); }
         }
         .counter-box.gold .counter-label { color: #5d6d7e; }
-
         .counter-box.teal {
             background: #fdebd0;
             border: 3px solid #e67e22;
@@ -261,7 +242,22 @@
         .counter-box.teal .counter-number { color: #e67e22; text-shadow: 0 0 40px rgba(230, 126, 34, 0.3); }
         .counter-box.teal .counter-label { color: #5d6d7e; }
 
-        /* ===== شمارنده "صلوات‌های امروز" ===== */
+        .row-main {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin: 8px 0 12px;
+            flex-wrap: wrap;
+        }
+        .night-with-btns {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            flex: 2 1 auto;
+        }
         .night-box {
             background: #ffffff;
             border: 2px solid #d4af37;
@@ -269,8 +265,6 @@
             padding: 10px 20px 8px;
             min-width: 150px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            display: inline-block;
-            margin-top: 10px;
         }
         .night-box .counter-label {
             font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
@@ -281,7 +275,7 @@
         }
         .night-box .counter-number {
             font-family: 'Tahoma', 'Arial', sans-serif;
-            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-size: 2.8rem;
             font-weight: 900;
             line-height: 1.2;
             display: block;
@@ -291,7 +285,6 @@
             text-shadow: none;
         }
 
-        /* ===== وضعیت و مدیریت ===== */
         .status-msg {
             font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
             color: #ffd700;
@@ -301,7 +294,6 @@
             font-weight: 500;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
         }
-
         .db-status {
             font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
             font-size: 0.8rem;
@@ -315,7 +307,6 @@
         .db-status.online { color: #27ae60; }
         .db-status.offline { color: #e74c3c; }
         .db-status.loading { color: #f39c12; }
-
         .admin-area {
             margin-top: 12px;
             display: flex;
@@ -348,7 +339,6 @@
             color: #7fdbca;
         }
         .btn-report:hover { color: #ffd700; border-color: #ffd700; background: rgba(255, 215, 0, 0.08); transform: scale(1.05); }
-
         .datetime-box {
             background: rgba(255, 215, 0, 0.05);
             border-radius: 20px;
@@ -376,10 +366,8 @@
             border: 2px solid #ffd700;
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
         }
-
         @keyframes pop { 0% { transform: scale(1); } 40% { transform: scale(1.35); color: #fff; } 100% { transform: scale(1); } }
         .pop-anim { animation: pop 0.4s ease; }
-
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -408,40 +396,42 @@
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        @media (max-width: 992px) { 
-            .selection-area .btn-row { justify-content: center; } 
-            .selection-area .custom-group { justify-content: center; } 
+        @media (max-width: 992px) {
+            .row-main { flex-direction: column; align-items: stretch; gap: 10px; }
+            .night-with-btns { justify-content: center; }
+            .btn-row { justify-content: center; }
+            .custom-group { justify-content: center; }
         }
         @media (max-width: 768px) {
             .container { padding: 25px 20px; border-radius: 40px 15px 40px 15px; }
             .main-title { font-size: 1.8rem; }
-            .counter-box .counter-number { font-size: clamp(2.5rem, 8vw, 6rem); }
+            .counter-box .counter-number { font-size: 7.5rem; } /* ← ۱.۵ برابر (۵ * ۱.۵) */
             .counter-box .counter-label { font-size: 1.3rem; }
-            .night-box .counter-number { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+            .night-box .counter-number { font-size: 2.5rem; }
             .night-box { padding: 8px 16px; min-width: 130px; }
-            .selection-area .btn-salavat { font-size: 1rem; padding: 10px 14px; min-width: 50px; min-height: 40px; }
-            .selection-area .btn-salavat.one { font-size: 1rem; min-width: 45px; padding: 10px 12px; }
+            .btn-salavat { font-size: 1rem; padding: 10px 14px; min-width: 50px; min-height: 40px; }
+            .btn-salavat.one { font-size: 1rem; min-width: 45px; padding: 10px 12px; }
             .datetime-box { font-size: 0.8rem; padding: 10px 15px; }
             .datetime-box .value { font-size: 0.9rem; }
             .marquee-box .marquee-text { font-size: 1.6rem; }
             .marquee-box { padding: 12px 16px; min-height: 70px; }
-            .selection-area .custom-group input { width: 90px; font-size: 1rem; }
-            .selection-area .btn-undo { font-size: 0.8rem; padding: 6px 12px; }
+            .custom-group input { width: 90px; font-size: 1rem; }
+            .btn-undo { font-size: 0.8rem; padding: 6px 12px; }
         }
         @media (max-width: 480px) {
             body { padding: 8px; }
             .container { padding: 18px 12px; border-radius: 30px 10px 30px 10px; }
             .main-title { font-size: 1.4rem; }
-            .counter-box .counter-number { font-size: clamp(2rem, 6vw, 4.5rem); }
+            .counter-box .counter-number { font-size: 6.75rem; } /* ← ۱.۵ برابر (۴.۵ * ۱.۵) */
             .counter-box .counter-label { font-size: 1rem; }
-            .night-box .counter-number { font-size: clamp(1.5rem, 3vw, 2rem); }
+            .night-box .counter-number { font-size: 2rem; }
             .night-box { padding: 6px 12px; min-width: 100px; }
             .night-box .counter-label { font-size: 0.7rem; }
-            .selection-area .btn-salavat { font-size: 0.85rem; padding: 8px 10px; min-width: 40px; min-height: 34px; }
-            .selection-area .btn-salavat.one { font-size: 0.85rem; min-width: 36px; padding: 8px 8px; }
-            .selection-area .custom-group input { width: 75px; font-size: 0.9rem; padding: 5px 8px; }
-            .selection-area .custom-group .btn-add-number { padding: 6px 14px; font-size: 0.8rem; }
-            .selection-area .btn-undo { font-size: 0.7rem; padding: 4px 10px; }
+            .btn-salavat { font-size: 0.85rem; padding: 8px 10px; min-width: 40px; min-height: 34px; }
+            .btn-salavat.one { font-size: 0.85rem; min-width: 36px; padding: 8px 8px; }
+            .custom-group input { width: 75px; font-size: 0.9rem; padding: 5px 8px; }
+            .custom-group .btn-add-number { padding: 6px 14px; font-size: 0.8rem; }
+            .btn-undo { font-size: 0.7rem; padding: 4px 10px; }
             .admin-area { gap: 6px; }
             .admin-link, .reset-night-now-link, .btn-report, .manual-reset-link { padding: 4px 10px; font-size: 0.6rem; }
             .datetime-box { font-size: 0.65rem; padding: 6px 10px; }
@@ -449,7 +439,8 @@
             .datetime-box .night-badge { font-size: 0.7rem; padding: 3px 10px; }
             .marquee-box .marquee-text { font-size: 1.2rem; }
             .marquee-box { padding: 10px 12px; min-height: 60px; }
-            .selection-area .btn-row-label { font-size: 1rem; }
+            .top-section .btn-row-label { font-size: 1rem; }
+            .counter-box { padding: 12px 10px 10px; }
         }
     </style>
 </head>
@@ -460,13 +451,9 @@
         <div style="font-size: 0.9rem; color: #8899aa; margin-top: 10px;">لطفاً چند لحظه صبر کنید</div>
     </div>
     <div class="container" id="mainContainer" style="display:none;">
-        
-        <!-- ===== عنوان یک خطی ===== -->
         <div class="main-title">
-            🕌 پویش بزرگ <span class="highlight">۵۰۰ میلیون صلوات</span>
+            🕌 <span class="highlight">پویش بزرگ ۵۰۰ میلیون صلوات</span>
         </div>
-
-        <!-- ===== باکس مارکی ===== -->
         <div class="marquee-box">
             <div class="marquee-track">
                 <div class="marquee-text">
@@ -478,8 +465,7 @@
             </div>
         </div>
 
-        <!-- ===== بخش انتخاب تعداد (انتقال به بالا) ===== -->
-        <div class="selection-area">
+        <div class="top-section">
             <div class="btn-row-label">📌 لطفا تعداد صلوات مد نظر را انتخاب کنید</div>
             <div class="btn-row" id="btnRow">
                 <button class="btn-salavat one" data-value="5">۵</button>
@@ -492,7 +478,6 @@
                 <button class="btn-salavat" data-value="1000">۱۰۰۰</button>
                 <button class="btn-salavat" data-value="5000">۵۰۰۰</button>
                 <button class="btn-salavat" data-value="10000">۱۰۰۰۰</button>
-                <button class="btn-salavat" data-value="14000">۱۴۰۰۰</button>
             </div>
             <div class="custom-group">
                 <label>➕</label>
@@ -502,26 +487,27 @@
             </div>
         </div>
 
-        <!-- ===== کادرهای شمارنده ===== -->
         <div class="counters-column">
             <div class="counter-box gold">
                 <div class="counter-label">✨ جمع کل صلوات</div>
                 <span class="counter-number" id="totalCount">۰</span>
             </div>
             <div class="counter-box teal">
-                <div class="counter-label">📊 باقیمانده تا ۵۰۰ میلیون</div>
+                <div class="counter-label">📊 باقیمانده تا 500 میلیون</div>
                 <span class="counter-number" id="remainingCount">۵۰۰٬۰۰۰٬۰۰۰</span>
             </div>
         </div>
 
-        <!-- ===== صلوات‌های امروز ===== -->
-        <div class="night-box" style="margin: 10px auto;">
-            <div class="counter-label">🌙 صلوات‌های امروز</div>
-            <span class="counter-number" id="nightCount">۰</span>
+        <div class="row-main">
+            <div class="night-with-btns">
+                <div class="night-box">
+                    <div class="counter-label">🌙 صلوات‌های امروز</div>
+                    <span class="counter-number" id="nightCount">۰</span>
+                </div>
+            </div>
         </div>
 
-        <!-- ===== وضعیت و مدیریت ===== -->
-        <div class="status-msg" id="statusMsg"></div>
+        <div class="status-msg" id="statusMsg">✨ عدد دلخواه را وارد و اضافه کن!</div>
         <div class="db-status" id="dbStatus">⏳ در حال اتصال...</div>
         <div class="admin-area">
             <button class="admin-link" onclick="showAdminPanel()">🔐 پنل مدیریت</button>
@@ -529,16 +515,12 @@
             <button class="manual-reset-link" onclick="manualReset()">🔴 ریست دستی امروز (با رمز)</button>
             <button class="btn-report" onclick="generateNightReport()">📊 خروجی روزانه</button>
         </div>
-
-        <!-- ===== تاریخ و ساعت ===== -->
         <div class="datetime-box" id="datetimeBox">
             <span><span class="label">📅 تاریخ:</span> <span class="value" id="dateDisplay"></span></span>
             <span><span class="label">⏰ ساعت:</span> <span class="value" id="timeDisplay"></span></span>
             <span class="night-badge" id="nightBadge">🌙 پویش روز</span>
         </div>
-
     </div>
-
     <script>
         // ============================================================
         //  تنظیمات jsonbin.io
