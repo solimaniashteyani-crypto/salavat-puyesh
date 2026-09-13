@@ -421,7 +421,7 @@
         <div>⏳ در حال اتصال به دیتابیس...</div>
     </div>
     <div class="container" id="mainContainer" style="display:none;">
-        <div class="main-title" id="mainTitle">🕌 پویش بزرگ 500 میلیون صلوات</div>
+        <div class="main-title" id="mainTitle">🕌 پویش بزرگ ۱۵۰ میلیون صلوات</div>
 
         <div class="tabs-container" id="tabsContainer">
             <button class="tab-btn active" data-tab="salavat">صلوات</button>
@@ -493,7 +493,7 @@
                 .trim();
         }
 
-        // ===== مودال رمز (به جای prompt) =====
+        // ===== مودال رمز =====
         function askPassword(titleText) {
             return new Promise((resolve) => {
                 const overlay = document.createElement('div');
@@ -525,7 +525,7 @@
             });
         }
 
-        // ===== مودال تایید (به جای confirm) =====
+        // ===== مودال تایید =====
         function askConfirm(titleText) {
             return new Promise((resolve) => {
                 const overlay = document.createElement('div');
@@ -534,7 +534,7 @@
                     <div class="modal-box">
                         <h3>${titleText}</h3>
                         <div class="modal-buttons">
-                            <button class="modal-buttons button btn-modal-cancel" id="confCancel" style="background:#ddd;color:#333;">انصراف</button>
+                            <button class="btn-modal-cancel" id="confCancel">انصراف</button>
                             <button class="btn-modal-ok" id="confOk">بله، انجام بده</button>
                         </div>
                     </div>
@@ -552,15 +552,15 @@
         const TABS_CONFIG = {
             salavat: {
                 name: 'صلوات',
-                mainTitle: '🕌 پویش بزرگ 500 میلیون صلوات',
+                mainTitle: '🕌 پویش بزرگ ۱۵۰ میلیون صلوات',
                 totalKey: 'total',
                 nightKey: 'night',
                 hasTarget: true,
-                target: 500000000,
+                target: 150000000,
                 buttons: [5, 10, 20, 50, 100, 200, 500, 1000, 5000, 10000],
                 totalLabel: '✨ جمع کل صلوات',
                 nightLabel: '🌙 صلوات‌های امروز',
-                remainingLabel: '📊 باقیمانده تا 500 میلیون'
+                remainingLabel: '📊 باقیمانده تا ۱۵۰ میلیون'
             },
             estegfar: {
                 name: 'استغفار',
@@ -765,6 +765,7 @@
             }
         }
 
+        // ===== تابع عدد دلخواه (اصلاح شده) =====
         async function addCustom() {
             const rawValue = document.getElementById('addInput').value;
             const cleaned = toEnglishDigits(rawValue);
@@ -781,12 +782,15 @@
                 return;
             }
 
-            const pwd = await askPassword('🔑 رمز مدیریت برای عدد دلخواه:');
-            if (pwd === null) return;
-            if (String(pwd).trim() !== PASSWORD) {
-                document.getElementById('statusMsg').innerHTML = '❌ رمز اشتباه!';
-                document.getElementById('statusMsg').style.color = '#e74c3c';
-                return;
+            // فقط اگر عدد بزرگتر از ۱۴۰۰۰ بود، رمز می‌خواد
+            if (numberToAdd > 14000) {
+                const pwd = await askPassword('🔑 رمز مدیریت برای اضافه کردن عدد بزرگتر از ۱۴۰۰۰:');
+                if (pwd === null) return;
+                if (String(pwd).trim() !== PASSWORD) {
+                    document.getElementById('statusMsg').innerHTML = '❌ رمز اشتباه!';
+                    document.getElementById('statusMsg').style.color = '#e74c3c';
+                    return;
+                }
             }
 
             await addItem(numberToAdd);
