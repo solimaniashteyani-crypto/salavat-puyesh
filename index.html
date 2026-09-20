@@ -463,13 +463,17 @@
     </div>
 
     <script>
-        const GITHUB_OWNER = 'solimaniashteyani-crypto';
-        const GITHUB_REPO  = 'salavat-puyesh';
-        const GITHUB_FILE  = 'data.json';
-        const GITHUB_BRANCH = 'main';
-        const GITHUB_TOKEN = 'github_pat_11CNNCB5Q0DaibxfPCQXBV_W22Iz4TFWG0zV0KLqEijJjv4JwAuiYLknOXNbFtc5IUO6VAA2I';
+        // ============================================================
+        //  تنظیمات Supabase
+        // ============================================================
+        const SUPABASE_URL = 'https://komdiuxetdrjjpajbjge.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_k0sc4ZeFEsPeQ1b3XDjmPw_GIbm_-Dp';
+        const TABLE_NAME = 'salavat_data';
         const PASSWORD = '5113';
 
+        // ============================================================
+        //  توابع کمکی
+        // ============================================================
         function toEnglishDigits(str) {
             if (!str) return '';
             const persian = '۰۱۲۳۴۵۶۷۸۹';
@@ -479,13 +483,6 @@
                 .replace(/[٠-٩]/g, d => arabic.indexOf(d))
                 .replace(/[,\s]/g, '')
                 .trim();
-        }
-
-        function encodeBase64(str) {
-            return btoa(unescape(encodeURIComponent(str)));
-        }
-        function decodeBase64(str) {
-            return decodeURIComponent(escape(atob(str)));
         }
 
         function askPassword(titleText) {
@@ -597,51 +594,66 @@
         };
 
         let activeTab = 'salavat';
-        let currentData = {
-            total: 0, night: 0,
-            estegfar_total: 0, estegfar_night: 0,
-            doa14_total: 0, doa14_night: 0,
-            fath_total: 0, fath_night: 0,
-            tavasol_total: 0, tavasol_night: 0,
-            lastDate: '',
-            _sha: null
-        };
+        let currentData = null;
+        let currentRowId = null;
         let lastAddedValue = 0;
         let lastAddedTab = null;
         let isUpdating = false;
         let undoCount = 0;
 
-        const GITHUB_API = `https://salavat-proxy.solimani-ashteyani.workers.dev/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
+        const SUPABASE_REST = SUPABASE_URL + '/rest/v1/' + TABLE_NAME;
 
+        // ============================================================
+        //  توابع اتصال به Supabase
+        // ============================================================
         async function fetchData() {
             try {
-                const url = GITHUB_API + '?ref=' + GITHUB_BRANCH + '&_t=' + Date.now();
-                const response = await fetch(url, {
+                const response = await fetch(SUPABASE_REST + '?select=*&limit=1', {
                     headers: {
-                        'Authorization': 'Bearer ' + GITHUB_TOKEN,
-                        'Accept': 'application/vnd.github.v3+json'
+                        'apikey': SUPABASE_KEY,
+                        'Authorization': 'Bearer ' + SUPABASE_KEY
                     }
                 });
                 if (!response.ok) throw new Error('HTTP ' + response.status);
-                const fileData = await response.json();
-                const content = JSON.parse(decodeBase64(fileData.content.replace(/\n/g, '')));
-                currentData = {
-                    total: Number(content.total) || 0,
-                    night: Number(content.night) || 0,
-                    estegfar_total: Number(content.estegfar_total) || 0,
-                    estegfar_night: Number(content.estegfar_night) || 0,
-                    doa14_total: Number(content.doa14_total) || 0,
-                    doa14_night: Number(content.doa14_night) || 0,
-                    fath_total: Number(content.fath_total) || 0,
-                    fath_night: Number(content.fath_night) || 0,
-                    tavasol_total: Number(content.tavasol_total) || 0,
-                    tavasol_night: Number(content.tavasol_night) || 0,
-                    lastDate: content.lastDate || '',
-                    _sha: fileData.sha
-                };
+                const rows = await response.json();
+                if (!rows || rows.length === 0) {
+                    // اگه جدول خالی بود، یه ردیف بساز
+                    return await createInitialRow();
+                }
+                currentData = rows[0];
+                currentRowId = rows[0].id;
                 return currentData;
             } catch (error) {
                 console.error('fetchData error:', error);
+                return null;
+            }
+        }
+
+        async function createInitialRow() {
+            try {
+                const response = await fetch(SUPABASE_REST, {
+                    method: 'POST',
+                    headers: {
+                        'apikey': SUPABASE_KEY,
+                        'Authorization': 'Bearer ' + SUPABASE_KEY,
+                        'Content-Type': 'application/json',
+                        'Prefer': 'return=representation'
+                    },
+                    body: JSON.stringify({
+                        total: 0, night: 0,
+                        estegfar_total: 0, estegfar_night: 0,
+                        doa14_total: 0, doa14_night: 0,
+                        fath_total: 0, fath_night: 0,
+                        tavasol_total: 0, tavasol_night: 0
+                    })
+                });
+                if (!response.ok) throw new Error('Create failed');
+                const rows = await response.json();
+                currentData = rows[0];
+                currentRowId = rows[0].id;
+                return currentData;
+            } catch (error) {
+                console.error('createInitialRow error:', error);
                 return null;
             }
         }
@@ -650,34 +662,27 @@
             if (isUpdating) return false;
             isUpdating = true;
             try {
-                const contentToSave = { ...newData };
-                delete contentToSave._sha;
-                contentToSave.lastDate = new Date().toISOString();
-
-                const encoded = encodeBase64(JSON.stringify(contentToSave, null, 2));
-
-                const response = await fetch(GITHUB_API, {
-                    method: 'PUT',
+                const response = await fetch(SUPABASE_REST + '?id=eq.' + currentRowId, {
+                    method: 'PATCH',
                     headers: {
-                        'Authorization': 'Bearer ' + GITHUB_TOKEN,
-                        'Accept': 'application/vnd.github.v3+json',
-                        'Content-Type': 'application/json'
+                        'apikey': SUPABASE_KEY,
+                        'Authorization': 'Bearer ' + SUPABASE_KEY,
+                        'Content-Type': 'application/json',
+                        'Prefer': 'return=representation'
                     },
-                    body: JSON.stringify({
-                        message: 'Update salavat data - ' + new Date().toISOString(),
-                        content: encoded,
-                        sha: newData._sha,
-                        branch: GITHUB_BRANCH
-                    })
+                    body: JSON.stringify(newData)
                 });
                 if (!response.ok) {
                     const txt = await response.text();
-                    console.error('PUT failed:', response.status, txt);
+                    console.error('PATCH failed:', response.status, txt);
                     throw new Error('Update failed');
                 }
-                const result = await response.json();
-                currentData._sha = result.content.sha;
-                newData._sha = result.content.sha;
+                const rows = await response.json();
+                if (rows && rows.length > 0) {
+                    currentData = rows[0];
+                } else {
+                    currentData = { ...currentData, ...newData };
+                }
                 isUpdating = false;
                 return true;
             } catch (error) {
@@ -688,9 +693,10 @@
         }
 
         function updateDisplay() {
+            if (!currentData) return;
             const cfg = TABS_CONFIG[activeTab];
-            const total = currentData[cfg.totalKey] || 0;
-            const night = currentData[cfg.nightKey] || 0;
+            const total = Number(currentData[cfg.totalKey]) || 0;
+            const night = Number(currentData[cfg.nightKey]) || 0;
 
             document.getElementById('mainTitle').innerText = cfg.mainTitle;
             document.getElementById('totalLabel').innerText = cfg.totalLabel;
@@ -755,13 +761,12 @@
             }
 
             const cfg = TABS_CONFIG[activeTab];
-            const newData = { ...currentData };
-            newData[cfg.totalKey] = (newData[cfg.totalKey] || 0) + count;
-            newData[cfg.nightKey] = (newData[cfg.nightKey] || 0) + count;
+            const newData = {};
+            newData[cfg.totalKey] = (Number(currentData[cfg.totalKey]) || 0) + count;
+            newData[cfg.nightKey] = (Number(currentData[cfg.nightKey]) || 0) + count;
 
             const success = await updateData(newData);
             if (success) {
-                currentData = newData;
                 lastAddedValue = count;
                 lastAddedTab = activeTab;
                 undoCount = 0;
@@ -824,22 +829,23 @@
             if (!record) return;
 
             const cfg = TABS_CONFIG[activeTab];
-            const newData = { ...currentData };
+            const total = Number(currentData[cfg.totalKey]) || 0;
+            const night = Number(currentData[cfg.nightKey]) || 0;
 
-            if ((newData[cfg.totalKey] || 0) < lastAddedValue || (newData[cfg.nightKey] || 0) < lastAddedValue) {
+            if (total < lastAddedValue || night < lastAddedValue) {
                 document.getElementById('statusMsg').innerHTML = '⚠️ خطا در برگشت!';
                 return;
             }
 
             const undoValue = lastAddedValue;
-            newData[cfg.totalKey] -= undoValue;
-            newData[cfg.nightKey] -= undoValue;
+            const newData = {};
+            newData[cfg.totalKey] = total - undoValue;
+            newData[cfg.nightKey] = night - undoValue;
             lastAddedValue = 0;
             undoCount++;
 
             const success = await updateData(newData);
             if (success) {
-                currentData = newData;
                 updateDisplay();
                 animateCounter(document.getElementById('totalCount'));
                 animateCounter(document.getElementById('nightCount'));
@@ -873,12 +879,11 @@
                 return;
             }
 
-            const newData = { ...currentData };
+            const newData = {};
             newData[cfg.nightKey] = 0;
 
             const success = await updateData(newData);
             if (success) {
-                currentData = newData;
                 lastAddedValue = 0;
                 undoCount = 0;
                 updateDisplay();
@@ -898,7 +903,7 @@
                 alert('❌ رمز اشتباه!');
                 return;
             }
-            const d = currentData;
+            const d = currentData || {};
             alert(
                 '📊 **پنل مدیریت**\n\n' +
                 '🕌 صلوات: ' + (d.total || 0).toLocaleString('fa-IR') + ' (امروز: ' + (d.night || 0).toLocaleString('fa-IR') + ')\n' +
@@ -910,7 +915,7 @@
         }
 
         function generateReport() {
-            const d = currentData;
+            const d = currentData || {};
             const now = new Date();
             const report =
                 '📊 **گزارش وضعیت پویش** 📊\n' +
@@ -965,7 +970,7 @@
 
             const record = await fetchData();
             if (record) {
-                dbStatus.innerHTML = '✅ متصل به دیتابیس (GitHub)';
+                dbStatus.innerHTML = '✅ متصل به دیتابیس (Supabase)';
                 dbStatus.className = 'db-status online';
             } else {
                 dbStatus.innerHTML = '⚠️ اتصال ناموفق';
