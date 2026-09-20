@@ -466,8 +466,7 @@
         let isUpdating = false;
         let undoCount = 0;
 
-        const GITHUB_API = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
-
+const GITHUB_API = `https://salavat-proxy.solimani-ashteyani.workers.dev/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
         async function fetchData() {
             try {
                 const url = GITHUB_API + '?ref=' + GITHUB_BRANCH + '&_t=' + Date.now();
