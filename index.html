@@ -7,185 +7,107 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body {
-            width: 100%;
-            min-height: 100vh;
+            width: 100%; min-height: 100vh;
             font-family: 'Vazir', 'IRANSans', 'Titr', 'Nazanin', 'Tahoma', 'Arial', sans-serif;
             background: linear-gradient(145deg, #0a0a1a 0%, #1a1a2e 40%, #0d1f2d 100%);
-            padding: 15px;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding: 15px; margin: 0;
+            display: flex; justify-content: center; align-items: center;
         }
         .container {
-            background: #fef9e7;
-            border: 4px solid #ffd700;
+            background: #fef9e7; border: 4px solid #ffd700;
             border-radius: 70px 25px 70px 25px;
-            padding: 35px 40px;
-            max-width: 1200px;
-            width: 100%;
+            padding: 35px 40px; max-width: 1200px; width: 100%;
             text-align: center;
             box-shadow: 0 30px 80px rgba(0,0,0,0.8), 0 0 60px rgba(255,215,0,0.15);
         }
         .main-title {
             font-family: 'Titr', 'Vazir', 'IRANSans', sans-serif;
-            color: #5d2e0c;
-            font-size: 2.2rem;
-            font-weight: 900;
+            color: #5d2e0c; font-size: 2.2rem; font-weight: 900;
             text-shadow: 0 0 40px rgba(93, 46, 12, 0.15);
-            letter-spacing: 1px;
-            padding-bottom: 15px;
+            letter-spacing: 1px; padding-bottom: 15px;
             border-bottom: 3px solid rgba(93, 46, 12, 0.15);
-            margin-bottom: 20px;
-            line-height: 1.5;
-            min-height: 60px;
+            margin-bottom: 20px; line-height: 1.5; min-height: 60px;
         }
-
         .tabs-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-            padding: 10px;
+            display: flex; flex-direction: row; justify-content: center;
+            align-items: center; gap: 10px; flex-wrap: wrap;
+            margin-bottom: 20px; padding: 10px;
         }
         .tab-btn {
             font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
             background: linear-gradient(135deg, #ffd700, #e6b422);
-            border: 3px solid #b7950b;
-            color: #5d2e0c;
-            font-size: 1.05rem;
-            font-weight: 900;
-            padding: 12px 26px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            white-space: nowrap;
+            border: 3px solid #b7950b; color: #5d2e0c;
+            font-size: 1.05rem; font-weight: 900;
+            padding: 12px 26px; border-radius: 50px;
+            cursor: pointer; transition: all 0.25s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15); white-space: nowrap;
         }
         .tab-btn:hover { transform: scale(1.05); }
         .tab-btn.active {
             background: linear-gradient(135deg, #1a7a1a, #0f5a0f);
-            border-color: #0a3a0a;
-            color: #ffffff;
+            border-color: #0a3a0a; color: #ffffff;
             box-shadow: 0 0 30px rgba(26, 122, 26, 0.5);
         }
-
         .top-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 15px;
+            display: flex; flex-direction: column; align-items: center;
+            gap: 8px; margin-bottom: 15px;
         }
         .btn-row {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: flex; flex-direction: row; align-items: center;
+            gap: 10px; flex-wrap: wrap; justify-content: center;
         }
         .btn-salavat {
             font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
-            background: #ffffff;
-            border: 2px solid #d4af37;
-            color: #1a1a2e;
-            font-size: 1.2rem;
-            font-weight: 900;
-            padding: 12px 18px;
-            border-radius: 50px;
-            cursor: pointer;
+            background: #ffffff; border: 2px solid #d4af37;
+            color: #1a1a2e; font-size: 1.2rem; font-weight: 900;
+            padding: 12px 18px; border-radius: 50px; cursor: pointer;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: all 0.15s ease;
-            min-width: 60px;
-            min-height: 48px;
+            transition: all 0.15s ease; min-width: 60px; min-height: 48px;
         }
         .btn-salavat:hover { transform: scale(1.06); background: #f8f8f8; }
         .btn-salavat:active { transform: scale(0.93); }
         .btn-salavat:disabled { opacity: 0.4; cursor: not-allowed; }
         .btn-salavat.one { font-size: 1.2rem; min-width: 55px; padding: 12px 16px; }
-
         .custom-group {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: flex; flex-direction: row; align-items: center;
+            gap: 8px; flex-wrap: wrap; justify-content: center;
         }
         .custom-group input {
-            background: #fff;
-            border: 2px solid #d4af37;
-            border-radius: 50px;
-            padding: 8px 12px;
-            color: #1a1a2e;
-            font-size: 1.1rem;
-            font-weight: bold;
-            width: 120px;
-            text-align: center;
-            outline: none;
-            direction: ltr;
+            background: #fff; border: 2px solid #d4af37;
+            border-radius: 50px; padding: 8px 12px;
+            color: #1a1a2e; font-size: 1.1rem; font-weight: bold;
+            width: 120px; text-align: center; outline: none; direction: ltr;
         }
         .custom-group input:focus { border-color: #ffd700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.2); }
         .custom-group .btn-add-number {
             background: linear-gradient(135deg, #ffd700, #cc8800);
-            border: none;
-            color: #1a1a2e;
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-weight: 900;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 1rem;
+            border: none; color: #1a1a2e; padding: 10px 20px;
+            border-radius: 50px; font-weight: 900; cursor: pointer;
+            transition: 0.3s; font-size: 1rem;
         }
         .custom-group .btn-add-number:hover { transform: scale(1.05); }
         .custom-group .btn-add-number:active { transform: scale(0.95); }
         .btn-undo {
             background: rgba(255, 100, 100, 0.15);
             border: 2px solid rgba(255, 100, 100, 0.3);
-            color: #ff6b6b;
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            cursor: pointer;
+            color: #ff6b6b; padding: 8px 16px;
+            border-radius: 50px; font-size: 0.95rem;
+            font-weight: 700; cursor: pointer;
         }
         .btn-undo:hover { background: rgba(255, 100, 100, 0.25); }
         .btn-undo:disabled { opacity: 0.3; cursor: not-allowed; }
-
-        .counters-column {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        .counter-box {
-            width: 100%;
-            border-radius: 25px;
-            padding: 18px 15px 15px;
-            text-align: center;
-        }
+        .counters-column { display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px; }
+        .counter-box { width: 100%; border-radius: 25px; padding: 18px 15px 15px; text-align: center; }
         .counter-box .counter-label {
-            color: #5d6d7e;
-            font-size: 1.6rem;
-            letter-spacing: 2px;
-            font-weight: 700;
+            color: #5d6d7e; font-size: 1.6rem;
+            letter-spacing: 2px; font-weight: 700;
         }
         .counter-box .counter-number {
             font-family: 'Tahoma', 'Arial', sans-serif;
-            font-size: 6rem;
-            font-weight: 900;
-            line-height: 1.1;
-            display: block;
-            direction: ltr;
+            font-size: 6rem; font-weight: 900; line-height: 1.1;
+            display: block; direction: ltr;
         }
-        .counter-box.gold {
-            background: #ffffff;
-            border: 3px solid #d4af37;
-        }
+        .counter-box.gold { background: #ffffff; border: 3px solid #d4af37; }
         .counter-box.gold .counter-number {
             color: #1a5a1a;
             animation: glowBlinkGreen 0.8s ease-in-out infinite;
@@ -194,112 +116,63 @@
             0%, 100% { color: #1a5a1a; transform: scale(1); }
             50% { color: #2d8a2d; transform: scale(1.02); }
         }
-        .counter-box.teal {
-            background: #fdebd0;
-            border: 3px solid #e67e22;
-        }
+        .counter-box.teal { background: #fdebd0; border: 3px solid #e67e22; }
         .counter-box.teal .counter-number { color: #e67e22; }
-
         .row-main {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            margin: 8px 0 12px;
-            flex-wrap: wrap;
+            display: flex; flex-direction: row; justify-content: center;
+            align-items: center; gap: 12px; margin: 8px 0 12px; flex-wrap: wrap;
         }
         .night-box {
-            background: #ffffff;
-            border: 2px solid #d4af37;
-            border-radius: 25px;
-            padding: 10px 20px 8px;
-            min-width: 150px;
+            background: #ffffff; border: 2px solid #d4af37;
+            border-radius: 25px; padding: 10px 20px 8px; min-width: 150px;
         }
-        .night-box .counter-label {
-            color: #5d6d7e;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            font-weight: 300;
-        }
+        .night-box .counter-label { color: #5d6d7e; font-size: 0.8rem; letter-spacing: 2px; font-weight: 300; }
         .night-box .counter-number {
             font-family: 'Tahoma', 'Arial', sans-serif;
-            font-size: 2.8rem;
-            font-weight: 900;
-            display: block;
-            direction: ltr;
-            color: #1a1a2e;
+            font-size: 2.8rem; font-weight: 900;
+            display: block; direction: ltr; color: #1a1a2e;
         }
-
-        .status-msg {
-            color: #ffd700;
-            margin-top: 12px;
-            font-size: 1rem;
-            min-height: 30px;
-            font-weight: 500;
-        }
+        .status-msg { color: #ffd700; margin-top: 12px; font-size: 1rem; min-height: 30px; font-weight: 500; }
         .db-status {
-            font-size: 0.8rem;
-            color: #8899aa;
-            margin-top: 5px;
-            padding: 4px 12px;
-            border-radius: 50px;
-            display: inline-block;
-            background: rgba(0,0,0,0.03);
+            font-size: 0.8rem; color: #8899aa; margin-top: 5px;
+            padding: 4px 12px; border-radius: 50px;
+            display: inline-block; background: rgba(0,0,0,0.03);
         }
         .db-status.online { color: #27ae60; }
         .db-status.offline { color: #e74c3c; }
         .admin-area {
-            margin-top: 12px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
+            margin-top: 12px; display: flex; justify-content: center;
+            gap: 10px; flex-wrap: wrap;
         }
         .admin-link, .daily-reset-link, .btn-report {
-            color: #8899aa;
-            font-size: 0.8rem;
+            color: #8899aa; font-size: 0.8rem;
             border: 2px solid rgba(255, 215, 0, 0.15);
-            padding: 6px 18px;
-            border-radius: 50px;
-            transition: 0.3s;
-            cursor: pointer;
-            background: rgba(255, 215, 0, 0.02);
-            font-weight: 500;
+            padding: 6px 18px; border-radius: 50px;
+            transition: 0.3s; cursor: pointer;
+            background: rgba(255, 215, 0, 0.02); font-weight: 500;
         }
         .admin-link:hover { color: #ffd700; border-color: #ffd700; }
         .daily-reset-link:hover { color: #e74c3c; border-color: #e74c3c; }
         .btn-report { color: #7fdbca; border-color: #7fdbca; }
         .btn-report:hover { color: #ffd700; border-color: #ffd700; }
-
         .datetime-box {
             background: rgba(255, 215, 0, 0.05);
-            border-radius: 20px;
-            padding: 10px 20px;
-            margin-top: 15px;
-            border: 1px solid rgba(255, 215, 0, 0.15);
-            color: #ccddee;
-            font-size: 0.95rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
+            border-radius: 20px; padding: 10px 20px;
+            margin-top: 15px; border: 1px solid rgba(255, 215, 0, 0.15);
+            color: #ccddee; font-size: 0.95rem;
+            display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 8px;
         }
         .datetime-box .label { color: #8899aa; }
         .datetime-box .value { color: #ffd700; font-weight: bold; }
         .datetime-box .night-badge {
             background: linear-gradient(135deg, #1a3a5a, #3a1a3a);
-            padding: 4px 16px;
-            border-radius: 50px;
-            color: #ffd700;
-            font-size: 0.85rem;
-            font-weight: bold;
-            border: 2px solid #ffd700;
+            padding: 4px 16px; border-radius: 50px;
+            color: #ffd700; font-size: 0.85rem;
+            font-weight: bold; border: 2px solid #ffd700;
         }
         @keyframes pop { 0% { transform: scale(1); } 40% { transform: scale(1.35); color: #fff; } 100% { transform: scale(1); } }
         .pop-anim { animation: pop 0.4s ease; }
-
         .loading-overlay {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
@@ -311,81 +184,47 @@
         .loading-overlay .spinner {
             width: 60px; height: 60px;
             border: 5px solid rgba(255, 215, 0, 0.1);
-            border-top: 5px solid #ffd700;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
+            border-top: 5px solid #ffd700; border-radius: 50%;
+            animation: spin 1s linear infinite; margin-bottom: 20px;
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-        /* ===== مودال رمز ===== */
         .modal-overlay {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
             background: rgba(0,0,0,0.7);
             display: flex; align-items: center; justify-content: center;
-            z-index: 99999; direction: rtl;
-            padding: 20px;
+            z-index: 99999; direction: rtl; padding: 20px;
         }
         .modal-box {
-            background: #fef9e7;
-            border: 3px solid #ffd700;
-            border-radius: 30px;
-            padding: 30px 25px;
-            max-width: 420px;
-            width: 100%;
-            text-align: center;
+            background: #fef9e7; border: 3px solid #ffd700;
+            border-radius: 30px; padding: 30px 25px;
+            max-width: 420px; width: 100%; text-align: center;
             box-shadow: 0 20px 60px rgba(0,0,0,0.5);
         }
         .modal-box h3 {
-            color: #5d2e0c;
-            margin-bottom: 18px;
-            font-size: 1.15rem;
-            font-family: Tahoma, sans-serif;
-            line-height: 1.5;
+            color: #5d2e0c; margin-bottom: 18px;
+            font-size: 1.15rem; font-family: Tahoma, sans-serif; line-height: 1.5;
         }
         .modal-box input {
-            width: 100%;
-            padding: 14px;
-            font-size: 1.4rem;
-            text-align: center;
-            border: 3px solid #d4af37;
-            border-radius: 50px;
-            margin-bottom: 18px;
-            font-weight: bold;
-            letter-spacing: 6px;
-            background: #fff;
-            color: #1a1a2e;
-            outline: none;
-            direction: ltr;
+            width: 100%; padding: 14px; font-size: 1.4rem;
+            text-align: center; border: 3px solid #d4af37;
+            border-radius: 50px; margin-bottom: 18px;
+            font-weight: bold; letter-spacing: 6px;
+            background: #fff; color: #1a1a2e; outline: none; direction: ltr;
         }
         .modal-box input:focus { border-color: #1a7a1a; box-shadow: 0 0 20px rgba(26, 122, 26, 0.3); }
-        .modal-buttons {
-            display: flex; gap: 10px; justify-content: center;
-        }
+        .modal-buttons { display: flex; gap: 10px; justify-content: center; }
         .modal-buttons button {
-            flex: 1;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            font-family: Tahoma, sans-serif;
+            flex: 1; padding: 12px 20px; border: none;
+            border-radius: 50px; font-size: 1rem;
+            font-weight: bold; cursor: pointer; font-family: Tahoma, sans-serif;
         }
-        .btn-modal-ok {
-            background: linear-gradient(135deg, #1a7a1a, #0f5a0f);
-            color: #fff;
-        }
+        .btn-modal-ok { background: linear-gradient(135deg, #1a7a1a, #0f5a0f); color: #fff; }
         .btn-modal-ok:hover { transform: scale(1.05); }
-        .btn-modal-cancel {
-            background: #ddd;
-            color: #333;
-        }
+        .btn-modal-cancel { background: #ddd; color: #333; }
         .btn-modal-cancel:hover { background: #ccc; }
-
         @media (max-width: 768px) {
-            .container { padding: 25px 20px; border-radius: 40px 15px 40px 15px; }
+            .container { padding: 25px 20px; }
             .main-title { font-size: 1.5rem; }
             .counter-box .counter-number { font-size: 5rem; }
             .counter-box .counter-label { font-size: 1.3rem; }
@@ -396,7 +235,7 @@
         }
         @media (max-width: 480px) {
             body { padding: 8px; }
-            .container { padding: 18px 12px; border-radius: 30px 10px 30px 10px; }
+            .container { padding: 18px 12px; }
             .main-title { font-size: 1.05rem; min-height: 50px; }
             .counter-box .counter-number { font-size: 3.5rem; }
             .counter-box .counter-label { font-size: 1rem; }
@@ -421,7 +260,7 @@
         <div>⏳ در حال اتصال به دیتابیس...</div>
     </div>
     <div class="container" id="mainContainer" style="display:none;">
-        <div class="main-title" id="mainTitle">🕌 پویش بزرگ ۱۵۰ میلیون صلوات</div>
+        <div class="main-title" id="mainTitle">🕌 پویش بزرگ ۵۰۰ میلیون صلوات</div>
 
         <div class="tabs-container" id="tabsContainer">
             <button class="tab-btn active" data-tab="salavat">صلوات</button>
@@ -448,7 +287,7 @@
             </div>
             <div class="counter-box teal" id="remainingBox">
                 <div class="counter-label" id="remainingLabel">📊 باقیمانده تا 500 میلیون</div>
-                <span class="counter-number" id="remainingCount">۱۵۰٬۰۰۰٬۰۰۰</span>
+                <span class="counter-number" id="remainingCount">۵۰۰٬۰۰۰٬۰۰۰</span>
             </div>
         </div>
 
@@ -476,12 +315,16 @@
     </div>
 
     <script>
-        const JSONBIN_URL = 'https://api.jsonbin.io/v3/b/';
-        const BIN_ID = '6a99edbeda38895dfe35aed3';
-        const MASTER_KEY = '$2a$10$gcboyf59iFq8UGaheRfw/O1twW1E0iIBbOkpn8/FAvhcefpFlD5AC';
+        const GITHUB_OWNER = 'solimaniashteyani-crypto';
+        const GITHUB_REPO  = 'salavat-puyesh';
+        const GITHUB_FILE  = 'data.json';
+        const GITHUB_BRANCH = 'main';
+
+        // ⚠️⚠️⚠️ توکن جدیدت رو اینجا بذار ⚠️⚠️⚠️
+        const GITHUB_TOKEN = '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';
+
         const PASSWORD = '5113';
 
-        // ===== تبدیل اعداد فارسی/عربی به انگلیسی =====
         function toEnglishDigits(str) {
             if (!str) return '';
             const persian = '۰۱۲۳۴۵۶۷۸۹';
@@ -493,7 +336,13 @@
                 .trim();
         }
 
-        // ===== مودال رمز =====
+        function encodeBase64(str) {
+            return btoa(unescape(encodeURIComponent(str)));
+        }
+        function decodeBase64(str) {
+            return decodeURIComponent(escape(atob(str)));
+        }
+
         function askPassword(titleText) {
             return new Promise((resolve) => {
                 const overlay = document.createElement('div');
@@ -511,7 +360,6 @@
                 document.body.appendChild(overlay);
                 const input = document.getElementById('pwdInput');
                 setTimeout(() => input.focus(), 100);
-
                 function close(value) {
                     if (overlay.parentNode) document.body.removeChild(overlay);
                     resolve(value);
@@ -525,7 +373,6 @@
             });
         }
 
-        // ===== مودال تایید =====
         function askConfirm(titleText) {
             return new Promise((resolve) => {
                 const overlay = document.createElement('div');
@@ -552,7 +399,7 @@
         const TABS_CONFIG = {
             salavat: {
                 name: 'صلوات',
-                mainTitle: '🕌 پویش بزرگ 500 میلیون صلوات',
+                mainTitle: '🕌 پویش بزرگ ۵۰۰ میلیون صلوات',
                 totalKey: 'total',
                 nightKey: 'night',
                 hasTarget: true,
@@ -611,33 +458,42 @@
             doa14_total: 0, doa14_night: 0,
             fath_total: 0, fath_night: 0,
             tavasol_total: 0, tavasol_night: 0,
-            lastDate: ''
+            lastDate: '',
+            _sha: null
         };
         let lastAddedValue = 0;
         let lastAddedTab = null;
         let isUpdating = false;
         let undoCount = 0;
 
+        const GITHUB_API = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
+
         async function fetchData() {
             try {
-                const response = await fetch(JSONBIN_URL + BIN_ID + '/latest', {
-                    headers: { 'X-Master-Key': MASTER_KEY }
+                const url = GITHUB_API + '?ref=' + GITHUB_BRANCH + '&_t=' + Date.now();
+                const response = await fetch(url, {
+                    headers: {
+                        'Authorization': 'Bearer ' + GITHUB_TOKEN,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Cache-Control': 'no-cache'
+                    }
                 });
                 if (!response.ok) throw new Error('HTTP ' + response.status);
-                const data = await response.json();
-                const record = data.record || {};
+                const fileData = await response.json();
+                const content = JSON.parse(decodeBase64(fileData.content.replace(/\n/g, '')));
                 currentData = {
-                    total: Number(record.total) || 0,
-                    night: Number(record.night) || 0,
-                    estegfar_total: Number(record.estegfar_total) || 0,
-                    estegfar_night: Number(record.estegfar_night) || 0,
-                    doa14_total: Number(record.doa14_total) || 0,
-                    doa14_night: Number(record.doa14_night) || 0,
-                    fath_total: Number(record.fath_total) || 0,
-                    fath_night: Number(record.fath_night) || 0,
-                    tavasol_total: Number(record.tavasol_total) || 0,
-                    tavasol_night: Number(record.tavasol_night) || 0,
-                    lastDate: record.lastDate || ''
+                    total: Number(content.total) || 0,
+                    night: Number(content.night) || 0,
+                    estegfar_total: Number(content.estegfar_total) || 0,
+                    estegfar_night: Number(content.estegfar_night) || 0,
+                    doa14_total: Number(content.doa14_total) || 0,
+                    doa14_night: Number(content.doa14_night) || 0,
+                    fath_total: Number(content.fath_total) || 0,
+                    fath_night: Number(content.fath_night) || 0,
+                    tavasol_total: Number(content.tavasol_total) || 0,
+                    tavasol_night: Number(content.tavasol_night) || 0,
+                    lastDate: content.lastDate || '',
+                    _sha: fileData.sha
                 };
                 return currentData;
             } catch (error) {
@@ -650,20 +506,34 @@
             if (isUpdating) return false;
             isUpdating = true;
             try {
-                const payload = { ...newData, lastDate: new Date().toISOString() };
-                const response = await fetch(JSONBIN_URL + BIN_ID, {
+                const contentToSave = { ...newData };
+                delete contentToSave._sha;
+                contentToSave.lastDate = new Date().toISOString();
+
+                const encoded = encodeBase64(JSON.stringify(contentToSave, null, 2));
+
+                const response = await fetch(GITHUB_API, {
                     method: 'PUT',
                     headers: {
-                        'Content-Type': 'application/json',
-                        'X-Master-Key': MASTER_KEY
+                        'Authorization': 'Bearer ' + GITHUB_TOKEN,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(payload)
+                    body: JSON.stringify({
+                        message: 'Update salavat data - ' + new Date().toISOString(),
+                        content: encoded,
+                        sha: newData._sha,
+                        branch: GITHUB_BRANCH
+                    })
                 });
                 if (!response.ok) {
                     const txt = await response.text();
                     console.error('PUT failed:', response.status, txt);
                     throw new Error('Update failed');
                 }
+                const result = await response.json();
+                currentData._sha = result.content.sha;
+                newData._sha = result.content.sha;
                 isUpdating = false;
                 return true;
             } catch (error) {
@@ -765,7 +635,6 @@
             }
         }
 
-        // ===== تابع عدد دلخواه (اصلاح شده) =====
         async function addCustom() {
             const rawValue = document.getElementById('addInput').value;
             const cleaned = toEnglishDigits(rawValue);
@@ -782,7 +651,6 @@
                 return;
             }
 
-            // فقط اگر عدد بزرگتر از ۱۴۰۰۰ بود، رمز می‌خواد
             if (numberToAdd > 14000) {
                 const pwd = await askPassword('🔑 رمز مدیریت برای اضافه کردن عدد بزرگتر از ۱۴۰۰۰:');
                 if (pwd === null) return;
@@ -837,7 +705,6 @@
             }
         }
 
-        // ===== ریست روزانه تب فعال =====
         async function dailyResetCurrent() {
             const cfg = TABS_CONFIG[activeTab];
 
@@ -954,10 +821,10 @@
 
             const record = await fetchData();
             if (record) {
-                dbStatus.innerHTML = '✅ متصل به دیتابیس';
+                dbStatus.innerHTML = '✅ متصل به دیتابیس (GitHub)';
                 dbStatus.className = 'db-status online';
             } else {
-                dbStatus.innerHTML = '⚠️ اتصال ناموفق';
+                dbStatus.innerHTML = '⚠️ اتصال ناموفق - تنظیمات توکن را چک کنید';
                 dbStatus.className = 'db-status offline';
             }
 
