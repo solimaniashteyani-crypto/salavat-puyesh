@@ -475,7 +475,6 @@
                     headers: {
                         'Authorization': 'Bearer ' + GITHUB_TOKEN,
                         'Accept': 'application/vnd.github.v3+json',
-                        'Cache-Control': 'no-cache'
                     }
                 });
                 if (!response.ok) throw new Error('HTTP ' + response.status);
