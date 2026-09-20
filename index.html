@@ -40,6 +40,7 @@
             line-height: 1.5;
             min-height: 60px;
         }
+
         .tabs-container {
             display: flex;
             flex-direction: row;
@@ -71,6 +72,7 @@
             color: #ffffff;
             box-shadow: 0 0 30px rgba(26, 122, 26, 0.5);
         }
+
         .top-section {
             display: flex;
             flex-direction: column;
@@ -105,6 +107,7 @@
         .btn-salavat:active { transform: scale(0.93); }
         .btn-salavat:disabled { opacity: 0.4; cursor: not-allowed; }
         .btn-salavat.one { font-size: 1.2rem; min-width: 55px; padding: 12px 16px; }
+
         .custom-group {
             display: flex;
             flex-direction: row;
@@ -152,6 +155,7 @@
         }
         .btn-undo:hover { background: rgba(255, 100, 100, 0.25); }
         .btn-undo:disabled { opacity: 0.3; cursor: not-allowed; }
+
         .counters-column {
             display: flex;
             flex-direction: column;
@@ -195,6 +199,7 @@
             border: 3px solid #e67e22;
         }
         .counter-box.teal .counter-number { color: #e67e22; }
+
         .row-main {
             display: flex;
             flex-direction: row;
@@ -225,6 +230,7 @@
             direction: ltr;
             color: #1a1a2e;
         }
+
         .status-msg {
             color: #ffd700;
             margin-top: 12px;
@@ -265,6 +271,7 @@
         .daily-reset-link:hover { color: #e74c3c; border-color: #e74c3c; }
         .btn-report { color: #7fdbca; border-color: #7fdbca; }
         .btn-report:hover { color: #ffd700; border-color: #ffd700; }
+
         .datetime-box {
             background: rgba(255, 215, 0, 0.05);
             border-radius: 20px;
@@ -292,6 +299,7 @@
         }
         @keyframes pop { 0% { transform: scale(1); } 40% { transform: scale(1.35); color: #fff; } 100% { transform: scale(1); } }
         .pop-anim { animation: pop 0.4s ease; }
+
         .loading-overlay {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
@@ -309,6 +317,8 @@
             margin-bottom: 20px;
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* ===== مودال رمز ===== */
         .modal-overlay {
             position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
@@ -373,6 +383,7 @@
             color: #333;
         }
         .btn-modal-cancel:hover { background: #ccc; }
+
         @media (max-width: 768px) {
             .container { padding: 25px 20px; border-radius: 40px 15px 40px 15px; }
             .main-title { font-size: 1.5rem; }
@@ -410,7 +421,7 @@
         <div>⏳ در حال اتصال به دیتابیس...</div>
     </div>
     <div class="container" id="mainContainer" style="display:none;">
-        <div class="main-title" id="mainTitle">🕌 پویش بزرگ ۵۰۰ میلیون صلوات</div>
+        <div class="main-title" id="mainTitle">🕌 پویش بزرگ ۱۵۰ میلیون صلوات</div>
 
         <div class="tabs-container" id="tabsContainer">
             <button class="tab-btn active" data-tab="salavat">صلوات</button>
@@ -437,7 +448,7 @@
             </div>
             <div class="counter-box teal" id="remainingBox">
                 <div class="counter-label" id="remainingLabel">📊 باقیمانده تا 500 میلیون</div>
-                <span class="counter-number" id="remainingCount">۵۰۰٬۰۰۰٬۰۰۰</span>
+                <span class="counter-number" id="remainingCount">۱۵۰٬۰۰۰٬۰۰۰</span>
             </div>
         </div>
 
@@ -465,19 +476,12 @@
     </div>
 
     <script>
-        // ============================================================
-        //  تنظیمات GitHub
-        // ============================================================
-        const GITHUB_OWNER = 'solimaniashteyani-crypto';
-        const GITHUB_REPO  = 'salavat-puyesh';
-        const GITHUB_FILE  = 'data.json';
-        const GITHUB_BRANCH = 'main';
-
-        // ⚠️⚠️⚠️ فقط این خط رو تغییر بده ⚠️⚠️⚠️
-        const GITHUB_TOKEN = 'github_pat_XXXXXXXXXX1';
-
+        const JSONBIN_URL = 'https://api.jsonbin.io/v3/b/';
+        const BIN_ID = '6a99edbeda38895dfe35aed3';
+        const MASTER_KEY = '$2a$10$gcboyf59iFq8UGaheRfw/O1twW1E0iIBbOkpn8/FAvhcefpFlD5AC';
         const PASSWORD = '5113';
 
+        // ===== تبدیل اعداد فارسی/عربی به انگلیسی =====
         function toEnglishDigits(str) {
             if (!str) return '';
             const persian = '۰۱۲۳۴۵۶۷۸۹';
@@ -489,13 +493,7 @@
                 .trim();
         }
 
-        function encodeBase64(str) {
-            return btoa(unescape(encodeURIComponent(str)));
-        }
-        function decodeBase64(str) {
-            return decodeURIComponent(escape(atob(str)));
-        }
-
+        // ===== مودال رمز =====
         function askPassword(titleText) {
             return new Promise((resolve) => {
                 const overlay = document.createElement('div');
@@ -513,6 +511,7 @@
                 document.body.appendChild(overlay);
                 const input = document.getElementById('pwdInput');
                 setTimeout(() => input.focus(), 100);
+
                 function close(value) {
                     if (overlay.parentNode) document.body.removeChild(overlay);
                     resolve(value);
@@ -526,6 +525,7 @@
             });
         }
 
+        // ===== مودال تایید =====
         function askConfirm(titleText) {
             return new Promise((resolve) => {
                 const overlay = document.createElement('div');
@@ -552,7 +552,7 @@
         const TABS_CONFIG = {
             salavat: {
                 name: 'صلوات',
-                mainTitle: '🕌 پویش بزرگ ۵۰۰ میلیون صلوات',
+                mainTitle: '🕌 پویش بزرگ 500 میلیون صلوات',
                 totalKey: 'total',
                 nightKey: 'night',
                 hasTarget: true,
@@ -611,42 +611,33 @@
             doa14_total: 0, doa14_night: 0,
             fath_total: 0, fath_night: 0,
             tavasol_total: 0, tavasol_night: 0,
-            lastDate: '',
-            _sha: null
+            lastDate: ''
         };
         let lastAddedValue = 0;
         let lastAddedTab = null;
         let isUpdating = false;
         let undoCount = 0;
 
-        const GITHUB_API = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
-
         async function fetchData() {
             try {
-                const url = GITHUB_API + '?ref=' + GITHUB_BRANCH + '&_t=' + Date.now();
-                const response = await fetch(url, {
-                    headers: {
-                        'Authorization': 'Bearer ' + GITHUB_TOKEN,
-                        'Accept': 'application/vnd.github.v3+json',
-                        'Cache-Control': 'no-cache'
-                    }
+                const response = await fetch(JSONBIN_URL + BIN_ID + '/latest', {
+                    headers: { 'X-Master-Key': MASTER_KEY }
                 });
                 if (!response.ok) throw new Error('HTTP ' + response.status);
-                const fileData = await response.json();
-                const content = JSON.parse(decodeBase64(fileData.content.replace(/\n/g, '')));
+                const data = await response.json();
+                const record = data.record || {};
                 currentData = {
-                    total: Number(content.total) || 0,
-                    night: Number(content.night) || 0,
-                    estegfar_total: Number(content.estegfar_total) || 0,
-                    estegfar_night: Number(content.estegfar_night) || 0,
-                    doa14_total: Number(content.doa14_total) || 0,
-                    doa14_night: Number(content.doa14_night) || 0,
-                    fath_total: Number(content.fath_total) || 0,
-                    fath_night: Number(content.fath_night) || 0,
-                    tavasol_total: Number(content.tavasol_total) || 0,
-                    tavasol_night: Number(content.tavasol_night) || 0,
-                    lastDate: content.lastDate || '',
-                    _sha: fileData.sha
+                    total: Number(record.total) || 0,
+                    night: Number(record.night) || 0,
+                    estegfar_total: Number(record.estegfar_total) || 0,
+                    estegfar_night: Number(record.estegfar_night) || 0,
+                    doa14_total: Number(record.doa14_total) || 0,
+                    doa14_night: Number(record.doa14_night) || 0,
+                    fath_total: Number(record.fath_total) || 0,
+                    fath_night: Number(record.fath_night) || 0,
+                    tavasol_total: Number(record.tavasol_total) || 0,
+                    tavasol_night: Number(record.tavasol_night) || 0,
+                    lastDate: record.lastDate || ''
                 };
                 return currentData;
             } catch (error) {
@@ -659,34 +650,20 @@
             if (isUpdating) return false;
             isUpdating = true;
             try {
-                const contentToSave = { ...newData };
-                delete contentToSave._sha;
-                contentToSave.lastDate = new Date().toISOString();
-
-                const encoded = encodeBase64(JSON.stringify(contentToSave, null, 2));
-
-                const response = await fetch(GITHUB_API, {
+                const payload = { ...newData, lastDate: new Date().toISOString() };
+                const response = await fetch(JSONBIN_URL + BIN_ID, {
                     method: 'PUT',
                     headers: {
-                        'Authorization': 'Bearer ' + GITHUB_TOKEN,
-                        'Accept': 'application/vnd.github.v3+json',
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'X-Master-Key': MASTER_KEY
                     },
-                    body: JSON.stringify({
-                        message: 'Update salavat data - ' + new Date().toISOString(),
-                        content: encoded,
-                        sha: newData._sha,
-                        branch: GITHUB_BRANCH
-                    })
+                    body: JSON.stringify(payload)
                 });
                 if (!response.ok) {
                     const txt = await response.text();
                     console.error('PUT failed:', response.status, txt);
                     throw new Error('Update failed');
                 }
-                const result = await response.json();
-                currentData._sha = result.content.sha;
-                newData._sha = result.content.sha;
                 isUpdating = false;
                 return true;
             } catch (error) {
@@ -788,6 +765,7 @@
             }
         }
 
+        // ===== تابع عدد دلخواه (اصلاح شده) =====
         async function addCustom() {
             const rawValue = document.getElementById('addInput').value;
             const cleaned = toEnglishDigits(rawValue);
@@ -804,6 +782,7 @@
                 return;
             }
 
+            // فقط اگر عدد بزرگتر از ۱۴۰۰۰ بود، رمز می‌خواد
             if (numberToAdd > 14000) {
                 const pwd = await askPassword('🔑 رمز مدیریت برای اضافه کردن عدد بزرگتر از ۱۴۰۰۰:');
                 if (pwd === null) return;
@@ -858,6 +837,7 @@
             }
         }
 
+        // ===== ریست روزانه تب فعال =====
         async function dailyResetCurrent() {
             const cfg = TABS_CONFIG[activeTab];
 
@@ -974,10 +954,10 @@
 
             const record = await fetchData();
             if (record) {
-                dbStatus.innerHTML = '✅ متصل به دیتابیس (GitHub)';
+                dbStatus.innerHTML = '✅ متصل به دیتابیس';
                 dbStatus.className = 'db-status online';
             } else {
-                dbStatus.innerHTML = '⚠️ اتصال ناموفق - تنظیمات توکن را چک کنید';
+                dbStatus.innerHTML = '⚠️ اتصال ناموفق';
                 dbStatus.className = 'db-status offline';
             }
 
