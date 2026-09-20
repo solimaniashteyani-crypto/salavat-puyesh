@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پویش بزرگ معنوی</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            width: 100%;
+            min-height: 100vh;
+            font-family: 'Vazir', 'IRANSans', 'Titr', 'Nazanin', 'Tahoma', 'Arial', sans-serif;
+            background: linear-gradient(145deg, #0a0a1a 0%, #1a1a2e 40%, #0d1f2d 100%);
+            padding: 15px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: #fef9e7;
+            border: 4px solid #ffd700;
+            border-radius: 70px 25px 70px 25px;
+            padding: 35px 40px;
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.8), 0 0 60px rgba(255,215,0,0.15);
+        }
+        .main-title {
+            font-family: 'Titr', 'Vazir', 'IRANSans', sans-serif;
+            color: #5d2e0c;
+            font-size: 2.2rem;
+            font-weight: 900;
+            text-shadow: 0 0 40px rgba(93, 46, 12, 0.15);
+            letter-spacing: 1px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid rgba(93, 46, 12, 0.15);
+            margin-bottom: 20px;
+            line-height: 1.5;
+            min-height: 60px;
+        }
+
+        .tabs-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+        .tab-btn {
+            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
+            background: linear-gradient(135deg, #ffd700, #e6b422);
+            border: 3px solid #b7950b;
+            color: #5d2e0c;
+            font-size: 1.05rem;
+            font-weight: 900;
+            padding: 12px 26px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            white-space: nowrap;
+        }
+        .tab-btn:hover { transform: scale(1.05); }
+        .tab-btn.active {
+            background: linear-gradient(135deg, #1a7a1a, #0f5a0f);
+            border-color: #0a3a0a;
+            color: #ffffff;
+            box-shadow: 0 0 30px rgba(26, 122, 26, 0.5);
+        }
+
+        .top-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        .btn-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn-salavat {
+            font-family: 'Vazir', 'IRANSans', 'Tahoma', sans-serif;
+            background: #ffffff;
+            border: 2px solid #d4af37;
+            color: #1a1a2e;
+            font-size: 1.2rem;
+            font-weight: 900;
+            padding: 12px 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.15s ease;
+            min-width: 60px;
+            min-height: 48px;
+        }
+        .btn-salavat:hover { transform: scale(1.06); background: #f8f8f8; }
+        .btn-salavat:active { transform: scale(0.93); }
+        .btn-salavat:disabled { opacity: 0.4; cursor: not-allowed; }
+        .btn-salavat.one { font-size: 1.2rem; min-width: 55px; padding: 12px 16px; }
+
+        .custom-group {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .custom-group input {
+            background: #fff;
+            border: 2px solid #d4af37;
+            border-radius: 50px;
+            padding: 8px 12px;
+            color: #1a1a2e;
+            font-size: 1.1rem;
+            font-weight: bold;
+            width: 120px;
+            text-align: center;
+            outline: none;
+            direction: ltr;
+        }
+        .custom-group input:focus { border-color: #ffd700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.2); }
+        .custom-group .btn-add-number {
+            background: linear-gradient(135deg, #ffd700, #cc8800);
+            border: none;
+            color: #1a1a2e;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+        .custom-group .btn-add-number:hover { transform: scale(1.05); }
+        .custom-group .btn-add-number:active { transform: scale(0.95); }
+        .btn-undo {
+            background: rgba(255, 100, 100, 0.15);
+            border: 2px solid rgba(255, 100, 100, 0.3);
+            color: #ff6b6b;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .btn-undo:hover { background: rgba(255, 100, 100, 0.25); }
+        .btn-undo:disabled { opacity: 0.3; cursor: not-allowed; }
+
+        .counters-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .counter-box {
+            width: 100%;
+            border-radius: 25px;
+            padding: 18px 15px 15px;
+            text-align: center;
+        }
+        .counter-box .counter-label {
+            color: #5d6d7e;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        .counter-box .counter-number {
+            font-family: 'Tahoma', 'Arial', sans-serif;
+            font-size: 6rem;
+            font-weight: 900;
+            line-height: 1.1;
+            display: block;
+            direction: ltr;
+        }
+        .counter-box.gold {
+            background: #ffffff;
+            border: 3px solid #d4af37;
+        }
+        .counter-box.gold .counter-number {
+            color: #1a5a1a;
+            animation: glowBlinkGreen 0.8s ease-in-out infinite;
+        }
+        @keyframes glowBlinkGreen {
+            0%, 100% { color: #1a5a1a; transform: scale(1); }
+            50% { color: #2d8a2d; transform: scale(1.02); }
+        }
+        .counter-box.teal {
+            background: #fdebd0;
+            border: 3px solid #e67e22;
+        }
+        .counter-box.teal .counter-number { color: #e67e22; }
+
+        .row-main {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin: 8px 0 12px;
+            flex-wrap: wrap;
+        }
+        .night-box {
+            background: #ffffff;
+            border: 2px solid #d4af37;
+            border-radius: 25px;
+            padding: 10px 20px 8px;
+            min-width: 150px;
+        }
+        .night-box .counter-label {
+            color: #5d6d7e;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+        .night-box .counter-number {
+            font-family: 'Tahoma', 'Arial', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            display: block;
+            direction: ltr;
+            color: #1a1a2e;
+        }
+
+        .status-msg {
+            color: #ffd700;
+            margin-top: 12px;
+            font-size: 1rem;
+            min-height: 30px;
+            font-weight: 500;
+        }
+        .db-status {
+            font-size: 0.8rem;
+            color: #8899aa;
+            margin-top: 5px;
+            padding: 4px 12px;
+            border-radius: 50px;
+            display: inline-block;
+            background: rgba(0,0,0,0.03);
+        }
+        .db-status.online { color: #27ae60; }
+        .db-status.offline { color: #e74c3c; }
+        .admin-area {
+            margin-top: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .admin-link, .daily-reset-link, .btn-report {
+            color: #8899aa;
+            font-size: 0.8rem;
+            border: 2px solid rgba(255, 215, 0, 0.15);
+            padding: 6px 18px;
+            border-radius: 50px;
+            transition: 0.3s;
+            cursor: pointer;
+            background: rgba(255, 215, 0, 0.02);
+            font-weight: 500;
+        }
+        .admin-link:hover { color: #ffd700; border-color: #ffd700; }
+        .daily-reset-link:hover { color: #e74c3c; border-color: #e74c3c; }
+        .btn-report { color: #7fdbca; border-color: #7fdbca; }
+        .btn-report:hover { color: #ffd700; border-color: #ffd700; }
+
+        .datetime-box {
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin-top: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            color: #ccddee;
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .datetime-box .label { color: #8899aa; }
+        .datetime-box .value { color: #ffd700; font-weight: bold; }
+        .datetime-box .night-badge {
+            background: linear-gradient(135deg, #1a3a5a, #3a1a3a);
+            padding: 4px 16px;
+            border-radius: 50px;
+            color: #ffd700;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border: 2px solid #ffd700;
+        }
+        @keyframes pop { 0% { transform: scale(1); } 40% { transform: scale(1.35); color: #fff; } 100% { transform: scale(1); } }
+        .pop-anim { animation: pop 0.4s ease; }
+
+        .loading-overlay {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(10, 10, 26, 0.85);
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            z-index: 9999; color: #ffd700; font-size: 1.5rem;
+        }
+        .loading-overlay .spinner {
+            width: 60px; height: 60px;
+            border: 5px solid rgba(255, 215, 0, 0.1);
+            border-top: 5px solid #ffd700;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* ===== مودال رمز ===== */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 99999; direction: rtl;
+            padding: 20px;
+        }
+        .modal-box {
+            background: #fef9e7;
+            border: 3px solid #ffd700;
+            border-radius: 30px;
+            padding: 30px 25px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .modal-box h3 {
+            color: #5d2e0c;
+            margin-bottom: 18px;
+            font-size: 1.15rem;
+            font-family: Tahoma, sans-serif;
+            line-height: 1.5;
+        }
+        .modal-box input {
+            width: 100%;
+            padding: 14px;
+            font-size: 1.4rem;
+            text-align: center;
+            border: 3px solid #d4af37;
+            border-radius: 50px;
+            margin-bottom: 18px;
+            font-weight: bold;
+            letter-spacing: 6px;
+            background: #fff;
+            color: #1a1a2e;
+            outline: none;
+            direction: ltr;
+        }
+        .modal-box input:focus { border-color: #1a7a1a; box-shadow: 0 0 20px rgba(26, 122, 26, 0.3); }
+        .modal-buttons {
+            display: flex; gap: 10px; justify-content: center;
+        }
+        .modal-buttons button {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: Tahoma, sans-serif;
+        }
+        .btn-modal-ok {
+            background: linear-gradient(135deg, #1a7a1a, #0f5a0f);
+            color: #fff;
+        }
+        .btn-modal-ok:hover { transform: scale(1.05); }
+        .btn-modal-cancel {
+            background: #ddd;
+            color: #333;
+        }
+        .btn-modal-cancel:hover { background: #ccc; }
+
+        @media (max-width: 768px) {
+            .container { padding: 25px 20px; border-radius: 40px 15px 40px 15px; }
+            .main-title { font-size: 1.5rem; }
+            .counter-box .counter-number { font-size: 5rem; }
+            .counter-box .counter-label { font-size: 1.3rem; }
+            .night-box .counter-number { font-size: 2.5rem; }
+            .btn-salavat { font-size: 1rem; padding: 10px 14px; min-width: 50px; }
+            .custom-group input { width: 100px; font-size: 1rem; }
+            .tab-btn { font-size: 0.9rem; padding: 10px 18px; }
+        }
+        @media (max-width: 480px) {
+            body { padding: 8px; }
+            .container { padding: 18px 12px; border-radius: 30px 10px 30px 10px; }
+            .main-title { font-size: 1.05rem; min-height: 50px; }
+            .counter-box .counter-number { font-size: 3.5rem; }
+            .counter-box .counter-label { font-size: 1rem; }
+            .night-box .counter-number { font-size: 2rem; }
+            .night-box { padding: 6px 12px; min-width: 100px; }
+            .night-box .counter-label { font-size: 0.7rem; }
+            .btn-salavat { font-size: 0.85rem; padding: 8px 10px; min-width: 40px; min-height: 34px; }
+            .btn-salavat.one { font-size: 0.85rem; min-width: 36px; }
+            .custom-group input { width: 85px; font-size: 0.9rem; padding: 5px 8px; }
+            .custom-group .btn-add-number { padding: 6px 14px; font-size: 0.8rem; }
+            .btn-undo { font-size: 0.7rem; padding: 4px 10px; }
+            .admin-link, .daily-reset-link, .btn-report { padding: 4px 10px; font-size: 0.6rem; }
+            .datetime-box { font-size: 0.65rem; padding: 6px 10px; }
+            .tab-btn { font-size: 0.75rem; padding: 8px 14px; }
+            .tabs-container { gap: 6px; padding: 5px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <div>⏳ در حال اتصال به دیتابیس...</div>
+    </div>
+    <div class="container" id="mainContainer" style="display:none;">
+        <div class="main-title" id="mainTitle">🕌 پویش بزرگ ۱۵۰ میلیون صلوات</div>
+
+        <div class="tabs-container" id="tabsContainer">
+            <button class="tab-btn active" data-tab="salavat">صلوات</button>
+            <button class="tab-btn" data-tab="estegfar">استغفار</button>
+            <button class="tab-btn" data-tab="doa14">دعای ۱۴ صحیفه</button>
+            <button class="tab-btn" data-tab="fath">سوره فتح</button>
+            <button class="tab-btn" data-tab="tavasol">دعای توسل</button>
+        </div>
+
+        <div class="top-section">
+            <div class="btn-row" id="btnRow"></div>
+            <div class="custom-group">
+                <label>➕</label>
+                <input type="text" inputmode="numeric" id="addInput" placeholder="عدد دلخواه" value="">
+                <button class="btn-add-number" id="addNumberBtn">عدد دلخواه</button>
+                <button class="btn-undo" id="undoBtn" disabled>↺ برگشت</button>
+            </div>
+        </div>
+
+        <div class="counters-column">
+            <div class="counter-box gold">
+                <div class="counter-label" id="totalLabel">✨ جمع کل</div>
+                <span class="counter-number" id="totalCount">۰</span>
+            </div>
+            <div class="counter-box teal" id="remainingBox">
+                <div class="counter-label" id="remainingLabel">📊 باقیمانده تا 500 میلیون</div>
+                <span class="counter-number" id="remainingCount">۱۵۰٬۰۰۰٬۰۰۰</span>
+            </div>
+        </div>
+
+        <div class="row-main">
+            <div class="night-box">
+                <div class="counter-label" id="nightLabel">🌙 امروز</div>
+                <span class="counter-number" id="nightCount">۰</span>
+            </div>
+        </div>
+
+        <div class="status-msg" id="statusMsg">✨ عدد دلخواه را وارد و اضافه کن!</div>
+        <div class="db-status" id="dbStatus">⏳ در حال اتصال...</div>
+
+        <div class="admin-area">
+            <button class="admin-link" onclick="showAdminPanel()">🔐 پنل مدیریت</button>
+            <button class="daily-reset-link" onclick="dailyResetCurrent()">🌙 ریست روزانه این بخش (با رمز)</button>
+            <button class="btn-report" onclick="generateReport()">📊 خروجی روزانه</button>
+        </div>
+
+        <div class="datetime-box">
+            <span><span class="label">📅 تاریخ:</span> <span class="value" id="dateDisplay"></span></span>
+            <span><span class="label">⏰ ساعت:</span> <span class="value" id="timeDisplay"></span></span>
+            <span class="night-badge" id="nightBadge">🌙 پویش روز</span>
+        </div>
+    </div>
+
+    <script>
+        const JSONBIN_URL = 'https://api.jsonbin.io/v3/b/';
+        const BIN_ID = '6a99edbeda38895dfe35aed3';
+        const MASTER_KEY = '$2a$10$gcboyf59iFq8UGaheRfw/O1twW1E0iIBbOkpn8/FAvhcefpFlD5AC';
+        const PASSWORD = '5113';
+
+        // ===== تبدیل اعداد فارسی/عربی به انگلیسی =====
+        function toEnglishDigits(str) {
+            if (!str) return '';
+            const persian = '۰۱۲۳۴۵۶۷۸۹';
+            const arabic = '٠١٢٣٤٥٦٧٨٩';
+            return String(str)
+                .replace(/[۰-۹]/g, d => persian.indexOf(d))
+                .replace(/[٠-٩]/g, d => arabic.indexOf(d))
+                .replace(/[,\s]/g, '')
+                .trim();
+        }
+
+        // ===== مودال رمز =====
+        function askPassword(titleText) {
+            return new Promise((resolve) => {
+                const overlay = document.createElement('div');
+                overlay.className = 'modal-overlay';
+                overlay.innerHTML = `
+                    <div class="modal-box">
+                        <h3>${titleText}</h3>
+                        <input type="password" id="pwdInput" placeholder="• • • •" autocomplete="off">
+                        <div class="modal-buttons">
+                            <button class="btn-modal-cancel" id="pwdCancel">انصراف</button>
+                            <button class="btn-modal-ok" id="pwdOk">تایید</button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(overlay);
+                const input = document.getElementById('pwdInput');
+                setTimeout(() => input.focus(), 100);
+
+                function close(value) {
+                    if (overlay.parentNode) document.body.removeChild(overlay);
+                    resolve(value);
+                }
+                document.getElementById('pwdOk').onclick = () => close(input.value);
+                document.getElementById('pwdCancel').onclick = () => close(null);
+                input.onkeydown = (e) => {
+                    if (e.key === 'Enter') close(input.value);
+                    if (e.key === 'Escape') close(null);
+                };
+            });
+        }
+
+        // ===== مودال تایید =====
+        function askConfirm(titleText) {
+            return new Promise((resolve) => {
+                const overlay = document.createElement('div');
+                overlay.className = 'modal-overlay';
+                overlay.innerHTML = `
+                    <div class="modal-box">
+                        <h3>${titleText}</h3>
+                        <div class="modal-buttons">
+                            <button class="btn-modal-cancel" id="confCancel">انصراف</button>
+                            <button class="btn-modal-ok" id="confOk">بله، انجام بده</button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(overlay);
+                function close(value) {
+                    if (overlay.parentNode) document.body.removeChild(overlay);
+                    resolve(value);
+                }
+                document.getElementById('confOk').onclick = () => close(true);
+                document.getElementById('confCancel').onclick = () => close(false);
+            });
+        }
+
+        const TABS_CONFIG = {
+            salavat: {
+                name: 'صلوات',
+                mainTitle: '🕌 پویش بزرگ 500 میلیون صلوات',
+                totalKey: 'total',
+                nightKey: 'night',
+                hasTarget: true,
+                target: 500000000,
+                buttons: [5, 10, 20, 50, 100, 200, 500, 1000, 5000, 10000],
+                totalLabel: '✨ جمع کل صلوات',
+                nightLabel: '🌙 صلوات‌های امروز',
+                remainingLabel: '📊 باقیمانده تا 500 میلیون'
+            },
+            estegfar: {
+                name: 'استغفار',
+                mainTitle: 'أستغفر الله ربی و أتوب إلیه',
+                totalKey: 'estegfar_total',
+                nightKey: 'estegfar_night',
+                hasTarget: false,
+                buttons: [5, 10, 20, 50, 100, 200, 500, 1000, 5000, 10000],
+                totalLabel: '✨ جمع کل استغفار',
+                nightLabel: '🌙 استغفارهای امروز'
+            },
+            doa14: {
+                name: 'دعای ۱۴ صحیفه',
+                mainTitle: 'دعای ۱۴ صحیفه: يَا مَنْ لَا يَخْفَى عَلَيْهِ أَنْبَاءُ الْمُتَظَلِّمِينَ ...',
+                totalKey: 'doa14_total',
+                nightKey: 'doa14_night',
+                hasTarget: false,
+                buttons: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                totalLabel: '✨ جمع کل دعای ۱۴',
+                nightLabel: '🌙 دعای ۱۴ امروز'
+            },
+            fath: {
+                name: 'سوره فتح',
+                mainTitle: 'سوره مبارکه فتح: ۲۹ آیه',
+                totalKey: 'fath_total',
+                nightKey: 'fath_night',
+                hasTarget: false,
+                buttons: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                totalLabel: '✨ جمع کل سوره فتح',
+                nightLabel: '🌙 سوره فتح امروز'
+            },
+            tavasol: {
+                name: 'دعای توسل',
+                mainTitle: 'توسل به ۱۴ معصوم علیهم السلام',
+                totalKey: 'tavasol_total',
+                nightKey: 'tavasol_night',
+                hasTarget: false,
+                buttons: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                totalLabel: '✨ جمع کل دعای توسل',
+                nightLabel: '🌙 دعای توسل امروز'
+            }
+        };
+
+        let activeTab = 'salavat';
+        let currentData = {
+            total: 0, night: 0,
+            estegfar_total: 0, estegfar_night: 0,
+            doa14_total: 0, doa14_night: 0,
+            fath_total: 0, fath_night: 0,
+            tavasol_total: 0, tavasol_night: 0,
+            lastDate: ''
+        };
+        let lastAddedValue = 0;
+        let lastAddedTab = null;
+        let isUpdating = false;
+        let undoCount = 0;
+
+        async function fetchData() {
+            try {
+                const response = await fetch(JSONBIN_URL + BIN_ID + '/latest', {
+                    headers: { 'X-Master-Key': MASTER_KEY }
+                });
+                if (!response.ok) throw new Error('HTTP ' + response.status);
+                const data = await response.json();
+                const record = data.record || {};
+                currentData = {
+                    total: Number(record.total) || 0,
+                    night: Number(record.night) || 0,
+                    estegfar_total: Number(record.estegfar_total) || 0,
+                    estegfar_night: Number(record.estegfar_night) || 0,
+                    doa14_total: Number(record.doa14_total) || 0,
+                    doa14_night: Number(record.doa14_night) || 0,
+                    fath_total: Number(record.fath_total) || 0,
+                    fath_night: Number(record.fath_night) || 0,
+                    tavasol_total: Number(record.tavasol_total) || 0,
+                    tavasol_night: Number(record.tavasol_night) || 0,
+                    lastDate: record.lastDate || ''
+                };
+                return currentData;
+            } catch (error) {
+                console.error('fetchData error:', error);
+                return null;
+            }
+        }
+
+        async function updateData(newData) {
+            if (isUpdating) return false;
+            isUpdating = true;
+            try {
+                const payload = { ...newData, lastDate: new Date().toISOString() };
+                const response = await fetch(JSONBIN_URL + BIN_ID, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Master-Key': MASTER_KEY
+                    },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) {
+                    const txt = await response.text();
+                    console.error('PUT failed:', response.status, txt);
+                    throw new Error('Update failed');
+                }
+                isUpdating = false;
+                return true;
+            } catch (error) {
+                console.error('updateData error:', error);
+                isUpdating = false;
+                return false;
+            }
+        }
+
+        function updateDisplay() {
+            const cfg = TABS_CONFIG[activeTab];
+            const total = currentData[cfg.totalKey] || 0;
+            const night = currentData[cfg.nightKey] || 0;
+
+            document.getElementById('mainTitle').innerText = cfg.mainTitle;
+            document.getElementById('totalLabel').innerText = cfg.totalLabel;
+            document.getElementById('nightLabel').innerText = cfg.nightLabel;
+            document.getElementById('totalCount').innerText = total.toLocaleString('fa-IR');
+            document.getElementById('nightCount').innerText = night.toLocaleString('fa-IR');
+
+            if (cfg.hasTarget) {
+                document.getElementById('remainingBox').style.display = 'block';
+                document.getElementById('remainingLabel').innerText = cfg.remainingLabel;
+                const remaining = cfg.target - total;
+                document.getElementById('remainingCount').innerText = (remaining > 0 ? remaining : 0).toLocaleString('fa-IR');
+            } else {
+                document.getElementById('remainingBox').style.display = 'none';
+            }
+
+            const undoBtn = document.getElementById('undoBtn');
+            if (lastAddedValue > 0 && undoCount === 0 && lastAddedTab === activeTab) {
+                undoBtn.disabled = false;
+                undoBtn.style.opacity = '1';
+            } else {
+                undoBtn.disabled = true;
+                undoBtn.style.opacity = '0.3';
+            }
+        }
+
+        function animateCounter(element) {
+            element.classList.remove('pop-anim');
+            void element.offsetWidth;
+            element.classList.add('pop-anim');
+        }
+
+        function renderButtons() {
+            const cfg = TABS_CONFIG[activeTab];
+            const btnRow = document.getElementById('btnRow');
+            btnRow.innerHTML = '';
+            cfg.buttons.forEach(value => {
+                const btn = document.createElement('button');
+                btn.className = 'btn-salavat' + (value === 5 ? ' one' : '');
+                btn.innerText = value.toLocaleString('fa-IR');
+                btn.onclick = function() {
+                    this.disabled = true;
+                    addItem(value);
+                    const self = this;
+                    setTimeout(() => { self.disabled = false; }, 600);
+                };
+                btnRow.appendChild(btn);
+            });
+        }
+
+        async function addItem(count) {
+            if (count <= 0 || isUpdating) return;
+
+            document.getElementById('statusMsg').innerHTML = '⏳ در حال ثبت...';
+            document.getElementById('statusMsg').style.color = '#ffd700';
+
+            const record = await fetchData();
+            if (!record) {
+                document.getElementById('statusMsg').innerHTML = '❌ خطا در اتصال به دیتابیس!';
+                document.getElementById('statusMsg').style.color = '#e74c3c';
+                return;
+            }
+
+            const cfg = TABS_CONFIG[activeTab];
+            const newData = { ...currentData };
+            newData[cfg.totalKey] = (newData[cfg.totalKey] || 0) + count;
+            newData[cfg.nightKey] = (newData[cfg.nightKey] || 0) + count;
+
+            const success = await updateData(newData);
+            if (success) {
+                currentData = newData;
+                lastAddedValue = count;
+                lastAddedTab = activeTab;
+                undoCount = 0;
+                updateDisplay();
+                animateCounter(document.getElementById('totalCount'));
+                animateCounter(document.getElementById('nightCount'));
+                if (cfg.hasTarget) animateCounter(document.getElementById('remainingCount'));
+                document.getElementById('statusMsg').innerHTML = count === 1
+                    ? '✅ یک ' + cfg.name + ' ثبت شد.'
+                    : '✅ ' + count.toLocaleString('fa-IR') + ' ' + cfg.name + ' ثبت شد.';
+                document.getElementById('statusMsg').style.color = '#7fdbca';
+            } else {
+                document.getElementById('statusMsg').innerHTML = '❌ خطا در ثبت! دوباره تلاش کنید.';
+                document.getElementById('statusMsg').style.color = '#e74c3c';
+            }
+        }
+
+        // ===== تابع عدد دلخواه (اصلاح شده) =====
+        async function addCustom() {
+            const rawValue = document.getElementById('addInput').value;
+            const cleaned = toEnglishDigits(rawValue);
+            const numberToAdd = parseInt(cleaned, 10);
+
+            if (isNaN(numberToAdd) || numberToAdd <= 0) {
+                document.getElementById('statusMsg').innerHTML = '⚠️ لطفاً یک عدد صحیح و بزرگتر از صفر وارد کن!';
+                document.getElementById('statusMsg').style.color = '#f1c40f';
+                return;
+            }
+            if (numberToAdd > 100000000) {
+                document.getElementById('statusMsg').innerHTML = '⚠️ عدد خیلی بزرگ است!';
+                document.getElementById('statusMsg').style.color = '#e74c3c';
+                return;
+            }
+
+            // فقط اگر عدد بزرگتر از ۱۴۰۰۰ بود، رمز می‌خواد
+            if (numberToAdd > 14000) {
+                const pwd = await askPassword('🔑 رمز مدیریت برای اضافه کردن عدد بزرگتر از ۱۴۰۰۰:');
+                if (pwd === null) return;
+                if (String(pwd).trim() !== PASSWORD) {
+                    document.getElementById('statusMsg').innerHTML = '❌ رمز اشتباه!';
+                    document.getElementById('statusMsg').style.color = '#e74c3c';
+                    return;
+                }
+            }
+
+            await addItem(numberToAdd);
+            document.getElementById('addInput').value = '';
+        }
+
+        async function undoLast() {
+            if (lastAddedValue <= 0 || isUpdating) return;
+            if (undoCount >= 1) {
+                document.getElementById('statusMsg').innerHTML = '⚠️ قبلاً یک بار برگشت زده‌اید.';
+                return;
+            }
+            if (lastAddedTab !== activeTab) {
+                document.getElementById('statusMsg').innerHTML = '⚠️ تب فعال با آخرین ثبت یکی نیست.';
+                return;
+            }
+
+            const record = await fetchData();
+            if (!record) return;
+
+            const cfg = TABS_CONFIG[activeTab];
+            const newData = { ...currentData };
+
+            if ((newData[cfg.totalKey] || 0) < lastAddedValue || (newData[cfg.nightKey] || 0) < lastAddedValue) {
+                document.getElementById('statusMsg').innerHTML = '⚠️ خطا در برگشت!';
+                return;
+            }
+
+            const undoValue = lastAddedValue;
+            newData[cfg.totalKey] -= undoValue;
+            newData[cfg.nightKey] -= undoValue;
+            lastAddedValue = 0;
+            undoCount++;
+
+            const success = await updateData(newData);
+            if (success) {
+                currentData = newData;
+                updateDisplay();
+                animateCounter(document.getElementById('totalCount'));
+                animateCounter(document.getElementById('nightCount'));
+                if (cfg.hasTarget) animateCounter(document.getElementById('remainingCount'));
+                document.getElementById('statusMsg').innerHTML = '↺ ' + undoValue.toLocaleString('fa-IR') + ' ' + cfg.name + ' برگشت داده شد.';
+                document.getElementById('statusMsg').style.color = '#ff6b6b';
+            }
+        }
+
+        // ===== ریست روزانه تب فعال =====
+        async function dailyResetCurrent() {
+            const cfg = TABS_CONFIG[activeTab];
+
+            const pwd = await askPassword('🔑 رمز مدیریت برای ریست روزانه «' + cfg.name + '»:');
+            if (pwd === null) return;
+            if (String(pwd).trim() !== PASSWORD) {
+                document.getElementById('statusMsg').innerHTML = '❌ رمز اشتباه!';
+                document.getElementById('statusMsg').style.color = '#e74c3c';
+                return;
+            }
+
+            const ok = await askConfirm('⚠️ آیا مطمئنید که می‌خواهید شمارنده امروز «' + cfg.name + '» را صفر کنید؟ (جمع کل دست نمی‌خورد)');
+            if (!ok) return;
+
+            document.getElementById('statusMsg').innerHTML = '⏳ در حال ریست...';
+            document.getElementById('statusMsg').style.color = '#ffd700';
+
+            const record = await fetchData();
+            if (!record) {
+                document.getElementById('statusMsg').innerHTML = '❌ خطا در اتصال به دیتابیس!';
+                document.getElementById('statusMsg').style.color = '#e74c3c';
+                return;
+            }
+
+            const newData = { ...currentData };
+            newData[cfg.nightKey] = 0;
+
+            const success = await updateData(newData);
+            if (success) {
+                currentData = newData;
+                lastAddedValue = 0;
+                undoCount = 0;
+                updateDisplay();
+                animateCounter(document.getElementById('nightCount'));
+                document.getElementById('statusMsg').innerHTML = '🌙 شمارنده امروز «' + cfg.name + '» صفر شد.';
+                document.getElementById('statusMsg').style.color = '#e74c3c';
+            } else {
+                document.getElementById('statusMsg').innerHTML = '❌ خطا در ریست روزانه!';
+                document.getElementById('statusMsg').style.color = '#e74c3c';
+            }
+        }
+
+        async function showAdminPanel() {
+            const pwd = await askPassword('🔑 رمز پنل مدیریت:');
+            if (pwd === null) return;
+            if (String(pwd).trim() !== PASSWORD) {
+                alert('❌ رمز اشتباه!');
+                return;
+            }
+            const d = currentData;
+            alert(
+                '📊 **پنل مدیریت**\n\n' +
+                '🕌 صلوات: ' + (d.total || 0).toLocaleString('fa-IR') + ' (امروز: ' + (d.night || 0).toLocaleString('fa-IR') + ')\n' +
+                '🤲 استغفار: ' + (d.estegfar_total || 0).toLocaleString('fa-IR') + ' (امروز: ' + (d.estegfar_night || 0).toLocaleString('fa-IR') + ')\n' +
+                '📖 دعای ۱۴: ' + (d.doa14_total || 0).toLocaleString('fa-IR') + ' (امروز: ' + (d.doa14_night || 0).toLocaleString('fa-IR') + ')\n' +
+                '📗 سوره فتح: ' + (d.fath_total || 0).toLocaleString('fa-IR') + ' (امروز: ' + (d.fath_night || 0).toLocaleString('fa-IR') + ')\n' +
+                '🤲 دعای توسل: ' + (d.tavasol_total || 0).toLocaleString('fa-IR') + ' (امروز: ' + (d.tavasol_night || 0).toLocaleString('fa-IR') + ')'
+            );
+        }
+
+        function generateReport() {
+            const d = currentData;
+            const now = new Date();
+            const report =
+                '📊 **گزارش وضعیت پویش** 📊\n' +
+                '═══════════════════════════\n' +
+                '📅 ' + now.toLocaleDateString('fa-IR', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' }) + '\n' +
+                '⏰ ' + now.toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit' }) + '\n' +
+                '═══════════════════════════\n' +
+                '🕌 صلوات: ' + (d.total || 0).toLocaleString('fa-IR') + ' (امروز: ' + (d.night || 0).toLocaleString('fa-IR') + ')\n' +
+                '🤲 استغفار: ' + (d.estegfar_total || 0).toLocaleString('fa-IR') + ' (امروز: ' + (d.estegfar_night || 0).toLocaleString('fa-IR') + ')\n' +
+                '📖 دعای ۱۴: ' + (d.doa14_total || 0).toLocaleString('fa-IR') + ' (امروز: ' + (d.doa14_night || 0).toLocaleString('fa-IR') + ')\n' +
+                '📗 سوره فتح: ' + (d.fath_total || 0).toLocaleString('fa-IR') + ' (امروز: ' + (d.fath_night || 0).toLocaleString('fa-IR') + ')\n' +
+                '🤲 دعای توسل: ' + (d.tavasol_total || 0).toLocaleString('fa-IR') + ' (امروز: ' + (d.tavasol_night || 0).toLocaleString('fa-IR') + ')';
+            alert(report);
+        }
+
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('dateDisplay').innerText = now.toLocaleDateString('fa-IR', {
+                year: 'numeric', month: '2-digit', day: '2-digit', weekday: 'long'
+            });
+            document.getElementById('timeDisplay').innerText = now.toLocaleTimeString('fa-IR', {
+                hour: '2-digit', minute: '2-digit', second: '2-digit'
+            });
+            const h = now.getHours();
+            document.getElementById('nightBadge').innerHTML = (h >= 6 && h <= 17) ? '☀️ پویش روز' : '🌙 پویش شب';
+        }
+
+        function switchTab(tabName) {
+            if (!TABS_CONFIG[tabName]) return;
+            activeTab = tabName;
+
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                if (btn.getAttribute('data-tab') === tabName) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            document.getElementById('addInput').value = '';
+            lastAddedValue = 0;
+            undoCount = 0;
+
+            renderButtons();
+            updateDisplay();
+        }
+
+        async function init() {
+            const loading = document.getElementById('loadingOverlay');
+            const container = document.getElementById('mainContainer');
+            const dbStatus = document.getElementById('dbStatus');
+
+            const record = await fetchData();
+            if (record) {
+                dbStatus.innerHTML = '✅ متصل به دیتابیس';
+                dbStatus.className = 'db-status online';
+            } else {
+                dbStatus.innerHTML = '⚠️ اتصال ناموفق';
+                dbStatus.className = 'db-status offline';
+            }
+
+            loading.style.display = 'none';
+            container.style.display = 'block';
+
+            switchTab('salavat');
+
+            updateClock();
+            setInterval(updateClock, 1000);
+
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    switchTab(this.getAttribute('data-tab'));
+                });
+            });
+
+            document.getElementById('addNumberBtn').onclick = addCustom;
+            document.getElementById('addInput').addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    addCustom();
+                }
+            });
+
+            document.getElementById('undoBtn').onclick = undoLast;
+        }
+
+        init();
+    </script>
+</body>
+</html>
