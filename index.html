@@ -316,6 +316,7 @@
             display: flex; align-items: center; justify-content: center;
             z-index: 99999; direction: rtl;
             padding: 20px;
+            overflow-y: auto;
         }
         .modal-box {
             background: #fef9e7;
@@ -371,6 +372,198 @@
             color: #333;
         }
         .btn-modal-cancel:hover { background: #ccc; }
+
+        /* ===== پنل مدیریت حرفه‌ای ===== */
+        .admin-panel {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 100000; direction: rtl;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .admin-panel-inner {
+            background: #fef9e7;
+            border: 4px solid #ffd700;
+            border-radius: 30px;
+            padding: 25px 30px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+        }
+        .admin-panel h2 {
+            color: #5d2e0c;
+            font-family: Tahoma, sans-serif;
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid rgba(93, 46, 12, 0.15);
+            font-size: 1.5rem;
+        }
+        .admin-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .admin-tab {
+            padding: 8px 16px;
+            border: 2px solid #d4af37;
+            background: #fff;
+            color: #5d2e0c;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.85rem;
+            font-family: Tahoma, sans-serif;
+            transition: 0.2s;
+        }
+        .admin-tab:hover { background: #ffd700; }
+        .admin-tab.active {
+            background: linear-gradient(135deg, #1a7a1a, #0f5a0f);
+            color: #fff;
+            border-color: #0a3a0a;
+        }
+        .admin-section { display: none; }
+        .admin-section.active { display: block; }
+
+        .admin-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .admin-stat-card {
+            background: #fff;
+            border: 2px solid #d4af37;
+            border-radius: 15px;
+            padding: 12px;
+            text-align: center;
+        }
+        .admin-stat-card .name {
+            color: #5d6d7e;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .admin-stat-card .value {
+            color: #1a5a1a;
+            font-size: 1.4rem;
+            font-weight: 900;
+            direction: ltr;
+        }
+        .admin-stat-card .sub-value {
+            color: #e67e22;
+            font-size: 0.85rem;
+            margin-top: 3px;
+        }
+
+        .edit-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 15px;
+            border: 2px solid #eee;
+        }
+        .edit-row label {
+            flex: 1;
+            font-weight: bold;
+            color: #5d2e0c;
+            font-size: 0.9rem;
+        }
+        .edit-row input {
+            width: 120px;
+            padding: 8px;
+            border: 2px solid #d4af37;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1rem;
+            direction: ltr;
+        }
+        .edit-row input:focus { border-color: #1a7a1a; outline: none; }
+
+        .admin-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: Tahoma, sans-serif;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            margin: 4px;
+        }
+        .admin-btn-primary {
+            background: linear-gradient(135deg, #1a7a1a, #0f5a0f);
+            color: #fff;
+        }
+        .admin-btn-primary:hover { transform: scale(1.05); }
+        .admin-btn-danger {
+            background: linear-gradient(135deg, #c0392b, #922b21);
+            color: #fff;
+        }
+        .admin-btn-danger:hover { transform: scale(1.05); }
+        .admin-btn-warning {
+            background: linear-gradient(135deg, #e67e22, #b8600e);
+            color: #fff;
+        }
+        .admin-btn-warning:hover { transform: scale(1.05); }
+        .admin-btn-gold {
+            background: linear-gradient(135deg, #ffd700, #cc8800);
+            color: #1a1a2e;
+        }
+        .admin-btn-gold:hover { transform: scale(1.05); }
+        .admin-btn-close {
+            background: #ddd;
+            color: #333;
+        }
+
+        .reset-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        .reset-item {
+            padding: 10px;
+            background: #fff;
+            border: 2px solid #eee;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #5d2e0c;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .reset-item:hover {
+            background: #fff5e0;
+            border-color: #ffd700;
+        }
+        .reset-item.selected {
+            background: linear-gradient(135deg, #ffd700, #e6b422);
+            border-color: #b7950b;
+        }
+
+        .admin-help {
+            font-size: 0.8rem;
+            color: #8899aa;
+            margin-bottom: 15px;
+            text-align: center;
+            line-height: 1.6;
+        }
+        .admin-divider {
+            border-top: 2px dashed rgba(93, 46, 12, 0.15);
+            margin: 15px 0;
+        }
+
         @media (max-width: 768px) {
             .container { padding: 25px 20px; border-radius: 40px 15px 40px 15px; }
             .main-title { font-size: 1.5rem; }
@@ -380,6 +573,9 @@
             .btn-salavat { font-size: 1rem; padding: 10px 14px; min-width: 50px; }
             .custom-group input { width: 100px; font-size: 1rem; }
             .tab-btn { font-size: 0.9rem; padding: 10px 18px; }
+            .admin-panel-inner { padding: 20px 15px; }
+            .admin-stats-grid { grid-template-columns: 1fr; }
+            .reset-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 480px) {
             body { padding: 8px; }
@@ -450,7 +646,7 @@
         <div class="db-status" id="dbStatus">⏳ در حال اتصال...</div>
 
         <div class="admin-area">
-            <button class="admin-link" onclick="showAdminPanel()">🔐 پنل مدیریت</button>
+            <button class="admin-link" onclick="openAdminPanel()">🔐 پنل مدیریت</button>
             <button class="daily-reset-link" onclick="dailyResetCurrent()">🌙 ریست روزانه این بخش (با رمز)</button>
             <button class="btn-report" onclick="generateReport()">📊 خروجی روزانه</button>
         </div>
@@ -469,7 +665,7 @@
         const SUPABASE_URL = 'https://komdiuxetdrjjpajbjge.supabase.co';
         const SUPABASE_KEY = 'sb_publishable_k0sc4ZeFEsPeQ1b3XDjmPw_GIbm_-Dp';
         const TABLE_NAME = 'salavat_data';
-        const PASSWORD = '5113';
+        let ADMIN_PASSWORD = '5113';
 
         // ============================================================
         //  توابع کمکی
@@ -540,56 +736,40 @@
 
         const TABS_CONFIG = {
             salavat: {
-                name: 'صلوات',
-                mainTitle: '🕌 پویش بزرگ ۵۰۰ میلیون صلوات',
-                totalKey: 'total',
-                nightKey: 'night',
-                hasTarget: true,
-                target: 500000000,
+                name: 'صلوات', mainTitle: '🕌 پویش بزرگ ۵۰۰ میلیون صلوات',
+                totalKey: 'total', nightKey: 'night',
+                hasTarget: true, target: 500000000,
                 buttons: [5, 10, 20, 50, 100, 200, 500, 1000, 5000, 10000],
-                totalLabel: '✨ جمع کل صلوات',
-                nightLabel: '🌙 صلوات‌های امروز',
+                totalLabel: '✨ جمع کل صلوات', nightLabel: '🌙 صلوات‌های امروز',
                 remainingLabel: '📊 باقیمانده تا 500 میلیون'
             },
             estegfar: {
-                name: 'استغفار',
-                mainTitle: 'أستغفر الله ربی و أتوب إلیه',
-                totalKey: 'estegfar_total',
-                nightKey: 'estegfar_night',
+                name: 'استغفار', mainTitle: 'أستغفر الله ربی و أتوب إلیه',
+                totalKey: 'estegfar_total', nightKey: 'estegfar_night',
                 hasTarget: false,
                 buttons: [5, 10, 20, 50, 100, 200, 500, 1000, 5000, 10000],
-                totalLabel: '✨ جمع کل استغفار',
-                nightLabel: '🌙 استغفارهای امروز'
+                totalLabel: '✨ جمع کل استغفار', nightLabel: '🌙 استغفارهای امروز'
             },
             doa14: {
-                name: 'دعای ۱۴ صحیفه',
-                mainTitle: 'دعای ۱۴ صحیفه: يَا مَنْ لَا يَخْفَى عَلَيْهِ أَنْبَاءُ الْمُتَظَلِّمِينَ ...',
-                totalKey: 'doa14_total',
-                nightKey: 'doa14_night',
+                name: 'دعای ۱۴ صحیفه', mainTitle: 'دعای ۱۴ صحیفه: يَا مَنْ لَا يَخْفَى عَلَيْهِ أَنْبَاءُ الْمُتَظَلِّمِينَ ...',
+                totalKey: 'doa14_total', nightKey: 'doa14_night',
                 hasTarget: false,
                 buttons: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-                totalLabel: '✨ جمع کل دعای ۱۴',
-                nightLabel: '🌙 دعای ۱۴ امروز'
+                totalLabel: '✨ جمع کل دعای ۱۴', nightLabel: '🌙 دعای ۱۴ امروز'
             },
             fath: {
-                name: 'سوره فتح',
-                mainTitle: 'سوره مبارکه فتح: ۲۹ آیه',
-                totalKey: 'fath_total',
-                nightKey: 'fath_night',
+                name: 'سوره فتح', mainTitle: 'سوره مبارکه فتح: ۲۹ آیه',
+                totalKey: 'fath_total', nightKey: 'fath_night',
                 hasTarget: false,
                 buttons: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-                totalLabel: '✨ جمع کل سوره فتح',
-                nightLabel: '🌙 سوره فتح امروز'
+                totalLabel: '✨ جمع کل سوره فتح', nightLabel: '🌙 سوره فتح امروز'
             },
             tavasol: {
-                name: 'دعای توسل',
-                mainTitle: 'توسل به ۱۴ معصوم علیهم السلام',
-                totalKey: 'tavasol_total',
-                nightKey: 'tavasol_night',
+                name: 'دعای توسل', mainTitle: 'توسل به ۱۴ معصوم علیهم السلام',
+                totalKey: 'tavasol_total', nightKey: 'tavasol_night',
                 hasTarget: false,
                 buttons: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-                totalLabel: '✨ جمع کل دعای توسل',
-                nightLabel: '🌙 دعای توسل امروز'
+                totalLabel: '✨ جمع کل دعای توسل', nightLabel: '🌙 دعای توسل امروز'
             }
         };
 
@@ -603,9 +783,6 @@
 
         const SUPABASE_REST = SUPABASE_URL + '/rest/v1/' + TABLE_NAME;
 
-        // ============================================================
-        //  توابع اتصال به Supabase
-        // ============================================================
         async function fetchData() {
             try {
                 const response = await fetch(SUPABASE_REST + '?select=*&limit=1', {
@@ -616,10 +793,7 @@
                 });
                 if (!response.ok) throw new Error('HTTP ' + response.status);
                 const rows = await response.json();
-                if (!rows || rows.length === 0) {
-                    // اگه جدول خالی بود، یه ردیف بساز
-                    return await createInitialRow();
-                }
+                if (!rows || rows.length === 0) return await createInitialRow();
                 currentData = rows[0];
                 currentRowId = rows[0].id;
                 return currentData;
@@ -749,7 +923,6 @@
 
         async function addItem(count) {
             if (count <= 0 || isUpdating) return;
-
             document.getElementById('statusMsg').innerHTML = '⏳ در حال ثبت...';
             document.getElementById('statusMsg').style.color = '#ffd700';
 
@@ -803,7 +976,7 @@
             if (numberToAdd > 14000) {
                 const pwd = await askPassword('🔑 رمز مدیریت برای اضافه کردن عدد بزرگتر از ۱۴۰۰۰:');
                 if (pwd === null) return;
-                if (String(pwd).trim() !== PASSWORD) {
+                if (String(pwd).trim() !== ADMIN_PASSWORD) {
                     document.getElementById('statusMsg').innerHTML = '❌ رمز اشتباه!';
                     document.getElementById('statusMsg').style.color = '#e74c3c';
                     return;
@@ -857,10 +1030,9 @@
 
         async function dailyResetCurrent() {
             const cfg = TABS_CONFIG[activeTab];
-
             const pwd = await askPassword('🔑 رمز مدیریت برای ریست روزانه «' + cfg.name + '»:');
             if (pwd === null) return;
-            if (String(pwd).trim() !== PASSWORD) {
+            if (String(pwd).trim() !== ADMIN_PASSWORD) {
                 document.getElementById('statusMsg').innerHTML = '❌ رمز اشتباه!';
                 document.getElementById('statusMsg').style.color = '#e74c3c';
                 return;
@@ -873,11 +1045,7 @@
             document.getElementById('statusMsg').style.color = '#ffd700';
 
             const record = await fetchData();
-            if (!record) {
-                document.getElementById('statusMsg').innerHTML = '❌ خطا در اتصال به دیتابیس!';
-                document.getElementById('statusMsg').style.color = '#e74c3c';
-                return;
-            }
+            if (!record) return;
 
             const newData = {};
             newData[cfg.nightKey] = 0;
@@ -890,28 +1058,277 @@
                 animateCounter(document.getElementById('nightCount'));
                 document.getElementById('statusMsg').innerHTML = '🌙 شمارنده امروز «' + cfg.name + '» صفر شد.';
                 document.getElementById('statusMsg').style.color = '#e74c3c';
-            } else {
-                document.getElementById('statusMsg').innerHTML = '❌ خطا در ریست روزانه!';
-                document.getElementById('statusMsg').style.color = '#e74c3c';
             }
         }
 
-        async function showAdminPanel() {
+        // ============================================================
+        //  پنل مدیریت حرفه‌ای
+        // ============================================================
+        async function openAdminPanel() {
             const pwd = await askPassword('🔑 رمز پنل مدیریت:');
             if (pwd === null) return;
-            if (String(pwd).trim() !== PASSWORD) {
+            if (String(pwd).trim() !== ADMIN_PASSWORD) {
                 alert('❌ رمز اشتباه!');
                 return;
             }
+
             const d = currentData || {};
-            alert(
-                '📊 **پنل مدیریت**\n\n' +
-                '🕌 صلوات: ' + (d.total || 0).toLocaleString('fa-IR') + ' (امروز: ' + (d.night || 0).toLocaleString('fa-IR') + ')\n' +
-                '🤲 استغفار: ' + (d.estegfar_total || 0).toLocaleString('fa-IR') + ' (امروز: ' + (d.estegfar_night || 0).toLocaleString('fa-IR') + ')\n' +
-                '📖 دعای ۱۴: ' + (d.doa14_total || 0).toLocaleString('fa-IR') + ' (امروز: ' + (d.doa14_night || 0).toLocaleString('fa-IR') + ')\n' +
-                '📗 سوره فتح: ' + (d.fath_total || 0).toLocaleString('fa-IR') + ' (امروز: ' + (d.fath_night || 0).toLocaleString('fa-IR') + ')\n' +
-                '🤲 دعای توسل: ' + (d.tavasol_total || 0).toLocaleString('fa-IR') + ' (امروز: ' + (d.tavasol_night || 0).toLocaleString('fa-IR') + ')'
-            );
+            const panel = document.createElement('div');
+            panel.className = 'admin-panel';
+            panel.id = 'adminPanel';
+            panel.innerHTML = `
+                <div class="admin-panel-inner">
+                    <h2>📊 پنل مدیریت حرفه‌ای</h2>
+
+                    <div class="admin-tabs">
+                        <button class="admin-tab active" data-atab="view">📋 نمایش آمار</button>
+                        <button class="admin-tab" data-atab="edit">✏️ ویرایش اعداد</button>
+                        <button class="admin-tab" data-atab="reset">🔄 ریست</button>
+                        <button class="admin-tab" data-atab="tools">🛠️ ابزارها</button>
+                    </div>
+
+                    <!-- تب نمایش آمار -->
+                    <div class="admin-section active" id="atab-view">
+                        <div class="admin-stats-grid">
+                            <div class="admin-stat-card">
+                                <div class="name">🕌 صلوات</div>
+                                <div class="value">${(d.total || 0).toLocaleString('fa-IR')}</div>
+                                <div class="sub-value">امروز: ${(d.night || 0).toLocaleString('fa-IR')}</div>
+                            </div>
+                            <div class="admin-stat-card">
+                                <div class="name">🤲 استغفار</div>
+                                <div class="value">${(d.estegfar_total || 0).toLocaleString('fa-IR')}</div>
+                                <div class="sub-value">امروز: ${(d.estegfar_night || 0).toLocaleString('fa-IR')}</div>
+                            </div>
+                            <div class="admin-stat-card">
+                                <div class="name">📖 دعای ۱۴</div>
+                                <div class="value">${(d.doa14_total || 0).toLocaleString('fa-IR')}</div>
+                                <div class="sub-value">امروز: ${(d.doa14_night || 0).toLocaleString('fa-IR')}</div>
+                            </div>
+                            <div class="admin-stat-card">
+                                <div class="name">📗 سوره فتح</div>
+                                <div class="value">${(d.fath_total || 0).toLocaleString('fa-IR')}</div>
+                                <div class="sub-value">امروز: ${(d.fath_night || 0).toLocaleString('fa-IR')}</div>
+                            </div>
+                            <div class="admin-stat-card">
+                                <div class="name">🤲 دعای توسل</div>
+                                <div class="value">${(d.tavasol_total || 0).toLocaleString('fa-IR')}</div>
+                                <div class="sub-value">امروز: ${(d.tavasol_night || 0).toLocaleString('fa-IR')}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- تب ویرایش اعداد -->
+                    <div class="admin-section" id="atab-edit">
+                        <p class="admin-help">⚠️ این اعداد جایگزین مقادیر فعلی می‌شن. اگه نمی‌خوای عوض کنی، خالی بذار.</p>
+                        <div class="edit-row">
+                            <label>🕌 جمع کل صلوات</label>
+                            <input type="text" id="edit_total" placeholder="${d.total || 0}" value="">
+                        </div>
+                        <div class="edit-row">
+                            <label>🌙 صلوات امروز</label>
+                            <input type="text" id="edit_night" placeholder="${d.night || 0}" value="">
+                        </div>
+                        <div class="edit-row">
+                            <label>🤲 جمع کل استغفار</label>
+                            <input type="text" id="edit_estegfar_total" placeholder="${d.estegfar_total || 0}" value="">
+                        </div>
+                        <div class="edit-row">
+                            <label>🌙 استغفار امروز</label>
+                            <input type="text" id="edit_estegfar_night" placeholder="${d.estegfar_night || 0}" value="">
+                        </div>
+                        <div class="edit-row">
+                            <label>📖 جمع کل دعای ۱۴</label>
+                            <input type="text" id="edit_doa14_total" placeholder="${d.doa14_total || 0}" value="">
+                        </div>
+                        <div class="edit-row">
+                            <label>🌙 دعای ۱۴ امروز</label>
+                            <input type="text" id="edit_doa14_night" placeholder="${d.doa14_night || 0}" value="">
+                        </div>
+                        <div class="edit-row">
+                            <label>📗 جمع کل سوره فتح</label>
+                            <input type="text" id="edit_fath_total" placeholder="${d.fath_total || 0}" value="">
+                        </div>
+                        <div class="edit-row">
+                            <label>🌙 سوره فتح امروز</label>
+                            <input type="text" id="edit_fath_night" placeholder="${d.fath_night || 0}" value="">
+                        </div>
+                        <div class="edit-row">
+                            <label>🤲 جمع کل دعای توسل</label>
+                            <input type="text" id="edit_tavasol_total" placeholder="${d.tavasol_total || 0}" value="">
+                        </div>
+                        <div class="edit-row">
+                            <label>🌙 دعای توسل امروز</label>
+                            <input type="text" id="edit_tavasol_night" placeholder="${d.tavasol_night || 0}" value="">
+                        </div>
+                        <div class="admin-divider"></div>
+                        <button class="admin-btn admin-btn-primary" onclick="saveEditNumbers()">💾 ذخیره تغییرات</button>
+                    </div>
+
+                    <!-- تب ریست -->
+                    <div class="admin-section" id="atab-reset">
+                        <p class="admin-help">⚠️ برای ریست، ابتدا یک یا چند گزینه رو انتخاب کن، بعد دکمه‌ی ریست رو بزن.</p>
+
+                        <h4 style="color:#5d2e0c; margin-bottom:10px; text-align:right;">امروز (شمارنده‌های شبانه):</h4>
+                        <div class="reset-grid">
+                            <div class="reset-item" data-reset="night">🌙 صلوات امروز</div>
+                            <div class="reset-item" data-reset="estegfar_night">🌙 استغفار امروز</div>
+                            <div class="reset-item" data-reset="doa14_night">🌙 دعای ۱۴ امروز</div>
+                            <div class="reset-item" data-reset="fath_night">🌙 سوره فتح امروز</div>
+                            <div class="reset-item" data-reset="tavasol_night">🌙 دعای توسل امروز</div>
+                        </div>
+
+                        <h4 style="color:#5d2e0c; margin:15px 0 10px; text-align:right;">جمع کل:</h4>
+                        <div class="reset-grid">
+                            <div class="reset-item" data-reset="total">🕌 جمع کل صلوات</div>
+                            <div class="reset-item" data-reset="estegfar_total">🤲 جمع کل استغفار</div>
+                            <div class="reset-item" data-reset="doa14_total">📖 جمع کل دعای ۱۴</div>
+                            <div class="reset-item" data-reset="fath_total">📗 جمع کل سوره فتح</div>
+                            <div class="reset-item" data-reset="tavasol_total">🤲 جمع کل دعای توسل</div>
+                        </div>
+
+                        <div class="admin-divider"></div>
+                        <button class="admin-btn admin-btn-danger" onclick="applyReset()">🔄 ریست موارد انتخاب‌شده</button>
+                    </div>
+
+                    <!-- تب ابزارها -->
+                    <div class="admin-section" id="atab-tools">
+                        <p class="admin-help">ابزارهای مدیریتی</p>
+                        <div style="display:flex; flex-direction:column; gap:10px; align-items:stretch;">
+                            <button class="admin-btn admin-btn-gold" onclick="exportJSON()">💾 دانلود بکاپ (JSON)</button>
+                            <button class="admin-btn admin-btn-warning" onclick="changePassword()">🔑 تعویض رمز مدیریت</button>
+                            <button class="admin-btn admin-btn-gold" onclick="refreshAllData()">🔄 بارگذاری مجدد اطلاعات</button>
+                        </div>
+                    </div>
+
+                    <div class="admin-divider"></div>
+                    <div style="text-align:center;">
+                        <button class="admin-btn admin-btn-close" onclick="closeAdminPanel()">بستن پنل</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(panel);
+
+            // تب‌های داخلی
+            panel.querySelectorAll('.admin-tab').forEach(tab => {
+                tab.onclick = () => {
+                    panel.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+                    panel.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+                    tab.classList.add('active');
+                    document.getElementById('atab-' + tab.getAttribute('data-atab')).classList.add('active');
+                };
+            });
+
+            // آیتم‌های ریست
+            panel.querySelectorAll('.reset-item').forEach(item => {
+                item.onclick = () => item.classList.toggle('selected');
+            });
+        }
+
+        function closeAdminPanel() {
+            const panel = document.getElementById('adminPanel');
+            if (panel && panel.parentNode) panel.parentNode.removeChild(panel);
+        }
+
+        async function saveEditNumbers() {
+            const d = currentData || {};
+            const newData = {};
+            const fields = ['total', 'night', 'estegfar_total', 'estegfar_night',
+                            'doa14_total', 'doa14_night', 'fath_total', 'fath_night',
+                            'tavasol_total', 'tavasol_night'];
+            let hasChange = false;
+
+            fields.forEach(f => {
+                const input = document.getElementById('edit_' + f);
+                if (input && input.value.trim() !== '') {
+                    const val = parseInt(toEnglishDigits(input.value), 10);
+                    if (!isNaN(val) && val >= 0) {
+                        newData[f] = val;
+                        hasChange = true;
+                    }
+                }
+            });
+
+            if (!hasChange) {
+                alert('⚠️ هیچ مقداری تغییر نکرد.');
+                return;
+            }
+
+            const ok = await askConfirm('آیا از تغییر اعداد مطمئنید؟');
+            if (!ok) return;
+
+            const success = await updateData(newData);
+            if (success) {
+                alert('✅ تغییرات ذخیره شد.');
+                closeAdminPanel();
+                updateDisplay();
+            } else {
+                alert('❌ خطا در ذخیره تغییرات!');
+            }
+        }
+
+        async function applyReset() {
+            const selected = Array.from(document.querySelectorAll('.reset-item.selected'))
+                .map(el => el.getAttribute('data-reset'));
+
+            if (selected.length === 0) {
+                alert('⚠️ هیچ موردی انتخاب نشده.');
+                return;
+            }
+
+            const ok = await askConfirm('آیا مطمئنید که می‌خواهید ' + selected.length + ' مورد را صفر کنید؟');
+            if (!ok) return;
+
+            const newData = {};
+            selected.forEach(key => { newData[key] = 0; });
+
+            const success = await updateData(newData);
+            if (success) {
+                alert('✅ موارد انتخاب‌شده صفر شدند.');
+                closeAdminPanel();
+                updateDisplay();
+            } else {
+                alert('❌ خطا در ریست!');
+            }
+        }
+
+        function exportJSON() {
+            const d = currentData || {};
+            const dataStr = JSON.stringify(d, null, 2);
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'salavat-backup-' + new Date().toISOString().slice(0,10) + '.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        async function changePassword() {
+            const oldPwd = await askPassword('🔑 رمز فعلی را وارد کنید:');
+            if (oldPwd === null) return;
+            if (String(oldPwd).trim() !== ADMIN_PASSWORD) {
+                alert('❌ رمز فعلی اشتباه است!');
+                return;
+            }
+            const newPwd = prompt('🔑 رمز جدید را وارد کنید (حداقل ۴ رقم):');
+            if (newPwd === null) return;
+            if (String(newPwd).trim().length < 4) {
+                alert('⚠️ رمز باید حداقل ۴ کاراکتر باشد.');
+                return;
+            }
+            ADMIN_PASSWORD = String(newPwd).trim();
+            localStorage.setItem('salavat_admin_pwd', ADMIN_PASSWORD);
+            alert('✅ رمز با موفقیت تغییر کرد.\n\n⚠️ نکته: این رمز فقط در همین مرورگر ذخیره شد.');
+        }
+
+        async function refreshAllData() {
+            await fetchData();
+            updateDisplay();
+            closeAdminPanel();
+            alert('✅ اطلاعات بارگذاری مجدد شد.');
         }
 
         function generateReport() {
@@ -946,19 +1363,13 @@
         function switchTab(tabName) {
             if (!TABS_CONFIG[tabName]) return;
             activeTab = tabName;
-
             document.querySelectorAll('.tab-btn').forEach(btn => {
-                if (btn.getAttribute('data-tab') === tabName) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
+                if (btn.getAttribute('data-tab') === tabName) btn.classList.add('active');
+                else btn.classList.remove('active');
             });
-
             document.getElementById('addInput').value = '';
             lastAddedValue = 0;
             undoCount = 0;
-
             renderButtons();
             updateDisplay();
         }
@@ -967,6 +1378,10 @@
             const loading = document.getElementById('loadingOverlay');
             const container = document.getElementById('mainContainer');
             const dbStatus = document.getElementById('dbStatus');
+
+            // بازیابی رمز مدیریت از localStorage
+            const savedPwd = localStorage.getItem('salavat_admin_pwd');
+            if (savedPwd) ADMIN_PASSWORD = savedPwd;
 
             const record = await fetchData();
             if (record) {
@@ -981,7 +1396,6 @@
             container.style.display = 'block';
 
             switchTab('salavat');
-
             updateClock();
             setInterval(updateClock, 1000);
 
